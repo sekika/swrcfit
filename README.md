@@ -21,10 +21,12 @@ Basic information of this program is summarized:
 
 1. swrc.m ... Fitting of unimodal models (BC, VG and LN)
 2. bimodal.m ... Fitting of bimodal models (DB and BL)
-3. swrc.xls ... Microsoft Excel worksheets for checking the result.
-4. README.md, fig1.png, fig2.png, fig3.png ... This file
-5. ChangeLog ... Version history
-6. COPYING ... GNU General Public License
+3. swrc.txt ... Sample data
+4. result.txt ... Sample result
+5. swrc.xls ... Microsoft Excel worksheets for checking the result.
+6. README.md, fig1.png, fig2.png, fig3.png ... This file
+7. ChangeLog ... Version history
+8. COPYING ... GNU General Public License
 
 ## Installation of GNU Octave
 
@@ -34,7 +36,7 @@ Basic information of this program is summarized:
 
 ## Preparation of data
 
-   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name `swrc.txt`. The first column is the suction head and the second
+   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name `swrc.txt`. Sample data is included in the package. The first column is the suction head and the second
    column is the volumetric water content, where space is used as
    a delimiter. For example;
 
@@ -109,7 +111,7 @@ qrin=0.05; cqr=0;
 
 ## Running the program
 
-   The programs (`swrc.m` and `bimodal.m`) and data (`swrc.txt`) should be placed in the same directory (folder). In that directory, `swrc.m` should be typed to run the fitting of unimodal (BC, VG, and LN) models, and `bimodal.m` should be typed to run the fitting of the DB and BL models. In the UNIX system `./swrc.m` and `./bimodal.m` is preferred, and the executable file mode should be set. The result is shown in the standard output as follows.
+   The programs (`swrc.m` and `bimodal.m`) and data (`swrc.txt`) should be placed in the same directory (folder). In that directory, `swrc.m` should be typed to run the fitting of unimodal (BC, VG, and LN) models, and `bimodal.m` should be typed to run the fitting of the DB and BL models. In the UNIX system `./swrc.m` and `./bimodal.m` is preferred, and the executable file mode should be set. The result is shown in the standard output as follows. Sample result obtained from sample data is included as `result.txt` in the package.
 
 ```
 === BC model ===
