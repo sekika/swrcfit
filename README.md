@@ -74,7 +74,7 @@ Copy `swrcfit.m` to working directory when octave is executed.
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
-`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
+`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to `DIR`. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
 
 ## Preparation of data file
 
