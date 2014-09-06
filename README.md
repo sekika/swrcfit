@@ -32,98 +32,64 @@ Basic information of this program is summarized:
 
 ## Preparation of data
 
-   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name swrc.txt. The first column is the suction head and the second
+   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name `swrc.txt`. The first column is the suction head and the second
    column is the volumetric water content, where space is used as
    a delimiter. For example;
 
 ```swrc.txt
-   0 0.2628
-   20 0.237
-   30 0.223
-   40 0.211
-   50 0.2035
-   70 0.1855
-   100 0.169
-   200 0.151
-   430 0.1399
-   640 0.131
-   1050 0.1159
+0 0.2628
+20 0.237
+30 0.223
+40 0.211
+50 0.2035
+70 0.1855
+100 0.169
+200 0.151
+430 0.1399
+640 0.131
+1050 0.1159
 ```
 
-   Lines beginning with "#" are regarded as comment and neglected.
-   Any unit can be used as the input data, and the calculated data
-   depends on the unit used as the input data.
+   Lines beginning with "#" are regarded as comment and neglected.  Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.
 
-   Optionally, swrc.txt can have the third column. When it has the
-   third column, it is interpreted as a weight for each parameter.
-   For example,
+   Optionally, swrc.txt can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
 
+  For example,
 
-   0 0.2628 1
-   20 0.237 1
-   40 0.211 1
-   70 0.1855 1
-   100 0.169 1
+```swrc.txt
+0 0.2628 1
+20 0.237 1
+40 0.211 1
+70 0.1855 1
+100 0.169 1
+1050 0.1159 3
+```
 
-   1050 0.1159 3
-
-
-   This data has weight of 1 for the suction of 0, 20, 40, 70, 100
-   and 3 for the suction of 1050.
-
+   This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.
 
 ## Calculation options
 
+   This section is for users who would like to control the way of fitting. If you are not interested in it, you can bypass this section and go directly to the next section, and come back to this section when necessary. The programs swrc.m and bimodal.m have "Setting" block in the program itself as follows.
 
-   This section is for users who would like to control the way of
-   fitting. If you are not interested in it, you can bypass this
-   section and go directly to the next section, and come back to
-   this section when necessary. The programs swrc.m and bimodal.m
-   have "Setting" block in the program itself as follows.
+```swrc.m
+# Setting
+output_precision=7; # precision of the output
+qsin = max(y); # initial value of qs
+cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
+qrin = min(y); # initial value of qr
+cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
+# qrin=0; cqr=0; # For setting qr=0 as a constant
+pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
+adv=0; # adv=1; advanced output; adv=0; normal output;
+```
 
+   The setting block can be edited directly with a text editor. By editing this "Setting" block, calculation option can be controlled.
 
-   1: # Setting
+   The first line, "# Setting",  is a comment. It indicates that this is a setting block. GNU Octave language ignores the rest of a line following a sharp sign ("#").
 
-   2: output_precision=7; # precision of the output
+   The second line sets the precision of the ouput. In GNU Octave, the variable output_precision specifies the minimum number of significant figures to display for numeric output.
 
-   3: qsin = max(y); # initial value of qs
-
-   4: cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
-
-   5: qrin = min(y); # initial value of qr
-
-   6: cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
-
-   7: # qrin=0; cqr=0; # For setting qr=0 as a constant
-
-   8: pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
-
-   9: adv=0; # adv=1; advanced output; adv=0; normal output;
-
-
-   The setting block can be edited directly with a text editor. By
-   editing this "Setting" block, calculation option can be
-   controlled.
-
-   The first line, "# Setting",  is a comment. It indicates that
-   this is a setting block. GNU Octave language ignores the rest
-   of a line following a sharp sign ("#").
-
-   The second line sets the precision of the ouput. In GNU Octave,
-   the variable output_precision specifies the minimum number of
-   significant figures to display for numeric output.
-
-   The lines 3-4 specify the variable q[s], the saturated water
-   content. In this program, q[s] is shown as "qs". Two
-   parameters, qsin and cqs, controls how the program treats this
-   variable. qsin is the initial value of q[s] and cqs is a
-   parameter which decides q[s] is constant or variable; when cqs
-   is set as 0, q[s] is treated as a constant, and when cqs is 1,
-   q[s] is treated as a variable. By default, initial value of
-   q[s]is set as the maximum value of the soil water content, and
-   it is set as a variable, but it can be changed by editing this
-   section. For example, for setting q[s] = 0.35 as a constant,
-   following line can be added after the third line;
+   The lines 3-4 specify the variable q[s], the saturated water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs, controls how the program treats this variable. qsin is the initial value of q[s] and cqs is a parameter which decides q[s] is constant or variable; when cqs is set as 0, q[s] is treated as a constant, and when cqs is 1, q[s] is treated as a variable. By default, initial value of q[s]is set as the maximum value of the soil water content, and it is set as a variable, but it can be changed by editing this section. For example, for setting q[s] = 0.35 as a constant, following line can be added after the third line;
 
 
    qsin=0.35; cqr=0;
