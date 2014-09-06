@@ -91,94 +91,46 @@ adv=0; # adv=1; advanced output; adv=0; normal output;
 
    The lines 3-4 specify the variable q[s], the saturated water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs, controls how the program treats this variable. qsin is the initial value of q[s] and cqs is a parameter which decides q[s] is constant or variable; when cqs is set as 0, q[s] is treated as a constant, and when cqs is 1, q[s] is treated as a variable. By default, initial value of q[s]is set as the maximum value of the soil water content, and it is set as a variable, but it can be changed by editing this section. For example, for setting q[s] = 0.35 as a constant, following line can be added after the third line;
 
+```
+qsin=0.35; cqr=0;
+```
 
-   qsin=0.35; cqr=0;
+   The lines 5-8 specify the variable q[r], the residual water content. In this program, q[r] is shown as "qr". Three parameters, qrin, cqr and pqr, controls how the program treats this variable. qrin is the initial value of q[r], cqr is a parameter which decides q[r] is constant or variable; when cqr is set as 0, q[r] is treated as a constant, and when cqr is 1, q[r] is treated as a variable, and pqr is a variable which decides if the restriction of q[r] ³ 0 is imposed. By default, initial value of q[r] is set as the minimum value of the soil water content, and it is set as a variable with the restriction of q[r] ³ 0, but it can be changed by editing this section. For example, for seting q[r] = 0 as a constant value, the 7th line is to be commented out,, i.e., the first "#" mark is to be deleted. For setting q[r] = 0.05 as a constant value, following line can be added after the 7th line;
 
+```
+qrin=0.05; cqr=0;
+```
 
-   The lines 5-8 specify the variable q[r], the residual water
-   content. In this program, q[r] is shown as "qr". Three
-   parameters, qrin, cqr and pqr, controls how the program treats
-   this variable. qrin is the initial value of q[r], cqr is a
-   parameter which decides q[r] is constant or variable; when cqr
-   is set as 0, q[r] is treated as a constant, and when cqr is 1,
-   q[r] is treated as a variable, and pqr is a variable which
-   decides if the restriction of q[r] ³ 0 is imposed. By default,
-   initial value of q[r] is set as the minimum value of the soil
-   water content, and it is set as a variable with the restriction
-   of q[r] ³ 0, but it can be changed by editing this section. For
-   example, for seting q[r] = 0 as a constant value, the 7th line
-   is to be commented out,, i.e., the first "#" mark is to be
-   deleted. For setting q[r] = 0.05 as a constant value, following
-   line can be added after the 7th line;
+   To disable the restriction of q[r] ³ 0,  the 8th line, pqr=1, is to be changed to pqr=0.
 
-
-   qrin=0.05; cqr=0;
-
-
-   To disable the restriction of q[r] ³ 0,  the 8th line, pqr=1,
-   is to be changed to pqr=0.
-
-   The line 9 controls the output mode; the parameter adv defines
-   how the result is shown. The default value is adv=0, where only
-   basic information is shown (normal mode), and when it is
-   changed to adv=1, advanced information (correlation matrix and
-   standard deviation) is also shown as a result (advanced mode).
-
+   The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
 
 ## Running the program
 
+   The programs (swrc.m and bimodal.m) and data (swrc.txt) should be placed in the same directory (folder). In that directory, "swrc.m" should be typed to run the fitting of unimodal (BC, VG, and LN) models, and "bimodal.m" should be typed to run the fitting of the DB and BL models. In the UNIX system "./swrc.m" and "./bimodal.m" is preferred, and the executable file mode should be set. The result is shown in the standard output as follows.
 
-   The programs (swrc.m and bimodal.m) and data (swrc.txt) should
-   be placed in the same directory (folder). In that directory,
-   "swrc.m" should be typed to run the fitting of unimodal (BC,
-   VG, and LN) models, and "bimodal.m" should be typed to run the
-   fitting of the DB and BL models. In the UNIX system "./swrc.m"
-   and "./bimodal.m" is preferred, and the executable file mode
-   should be set. The result is shown in the standard output as
-   follows.
+```
+=== BC model ===
+qs = 0.2627996
+qr = 0.05846708
+hb = 13.11246
+lambda = 0.2780126
+R2 = 0.9946961
+=== VG model ===
+qs = 0.2633070
+qr = 0.1041973
+alpha = 0.03760151
+n = 1.598337
+R2 = 0.9953371
+=== LN model ===
+qs = 0.2639328
+qr = 0.1205137
+hm = 63.63318
+sigma = 1.392247
+R2 = 0.9924899
+```
 
-
-   === BC model ===
-
-   qs = 0.2627996
-
-   qr = 0.05846708
-
-   hb = 13.11246
-
-   lambda = 0.2780126
-
-   R2 = 0.9946961
-
-   === VG model ===
-
-   qs = 0.2633070
-
-   qr = 0.1041973
-
-   alpha = 0.03760151
-
-   n = 1.598337
-
-   R2 = 0.9953371
-
-   === LN model ===
-
-   qs = 0.2639328
-
-   qr = 0.1205137
-
-   hm = 63.63318
-
-   sigma = 1.392247
-
-   R2 = 0.9924899
-
-
-   If advanced mode is selected (see the previous section),
-   correlation matrix and standard deviation are also shown as
-   follows.
-
+   If advanced mode is selected (see the previous section), correlation matrix and standard deviation are also shown as follows.
 
    === BC model ===
 
