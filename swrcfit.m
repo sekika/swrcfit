@@ -35,7 +35,7 @@ end
 
 # Default Setting
 mode = 1; # Unimodal model
-output_precision=7; # precision of the output
+output_precision(5); # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
