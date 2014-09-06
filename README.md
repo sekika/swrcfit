@@ -52,7 +52,7 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 
 After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`.
 
-In case the installation of package with this command fails, download these files manually and put them in appropriate directory:
+In case the installation of package with this command fails, download these files manually and put them in Octave loadpath. You can check loadpath by running `path` in Octave shell.
 
 * [leasqr.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/leasqr.m)
 * [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m)
@@ -74,7 +74,7 @@ Copy `swrcfit.m` to working directory when octave is executed.
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
-`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it shows a message to manually install necessary files.
+`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
 
 ## Preparation of data
 

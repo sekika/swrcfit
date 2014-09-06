@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script depends on octave and wget
+
 octave=`which octave`
 
 if [ $# -gt 0 ]; then
@@ -46,25 +48,69 @@ fi
 # Check if it works
 echo "=== Cheking swrcfit"
 $installfilename swrc.txt > test.txt
-if [ `diff result.txt test.txt` ]; then
+result=`diff result.txt test.txt`
+if [ "$result" = "" ]; then
+  echo "$installfilename was installed successfully."
+  rm -f test.txt; exit 0
+else
   echo "Result of swcfit swrc.txt is different from result.txt."
   echo "Not yet installed properly. Trying to install Octave forge packages."
-  rm -f test.txt
-else
-  echo "$installfilename was installed successfully.";
-  rm -f test.txt; exit 0
 fi
 
 # Install octave forge packages
 
 echo "=== Installing packages (pkg install -forge struct optim)"
-$octave -q --eval "pkg install -forge struct optim"
+# $octave -q --eval "pkg install -forge struct optim"
 $installfilename swrc.txt > test.txt
-if [ `diff result.txt test.txt` ]; then
-  echo "Octave forge was not installed successfully."
-  echo "Please manually install leasqr.m, dfdp.m and other necessary files."
-  echo "See https://github.com/sekika/swrcfit/blob/master/README.md"
+result=`diff result.txt test.txt`
+if [ "$result" = "" ]; then
+  echo "$installfilename was installed successfully."
+  rm -f test.txt; exit 0
 else
-  echo ""$installfilename was installed successfully."
+  echo "Octave forge was not installed successfully."
+  echo "Not yet installed properly. Trying to get necessary files from sourceforge.net."
 fi
 rm -f test.txt
+
+# Check if wget is installed
+wget=`which wget`
+
+if [ -z "$wget" ]; then
+  echo "Install wget and try again."; exit -1
+fi
+
+# Download necessary files from sourceforge.net
+
+loadpath=`$octave -q --eval "path" | grep "/" | head -n 1`
+if [ -d $loadpath ]; then
+  true
+else
+  echo "Loadpath not found."; exit 1
+fi
+
+package="http://sourceforge.net/p/octave/optim/ci/default/tree/inst/"
+echo -n "Downloading " 
+
+for i in leasqr.m dfdp.m cpiv_bard.m; do
+  echo -n $i"... "
+  wget -q "$package""$i""?format=raw"
+  mv "$i""?format=raw" $loadpath/$i
+done
+for i in __dfdp__.m __lm_svd__.m __plot_cmds__.m __do_user_interaction__.m; do
+  echo -n $i"... "
+  wget -q "$package"private/"$i""?format=raw"
+  mv "$i""?format=raw" $loadpath/$i
+done
+echo "finished."
+
+$installfilename swrc.txt > test.txt
+result=`diff result.txt test.txt`
+if [ "$result" = "" ]; then
+  echo "$installfilename was installed successfully."
+  rm -f test.txt; exit 0
+else
+  echo "Octave forge was not installed successfully."
+  echo "Not yet installed properly. Give up."
+fi
+rm -f test.txt
+
