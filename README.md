@@ -41,7 +41,7 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 3. setting.txt ... Sample setting file
 4. result.txt ... Sample result obtained from sample data
 5. Install.sh ... Install script for Unix-like system
-6. swrc.xls ... Microsoft Excel worksheets for checking the result.
+6. swrc.xlsx ... Microsoft Excel worksheets for checking the result.
 7. README.md, fig1.png, fig2.png, fig3.png ... This file
 8. ChangeLog ... Version history
 9. COPYING ... GNU General Public License
