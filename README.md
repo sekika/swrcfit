@@ -69,7 +69,7 @@ Installing [Octave Workshop](http://sourceforge.net/projects/octave-workshop/fil
 ### Windows
 Copy `swrcfit.m` to working directory when octave is executed.
 
-### Mac, Linux and othe Unix-like system
+### Mac, Linux and other Unix-like system
 * Rename `swrcfit.m` to `swrcfit`
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
