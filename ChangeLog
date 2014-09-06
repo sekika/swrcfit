@@ -1,0 +1,23 @@
+SWRC Fit Version History
+
+Version 1.2 (2007-09-02)
+
+  - User's manual (manual.pdf) was made.
+  - Correlation matrix and standard deviation is calculated in
+    advanced mode of the calculation option.
+  - Restiction of residual water content not becoming negative
+    is set as a default.
+
+Version 1.1 (HESSD version) (2007-06-05)
+
+  - Identical to the program published as a supplementary file
+    of HESSD journal (Hydrology and Earth System Sciences
+    Discussions, 4: 407-437, 2007.)
+  - BL model was added as a bimodal model (bimodal.m).
+  - Option for imposing the restriction of positive value of
+    residual water content (pqr) was added.
+
+Version 1.0 (JJSSP version) (2007-06-05)
+
+  - Identical to the program published in JJSSP journal
+    (Journal of Japanese Society of Soil Physics, 105:67-78.)
