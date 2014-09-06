@@ -1,11 +1,6 @@
-swrcfit
-=======
+# swrcfit (SWRC Fit) - Soil Water Retention Curve Fit
 
-## About SWRC Fit
-
-
-SWRC Fit is a program which performs nonlinear fitting of
-   following 5 models by Levenberg-Marquardt method.
+SWRC Fit is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method.
 
 1. BC model (Brooks and Corey, 1964)
 2. VG model (van Genuchten, 1980)
@@ -37,36 +32,23 @@ Basic information of this program is summarized:
 
 ## Preparation of data
 
-
-   The input data, i.e., the soil water retention curve, should be
-   prepared as a text file with two columns, using the file name
-   swrc.txt. The first column is the suction head and the second
+   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name swrc.txt. The first column is the suction head and the second
    column is the volumetric water content, where space is used as
    a delimiter. For example;
 
-
+```swrc.txt
    0 0.2628
-
    20 0.237
-
    30 0.223
-
    40 0.211
-
    50 0.2035
-
    70 0.1855
-
    100 0.169
-
    200 0.151
-
    430 0.1399
-
    640 0.131
-
    1050 0.1159
-
+```
 
    Lines beginning with "#" are regarded as comment and neglected.
    Any unit can be used as the input data, and the calculated data
@@ -78,13 +60,9 @@ Basic information of this program is summarized:
 
 
    0 0.2628 1
-
    20 0.237 1
-
    40 0.211 1
-
    70 0.1855 1
-
    100 0.169 1
 
    1050 0.1159 3
