@@ -11,7 +11,7 @@ SWRC Fit is a program which performs nonlinear fitting of following 5 models by 
 Basic information of this program is summarized:
 
 * Website: http://swrcfit.sourceforge.net/
-* Author: Katsutoshi Seki
+* Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 * License: GNU General Public License
 * Version of this distribution: 1.2
 
@@ -52,7 +52,7 @@ Basic information of this program is summarized:
 
    Lines beginning with "#" are regarded as comment and neglected.  Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.
 
-   Optionally, swrc.txt can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
+   Optionally, `swrc.txt` can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
 
   For example,
 
@@ -101,13 +101,13 @@ qsin=0.35; cqr=0;
 qrin=0.05; cqr=0;
 ```
 
-   To disable the restriction of q[r] ³ 0,  the 8th line, pqr=1, is to be changed to pqr=0.
+   To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to be changed to pqr=0.
 
    The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
 
 ## Running the program
 
-   The programs (swrc.m and bimodal.m) and data (swrc.txt) should be placed in the same directory (folder). In that directory, "swrc.m" should be typed to run the fitting of unimodal (BC, VG, and LN) models, and "bimodal.m" should be typed to run the fitting of the DB and BL models. In the UNIX system "./swrc.m" and "./bimodal.m" is preferred, and the executable file mode should be set. The result is shown in the standard output as follows.
+   The programs (`swrc.m` and `bimodal.m`) and data (`swrc.txt`) should be placed in the same directory (folder). In that directory, `swrc.m` should be typed to run the fitting of unimodal (BC, VG, and LN) models, and `bimodal.m` should be typed to run the fitting of the DB and BL models. In the UNIX system `./swrc.m` and `./bimodal.m` is preferred, and the executable file mode should be set. The result is shown in the standard output as follows.
 
 ```
 === BC model ===
