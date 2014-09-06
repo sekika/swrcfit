@@ -1,6 +1,6 @@
-# swrcfit (SWRC Fit) - Soil Water Retention Curve Fit [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
+# swrcfit (SWRC Fit) - [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 
-SWRC Fit is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method.
+SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method.
 
 1. BC model (Brooks and Corey, 1964)
 2. VG model (van Genuchten, 1980)
