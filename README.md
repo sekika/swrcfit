@@ -30,7 +30,7 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 7. ChangeLog ... Version history
 8. COPYING ... GNU General Public License
 
-## Installation of GNU Octave
+## Installation of GNU Octave and required package
 
    The two types of software, `swrc.m` and `bimodal.m`, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
