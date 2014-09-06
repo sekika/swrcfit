@@ -25,10 +25,11 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 2. swrc.txt ... Sample data
 3. setting.txt ... Sample setting file
 4. result.txt ... Sample result obtained from sample data
-5. swrc.xls ... Microsoft Excel worksheets for checking the result.
-6. README.md, fig1.png, fig2.png, fig3.png ... This file
-7. ChangeLog ... Version history
-8. COPYING ... GNU General Public License
+5. Install.sh ... Install script for Unix-like system
+6. swrc.xls ... Microsoft Excel worksheets for checking the result.
+7. README.md, fig1.png, fig2.png, fig3.png ... This file
+8. ChangeLog ... Version history
+9. COPYING ... GNU General Public License
 
 ## Installation of GNU Octave and required package
 
@@ -57,6 +58,8 @@ Copy `swrcfit.m` to working directory when octave is executed.
 * Rename `swrcfit.m` to `swrcfit`
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
+
+`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it shows a message to manually install necessary files.
 
 ## Preparation of data
 
