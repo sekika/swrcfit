@@ -19,6 +19,21 @@ Basic information of this program is summarized:
 
 This file can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
+## Contents
+
+- [Distributed package](#distributed-package)
+- [Installation of GNU Octave and required package](#installation-of-gnu-octave-and-required-package)
+- [Installation of this program](#installation-of-this-program)
+- [Preparation of data](#preparation-of-data)
+- [Setting](#setting)
+- [Running the program](#running-the-program)
+- [Checking the result](#checking-the-result)
+- [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
+- [Citation of this work](#citation-of-this-work)
+- [Reference](#reference)
+
+<!-- end toc -->
+
 ## Distributed package
 
 1. swrcfit.m ... Main progtam
