@@ -113,7 +113,7 @@ Copy `swrcfit.m` to working directory when octave is executed.
 
 ## Preparation of setting file
 
-When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program; when setting file is not specified, these default setting is used.
+When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program; when setting file is not specified, these default setting is used. Therefore, if you specify a file with only "mode = 2" written as a setting file, other parameters are set as default values.
 
 ```
 # Setting
