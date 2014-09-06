@@ -24,8 +24,8 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 - [Distributed package](#distributed-package)
 - [Installation of GNU Octave and required package](#installation-of-gnu-octave-and-required-package)
 - [Installation of this program](#installation-of-this-program)
-- [Preparation of data](#preparation-of-data)
-- [Setting](#setting)
+- [Preparation of data file](#preparation-of-data-file)
+- [Preparation of setting file](#preparation-of-setting-file)
 - [Running the program](#running-the-program)
 - [Checking the result](#checking-the-result)
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
@@ -76,7 +76,7 @@ Copy `swrcfit.m` to working directory when octave is executed.
 
 `Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
 
-## Preparation of data
+## Preparation of data file
 
    The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt`. The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
 
@@ -111,9 +111,9 @@ Copy `swrcfit.m` to working directory when octave is executed.
 
    This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.
 
-## Setting
+## Preparation of setting file
 
-Setting for calculation can be given with a setting file. When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program.
+When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program; when setting file is not specified, these default setting is used.
 
 ```
 # Setting
