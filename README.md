@@ -7,31 +7,19 @@ swrcfit
 SWRC Fit is a program which performs nonlinear fitting of
    following 5 models by Levenberg-Marquardt method.
 
-
-   (1) BC model (Brooks and Corey, 1964)
-
-   (2) VG model (van Genuchten, 1980)
-
-   (3) LN model (Kosugi, 1996)
-
-   (4) DB model (Durner, 1994)
-
-   (5) BL model (Seki, 2007)
-
+* BC model (Brooks and Corey, 1964)
+* VG model (van Genuchten, 1980)
+* LN model (Kosugi, 1996)
+* DB model (Durner, 1994)
+* BL model (Seki, 2007)
 
    Basic information of this program is summarized:
 
 
-   Website: [1]http://swrcfit.sourceforge.net/
-
-      [1] http://swrcfit.sourceforge.net/
-
-   Author: Katsutoshi Seki
-
-   License: GNU General Public License
-
-   Version of this distribution: 1.2
-
+  Website: http://swrcfit.sourceforge.net/
+  Author: Katsutoshi Seki
+  License: GNU General Public License
+  Version of this distribution: 1.2
 
 ## Distributed package
 
