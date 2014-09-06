@@ -35,7 +35,7 @@ Basic information of this program is summarized:
 [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m),
 [__dfdp__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__dfdp__.m),
 [__lm_svd__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__lm_svd__.m),
-[__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.mi)
+[__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
 
    Installing Octave Workshop (http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/loisel/octave-workshop/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
