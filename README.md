@@ -39,7 +39,7 @@ After installing GNU Octave, some necessary packages for running SWRC Fit, `leas
 * [\__lm_svd__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__lm_svd__.m)
 * [\__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
 
-   Installing (Octave Workshop)[http://sourceforge.net/projects/octave-workshop/files/] will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
+   Installing [Octave Workshop](http://sourceforge.net/projects/octave-workshop/files/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
 ## Preparation of data
 
