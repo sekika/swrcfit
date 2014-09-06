@@ -21,10 +21,10 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 
 ## Distributed package
 
-1. swrc.m ... Fitting of unimodal models (BC, VG and LN)
-2. bimodal.m ... Fitting of bimodal models (DB and BL)
-3. swrc.txt ... Sample data
-4. result.txt ... Sample result
+1. swrcfit.m ... Main progtam
+2. swrc.txt ... Sample data
+3. setting.txt ... Sample setting file
+4. result.txt ... Sample result obtained from sample data
 5. swrc.xls ... Microsoft Excel worksheets for checking the result.
 6. README.md, fig1.png, fig2.png, fig3.png ... This file
 7. ChangeLog ... Version history
@@ -32,9 +32,11 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 
 ## Installation of GNU Octave and required package
 
-   The two types of software, `swrc.m` and `bimodal.m`, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
+   SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
-After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`. In case the installation of package with this command fails, download these files manually and put them in appropriate directory:
+After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`.
+
+In case the installation of package with this command fails, download these files manually and put them in appropriate directory:
 
 * [leasqr.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/leasqr.m)
 * [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m)
@@ -46,13 +48,21 @@ After installing GNU Octave, some necessary packages for running SWRC Fit, `leas
 
    Installing [Octave Workshop](http://sourceforge.net/projects/octave-workshop/files/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
+## Installation of this program
+
+### Windows
+Copy 'swrcfit.m` to working directory when octave is executed.
+
+### Mac, Linux and othe Unix-like system
+* Rename `swrcfit.m` to `swrcfit`
+* Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
+* Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
+
 ## Preparation of data
 
-   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns, using the file name `swrc.txt`. Sample data is included in the package. The first column is the suction head and the second
-   column is the volumetric water content, where space is used as
-   a delimiter. For example;
+   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt`. The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
 
-```swrc.txt
+```
 0 0.2628
 20 0.237
 30 0.223
@@ -68,11 +78,11 @@ After installing GNU Octave, some necessary packages for running SWRC Fit, `leas
 
    Lines beginning with "#" are regarded as comment and neglected.  Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.
 
-   Optionally, `swrc.txt` can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
+   Optionally, the data file can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
 
   For example,
 
-```swrc.txt
+```
 0 0.2628 1
 20 0.237 1
 40 0.211 1
@@ -83,12 +93,15 @@ After installing GNU Octave, some necessary packages for running SWRC Fit, `leas
 
    This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.
 
-## Calculation options
+## Setting
 
-   This section is for users who would like to control the way of fitting. If you are not interested in it, you can bypass this section and go directly to the next section, and come back to this section when necessary. The programs swrc.m and bimodal.m have "Setting" block in the program itself as follows.
+Setting for calculation can be given with a setting file. When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program.
 
-```octave:swrc.m
+```
 # Setting
+mode = 1; # Unimodal model
+# mode = 2; # Bimodal model
+# mode = 3; # Unimodal and bimodal model
 output_precision=7; # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
@@ -99,19 +112,19 @@ pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 ```
 
-   The setting block can be edited directly with a text editor. By editing this "Setting" block, calculation option can be controlled.
+The first line, "# Setting",  is a comment. It indicates that this is a setting block. GNU Octave language ignores the rest of a line following a sharp sign ("#").
 
-   The first line, "# Setting",  is a comment. It indicates that this is a setting block. GNU Octave language ignores the rest of a line following a sharp sign ("#").
+The 2nd to 4th lines are for setting of the mode of calculation. When mode=1 (default), fitting of unimodal (BC, VG, and LN) models are conducted. When mode=2, fittin of bimodal (DB and BL) models are conducted, and when mode=3, both unimodal and bimodal models are conducted.
 
-   The second line sets the precision of the ouput. In GNU Octave, the variable output_precision specifies the minimum number of significant figures to display for numeric output.
+The 5th line sets the precision of the ouput. In GNU Octave, the variable output_precision specifies the minimum number of significant figures to display for numeric output. Default value is 7.
 
-   The lines 3-4 specify the variable q[s], the saturated water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs, controls how the program treats this variable. qsin is the initial value of q[s] and cqs is a parameter which decides q[s] is constant or variable; when cqs is set as 0, q[s] is treated as a constant, and when cqs is 1, q[s] is treated as a variable. By default, initial value of q[s]is set as the maximum value of the soil water content, and it is set as a variable, but it can be changed by editing this section. For example, for setting q[s] = 0.35 as a constant, following line can be added after the third line;
+The lines 6-7 specify the variable q[s], the saturated water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs, controls how the program treats this variable. qsin is the initial value of q[s] and cqs is a parameter which decides q[s] is constant or variable; when cqs is set as 0, q[s] is treated as a constant, and when cqs is 1, q[s] is treated as a variable. By default, initial value of q[s]is set as the maximum value of the soil water content, and it is set as a variable, but it can be changed by editing this section. For example, for setting q[s] = 0.35 as a constant, following line can be added after the third line;
 
 ```
 qsin=0.35; cqr=0;
 ```
 
-   The lines 5-8 specify the variable q[r], the residual water content. In this program, q[r] is shown as "qr". Three parameters, qrin, cqr and pqr, controls how the program treats this variable. qrin is the initial value of q[r], cqr is a parameter which decides q[r] is constant or variable; when cqr is set as 0, q[r] is treated as a constant, and when cqr is 1, q[r] is treated as a variable, and pqr is a variable which decides if the restriction of q[r] >= 0 is imposed. By default, initial value of q[r] is set as the minimum value of the soil water content, and it is set as a variable with the restriction of q[r] >= 0, but it can be changed by editing this section. For example, for seting q[r] = 0 as a constant value, the 7th line is to be commented out,, i.e., the first "#" mark is to be deleted. For setting q[r] = 0.05 as a constant value, following line can be added after the 7th line;
+The lines 8-11 specify the variable q[r], the residual water content. In this program, q[r] is shown as "qr". Three parameters, qrin, cqr and pqr, controls how the program treats this variable. qrin is the initial value of q[r], cqr is a parameter which decides q[r] is constant or variable; when cqr is set as 0, q[r] is treated as a constant, and when cqr is 1, q[r] is treated as a variable, and pqr is a variable which decides if the restriction of q[r] >= 0 is imposed. By default, initial value of q[r] is set as the minimum value of the soil water content, and it is set as a variable with the restriction of q[r] >= 0, but it can be changed by editing this section. For example, for seting q[r] = 0 as a constant value, the 7th line is to be commented out,, i.e., the first "#" mark is to be deleted. For setting q[r] = 0.05 as a constant value, following line can be added after the 7th line;
 
 ```
 qrin=0.05; cqr=0;
@@ -123,51 +136,64 @@ qrin=0.05; cqr=0;
 
 ## Running the program
 
-   The programs (`swrc.m` and `bimodal.m`) and data (`swrc.txt`) should be placed in the same directory (folder). In that directory, `swrc.m` should be typed to run the fitting of unimodal (BC, VG, and LN) models, and `bimodal.m` should be typed to run the fitting of the DB and BL models. In the UNIX system `./swrc.m` and `./bimodal.m` is preferred, and the executable file mode should be set. The result is shown in the standard output as follows. Sample result obtained from sample data is included as `result.txt` in the package.
+The program is executed as
+
+```
+swrcfit DataFilename [SettingFilename]
+```
+
+where DataFilename is a filename of the input data, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
+
+If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
 ```
 === BC model ===
-qs = 0.2627996
-qr = 0.05846708
-hb = 13.11246
-lambda = 0.2780126
-R2 = 0.9946961
+qs =  0.38316
+qr =  0.047638
+hb =  41.704
+lambda =  7.0104
+R2 =  0.99279
 === VG model ===
-qs = 0.2633070
-qr = 0.1041973
-alpha = 0.03760151
-n = 1.598337
-R2 = 0.9953371
+qs =  0.38656
+qr =  0.055190
+alpha =  0.021547
+n =  15.923
+R2 =  0.99246
 === LN model ===
-qs = 0.2639328
-qr = 0.1205137
-hm = 63.63318
-sigma = 1.392247
-R2 = 0.9924899
+qs =  0.38625
+qr =  0.056345
+hm =  46.631
+sigma =  0.10818
+R2 =  0.99167
 ```
 
    If advanced mode is selected (see the previous section), correlation matrix and standard deviation are also shown as follows.
 
 ```
 === BC model ===
-qs = 0.2627996
-qr = 0.05846708
-hb = 13.11246
-lambda = 0.2780126
-R2 = 0.9946961
+qs =  0.38316
+qr =  0.047638
+hb =  41.704
+lambda =  7.0104
+R2 =  0.99279
 CorrelationMatrix =
- 1.000000e+00   -1.930206e-13   -5.697150e-01   -1.082819e-12
--1.962351e-13    1.000000e+00    6.368129e-01    9.864592e-01
--5.697150e-01    6.368129e-01    1.000000e+00    6.982723e-01
--1.087807e-12    9.864592e-01    6.982723e-01    1.000000e+00
+
+   1.000000  -0.071401  -0.345313  -0.164434
+  -0.071401   1.000000   0.376894   0.663845
+  -0.345313   0.376894   1.000000   0.807590
+  -0.164434   0.663845   0.807590   1.000000
+
 StandardDeviation =
-   5.159034e-03
-   3.148803e-02
-   2.085881e+00
-   8.040429e-02
+
+   0.0035511
+   0.0040837
+   0.4535012
+   0.6777662
+
 === VG model ===
-qs = 0.2633070
-qr = 0.1041973
+qs =  0.38656
+qr =  0.055190
+alpha =  0.021547
 (continued)
 ```
 
