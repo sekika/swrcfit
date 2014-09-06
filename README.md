@@ -12,6 +12,7 @@ Basic information of this program is summarized:
 
 * Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 * Website: http://swrcfit.sourceforge.net/
+* Web interface: http://seki.webmasters.gr.jp/swrc/
 * Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 * License: GNU General Public License
 * Version of this distribution: 1.2
