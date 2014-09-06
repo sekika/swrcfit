@@ -7,65 +7,35 @@ swrcfit
 SWRC Fit is a program which performs nonlinear fitting of
    following 5 models by Levenberg-Marquardt method.
 
-* BC model (Brooks and Corey, 1964)
-* VG model (van Genuchten, 1980)
-* LN model (Kosugi, 1996)
-* DB model (Durner, 1994)
-* BL model (Seki, 2007)
+1. BC model (Brooks and Corey, 1964)
+2. VG model (van Genuchten, 1980)
+3. LN model (Kosugi, 1996)
+4. DB model (Durner, 1994)
+5. BL model (Seki, 2007)
 
-   Basic information of this program is summarized:
+Basic information of this program is summarized:
 
-
-  Website: http://swrcfit.sourceforge.net/
-  Author: Katsutoshi Seki
-  License: GNU General Public License
-  Version of this distribution: 1.2
+* Website: http://swrcfit.sourceforge.net/
+* Author: Katsutoshi Seki
+* License: GNU General Public License
+* Version of this distribution: 1.2
 
 ## Distributed package
 
-
-   (1) swrc.m ... Fitting of unimodal models (BC, VG and LN)
-
-   (2) bimodal.m ... Fitting of bimodal models (DB and BL)
-
-   (3) swrc.xls ... Microsoft Excel worksheets for checking the
-   result.
-
-   (4) README.md ... User's manual
-
-   (6) ChangeLog ... Version history
-
-   (7) COPYING ... GNU General Public License
-
+1. swrc.m ... Fitting of unimodal models (BC, VG and LN)
+2. bimodal.m ... Fitting of bimodal models (DB and BL)
+3. swrc.xls ... Microsoft Excel worksheets for checking the result.
+4. README.md ... User's manual
+5. ChangeLog ... Version history
+6. COPYING ... GNU General Public License
 
 ## Installation of GNU Octave
 
+   The two types of software, swrc.m and bimodal.m, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.  After installing GNU Octave, some necessary packages for running SWRC Fit, leasqr.m, dfdp.m and normcdf.m, should be installed from the octave-forge packag (http://octave.sourceforge.net/).
 
-   The two types of software, swrc.m and bimodal.m, are written in
-   GNU Octave, and, therefore, GNU Octave should be installed in
-   the system. GNU Octave is a high-level language, primarily
-   intended for numerical computations, available for downloading
-   from the GNU Octave Website
-   (http://www.gnu.org/software/octave/). The installation
-   instructions are given in the Website. It works on various
-   operating systems including Windows, Mac OS X, Linux and OS/2.
-   After installing GNU Octave, some necessary packages for
-   running SWRC Fit, leasqr.m, dfdp.m and normcdf.m, should be
-   installed from the octave-forge package
-   ([2]http://octave.sourceforge.net/).
+   Installing Octave Workshop (http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/loisel/octave-workshop/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
-      [2] http://octave.sourceforge.net/
-
-   Installing Octave Workshop
-   ([3]http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/lo
-   isel/octave-workshop/) will provide you with all necessary
-   environment for the GNU Octave itself and the Octave-forge
-   package.
-
-      [3] http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/loisel/octave-workshop/
-
-
-   4. Preparation of data
+## Preparation of data
 
 
    The input data, i.e., the soil water retention curve, should be
