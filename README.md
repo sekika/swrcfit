@@ -10,6 +10,7 @@ SWRC Fit is a program which performs nonlinear fitting of following 5 models by 
 
 Basic information of this program is summarized:
 
+* Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 * Website: http://swrcfit.sourceforge.net/
 * Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 * License: GNU General Public License
