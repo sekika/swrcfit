@@ -51,7 +51,7 @@ In case the installation of package with this command fails, download these file
 ## Installation of this program
 
 ### Windows
-Copy 'swrcfit.m` to working directory when octave is executed.
+Copy `swrcfit.m` to working directory when octave is executed.
 
 ### Mac, Linux and othe Unix-like system
 * Rename `swrcfit.m` to `swrcfit`
