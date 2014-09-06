@@ -26,7 +26,7 @@ Basic information of this program is summarized:
 
 ## Installation of GNU Octave
 
-   The two types of software, `swrc.m` and `bimodal.m`, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.  After installing GNU Octave, some necessary packages for running SWRC Fit, leasqr.m, dfdp.m and normcdf.m, should be installed from the octave-forge package (http://octave.sourceforge.net/).
+   The two types of software, `swrc.m` and `bimodal.m`, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.  After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m`, `dfdp.m` and `normcdf.m`, should be installed from the octave-forge package (http://octave.sourceforge.net/).
 
    Installing Octave Workshop (http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/loisel/octave-workshop/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
