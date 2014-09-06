@@ -160,7 +160,7 @@ The program is executed as
 swrcfit DataFilename [SettingFilename]
 ```
 
-where DataFilename is a filename of the input data, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
+where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
