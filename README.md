@@ -21,7 +21,7 @@ Basic information of this program is summarized:
 1. swrc.m ... Fitting of unimodal models (BC, VG and LN)
 2. bimodal.m ... Fitting of bimodal models (DB and BL)
 3. swrc.xls ... Microsoft Excel worksheets for checking the result.
-4. README.md, fig1.png, fig2.png, fig3.png ... User's manual
+4. README.md, fig1.png, fig2.png, fig3.png ... This file
 5. ChangeLog ... Version history
 6. COPYING ... GNU General Public License
 
