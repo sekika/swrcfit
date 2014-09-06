@@ -19,8 +19,6 @@ Basic information of this program is summarized:
 
 This file can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
-[TOC]
-
 ## Distributed package
 
 1. swrcfit.m ... Main progtam
