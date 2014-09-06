@@ -17,6 +17,8 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 1.2
 
+This file can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
+
 ## Distributed package
 
 1. swrc.m ... Fitting of unimodal models (BC, VG and LN)
