@@ -181,6 +181,12 @@ Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net
 
 Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/swrc/)
 
+## Citation of this work
+
+Please cite this paper when you publish your work using SWRC Fit.
+
+Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
+
 ## Reference
 
 1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media. Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
