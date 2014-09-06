@@ -71,7 +71,7 @@ Basic information of this program is summarized:
 
    This section is for users who would like to control the way of fitting. If you are not interested in it, you can bypass this section and go directly to the next section, and come back to this section when necessary. The programs swrc.m and bimodal.m have "Setting" block in the program itself as follows.
 
-```swrc.m
+```octave:swrc.m
 # Setting
 output_precision=7; # precision of the output
 qsin = max(y); # initial value of qs
