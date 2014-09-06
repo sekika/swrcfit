@@ -32,14 +32,14 @@ Basic information of this program is summarized:
 
    The two types of software, `swrc.m` and `bimodal.m`, are written in GNU Octave, and, therefore, GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
-After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files (\__dfdp__.m, \__lm_svd__.m, \__plot_cmds__.m), should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, `leasqr.m` and `dfdp.m` can be installed with `pkg install -forge struct optim`. In case the installation of package with this command fails, download these files manually:
+After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files (\__dfdp__.m, \__lm_svd__.m, \__plot_cmds__.m), should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`. In case the installation of package with this command fails, download these files manually:
 * [leasqr.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/leasqr.m)
 * [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m)
 * [\__dfdp__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__dfdp__.m)
 * [\__lm_svd__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__lm_svd__.m)
 * [\__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
 
-   Installing Octave Workshop (http://www.unige.ch/math/folks/loisel/www.math.mcgill.ca/loisel/octave-workshop/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
+   Installing (Octave Workshop)[http://sourceforge.net/projects/octave-workshop/files/] will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
 
 ## Preparation of data
 
