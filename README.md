@@ -170,7 +170,7 @@ In Windows, the program is executed from command prompt as
 octave swrcfit DataFileName [SettingFileName]
 ```
 
-where full path name of octave, DataFileName and SettingFileName should be specified. If Octave is installed in, for example, C:\Software\Octave-3.6.4\bin, you can put all the files, swrcfit, data file, and setting file, in the same directory, and run in the command prompt `C:; cd C:\Software\Octave-3.6.4\bin` to get in the directory, and then you can just type `octave swrcfit DataFileName [SettingFileName]`. Another way is to set path to octave and swrcfit. Then you can set data file and setting file to separate directory and run swrcfit in the data directory.
+where full path name of octave, DataFileName and SettingFileName should be specified. If Octave is installed in, for example, C:\Software\Octave-3.6.4\bin, you can put all the files, swrcfit, data file, and setting file, in the same directory, and run in the command prompt `C:; cd C:\Software\Octave-3.6.4\bin` to get in the directory, and then you can just type `octave swrcfit DataFileName [SettingFileName]`. Another way is to set path to the directory where octave and swrcfit are installed. Then you can set data file and setting file to separate directory and run swrcfit in the data directory.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
