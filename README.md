@@ -23,6 +23,8 @@ Basic information of this program is summarized:
 
 This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/README.md
 
+Latest version of this file is here: https://github.com/sekika/swrcfit/blob/master/README.md
+
 ## Contents
 
 - [Distributed package](#distributed-package)
