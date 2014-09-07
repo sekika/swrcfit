@@ -10,7 +10,7 @@ SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear 
 |DB |![equation](http://swrcfit.sourceforge.net/img/DB.png) (m_i = 1-1/n_i) |Durner, 1994|
 |BL |![equation](http://swrcfit.sourceforge.net/img/BL.png) |Seki, 2007|
 
-where h is the suction head, &Theta;¦È is volumetric water content, Se is the effective water content defined by ![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e., ![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-¦µ(x), in which ¦µ(x) is a normalized form of the cumulative normal distribution function. Please note that Q(x) is different from error function. Other parameters are soil hydraulic parameters to be optimized with swrcfit.
+where h is the suction head, &theta; is volumetric water content, Se is the effective water content defined by ![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e., ![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-¦µ(x), in which ¦µ(x) is a normalized form of the cumulative normal distribution function. Please note that Q(x) is different from error function. Other parameters are soil hydraulic parameters to be optimized with swrcfit.
 
 Basic information of this program is summarized:
 
