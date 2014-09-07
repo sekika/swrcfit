@@ -44,9 +44,10 @@ This file is written with markdown and can be viewed online here: https://github
 4. result.txt ... Sample result obtained from sample data
 5. Install.sh ... Install script for Unix-like system
 6. swrc.xlsx ... Microsoft Excel worksheets for checking the result.
-7. README.md, fig1.png, fig2.png, fig3.png ... This file
-8. ChangeLog ... Version history
-9. COPYING ... GNU General Public License
+7. README.md ... This file
+8. fig1.png, fig2.png, fig3.png ... Figures used in README.md
+9. ChangeLog ... Version history
+10. COPYING ... GNU General Public License
 
 ## Installation of GNU Octave and required package
 
