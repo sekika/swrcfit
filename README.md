@@ -3,7 +3,9 @@
 SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method. This software was used in [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 
 1. BC model (Brooks and Corey, 1964)
+
 ![equation](http://www.sciweavers.org/tex2img.php?eq=S_e%20%3D%20%5Cbegin%7Bcases%7D%20%5Cleft%28%20%5Cfrac%7Bh%7D%7Bh_b%7D%20%5Cright%29%5E%5Clambda%20%26%5Ctext%7Bif%20%7Dh%20%3E%20h_b%20%5C%5C%201%20%26%5Ctext%7Bif%20%7Dh%20%5Cle%20h_b%20%5Cend%7Bcases%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="S_e = \begin{cases} \left( \frac{h}{h_b} \right)^\lambda &\text{if }h > h_b \\ 1 &\text{if }h \le h_b \end{cases})
+
 2. VG model (van Genuchten, 1980)
 3. LN model (Kosugi, 1996)
 4. DB model (Durner, 1994)
@@ -18,7 +20,7 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 1.3
 
-This file can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/README.md
+This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/README.md
 
 ## Contents
 
@@ -32,8 +34,6 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
 - [Citation of this work](#citation-of-this-work)
 - [Reference](#reference)
-
-<!-- end toc -->
 
 ## Distributed package
 
