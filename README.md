@@ -40,7 +40,7 @@ Latest version of this file is here: https://github.com/sekika/swrcfit/blob/mast
 
 ## Distributed package
 
-1. swrcfit.m ... Main progtam
+1. swrcfit ... Main progtam
 2. swrc.txt ... Sample data
 3. setting.txt ... Sample setting file
 4. result.txt ... Sample result obtained from sample data
@@ -67,15 +67,12 @@ In case the installation of package with this command fails, download these file
 * [\__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
 * [\__do_user_interaction__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__do_user_interaction__.m)
 
-Installing [Octave Workshop](http://sourceforge.net/projects/octave-workshop/files/) will provide you with all necessary environment for the GNU Octave itself and the Octave-forge package.
-
 ## Installation of this program
 
 ### Windows
-Copy `swrcfit.m` to working directory when octave is executed.
+Copy `swrcfit` to working directory when octave is executed.
 
 ### Mac, Linux and other Unix-like system
-* Rename `swrcfit.m` to `swrcfit`
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
@@ -159,13 +156,21 @@ qrin=0.05; cqr=0;
 
 ## Running the program
 
-The program is executed as
+In Unix-like system, the program is executed as
 
 ```
 swrcfit DataFilename [SettingFilename]
 ```
 
-where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
+where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output. The blanket [ ] indicates that it is not required.
+
+In Windows, the program is executed from command prompt as
+
+```
+octave swrcfit DataFileName [SettingFileName]
+```
+
+where full path name of octave, DataFileName and SettingFileName should be specified. If Octave is installed in, for example, C:\Software\Octave-3.6.4\bin, you can put all the files, swrcfit, data file, and setting file, in the same directory, and run in the command prompt `C:; cd C:\Software\Octave-3.6.4\bin` to get in the directory, and then you can just type `octave swrcfit DataFileName [SettingFileName]`. Another way is to set path to octave and swrcfit. Then you can set data file and setting file to separate directory and run swrcfit in the data directory.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
