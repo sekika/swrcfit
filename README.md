@@ -3,6 +3,9 @@
 SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method. This software was used in [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 
 1. BC model (Brooks and Corey, 1964)
+```math
+S_e = \begin{cases} \left( \frac{h}{h_b} \right)^\lambda &\text{if }h > h_b \\ 1 &\text{if }h \le h_b \end{cases} 
+```
 2. VG model (van Genuchten, 1980)
 3. LN model (Kosugi, 1996)
 4. DB model (Durner, 1994)
