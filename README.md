@@ -21,9 +21,7 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 1.3
 
-This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/README.md
-
-Latest version of this file is here: https://github.com/sekika/swrcfit/blob/master/README.md
+This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
 ## Contents
 
