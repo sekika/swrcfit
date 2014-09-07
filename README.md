@@ -70,7 +70,7 @@ In case the installation of package with this command fails, download these file
 ## Installation of this program
 
 ### Windows
-Copy `swrcfit` to working directory when octave is executed.
+Copy `swrcfit` to the same directory where octave is installed, for example, `C:\Software\Octave-3.6.4\bin`.
 
 ### Mac, Linux and other Unix-like system
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
