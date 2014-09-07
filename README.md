@@ -19,7 +19,7 @@ Basic information of this program is summarized:
 * Web interface: http://seki.webmasters.gr.jp/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 1.3.1
+* Version of this distribution: 1.3
 
 This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
