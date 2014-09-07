@@ -4,9 +4,7 @@ SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear 
 
 |Model|Equation|Reference|
 |-----|--------|---------|-
-|BC (Brooks and Corey, 1964)
-|![equation](http://www.sciweavers.org/tex2img.php?eq=S_e%20%3D%20%5Cbegin%7Bcases%7D%20%5Cleft%28%20%5Cfrac%7Bh%7D%7Bh_b%7D%20%5Cright%29%5E%5Clambda%20%26%5Ctext%7Bif%20%7Dh%20%3E%20h_b%20%5C%5C%201%20%26%5Ctext%7Bif%20%7Dh%20%5Cle%20h_b%20%5Cend%7Bcases%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="S_e = \begin{cases} \left( \frac{h}{h_b} \right)^\lambda &\text{if }h > h_b \\ 1 &\text{if }h \le h_b \end{cases})
-|Brooks and Corey, 1964|
+|BC |![equation](http://www.sciweavers.org/tex2img.php?eq=S_e%20%3D%20%5Cbegin%7Bcases%7D%20%5Cleft%28%20%5Cfrac%7Bh%7D%7Bh_b%7D%20%5Cright%29%5E%5Clambda%20%26%5Ctext%7Bif%20%7Dh%20%3E%20h_b%20%5C%5C%201%20%26%5Ctext%7Bif%20%7Dh%20%5Cle%20h_b%20%5Cend%7Bcases%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="S_e = \begin{cases} \left( \frac{h}{h_b} \right)^\lambda &\text{if }h > h_b \\ 1 &\text{if }h \le h_b \end{cases}) |Brooks and Corey, 1964|
 
 2. VG model (van Genuchten, 1980)
 3. LN model (Kosugi, 1996)
