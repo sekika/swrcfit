@@ -35,7 +35,7 @@ fi
 
 # Install swrcfit
 
-swrcfit=swrcfit.m
+swrcfit=swrcfit
 octave2=`echo $octave | sed -e "s/\//SLASH/g"`
 if [ -f $swrcfit ]; then
   echo "=== Installing "$installfilename
