@@ -1,25 +1,42 @@
-# swrcfit (SWRC Fit) - [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
+# swrcfit (SWRC Fit) - Fitting soil water retention curve
 
-SWRC Fit (Soil Water Retention Curve Fit) is a program which performs nonlinear fitting of following 5 models by Levenberg-Marquardt method.
+SWRC Fit is a program which performs nonlinear fitting of soil water retention curve with following 5 models by Levenberg-Marquardt method. This software was used in [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 
-1. BC model (Brooks and Corey, 1964)
-2. VG model (van Genuchten, 1980)
-3. LN model (Kosugi, 1996)
-4. DB model (Durner, 1994)
-5. BL model (Seki, 2007)
+|Model|Equation|Reference|
+|-----|--------|---------|-
+|BC |![equation](http://swrcfit.sourceforge.net/img/BC.png) |Brooks and Corey, 1964|
+|VG |![equation](http://swrcfit.sourceforge.net/img/BC.png) (m = 1-1/n) |van Genuchten, 1980|
+|LN |![equation](http://swrcfit.sourceforge.net/img/LN.png) |Kosugi, 1996|
+|DB |![equation](http://swrcfit.sourceforge.net/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
+|BL |![equation](http://swrcfit.sourceforge.net/img/BL.png) |Seki, 2007|
+
+where h is the suction head, &theta; is volumetric water content, S<sub>e</sub> is the effective water content defined by ![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e., ![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the cumulative normal distribution function. Please note that Q(x) is different from error function. Other parameters are soil hydraulic parameters to be optimized with swrcfit.
 
 Basic information of this program is summarized:
 
 * Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
-* Website: http://swrcfit.sourceforge.net/
+* Website: https://github.com/sekika/swrcfit/
 * Web interface: http://seki.webmasters.gr.jp/swrc/
-* Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
+* Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 1.2
+* Version of this distribution: 1.3
 
-This file can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
+This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/1.3/README.md
 
-[TOC]
+Latest version of this file is here: https://github.com/sekika/swrcfit/blob/master/README.md
+
+## Contents
+
+- [Distributed package](#distributed-package)
+- [Installation of GNU Octave and required package](#installation-of-gnu-octave-and-required-package)
+- [Installation of this program](#installation-of-this-program)
+- [Preparation of data file](#preparation-of-data-file)
+- [Preparation of setting file](#preparation-of-setting-file)
+- [Running the program](#running-the-program)
+- [Checking the result](#checking-the-result)
+- [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
+- [Citation of this work](#citation-of-this-work)
+- [Reference](#reference)
 
 ## Distributed package
 
@@ -28,10 +45,11 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 3. setting.txt ... Sample setting file
 4. result.txt ... Sample result obtained from sample data
 5. Install.sh ... Install script for Unix-like system
-6. swrc.xls ... Microsoft Excel worksheets for checking the result.
-7. README.md, fig1.png, fig2.png, fig3.png ... This file
-8. ChangeLog ... Version history
-9. COPYING ... GNU General Public License
+6. swrc.xlsx ... Microsoft Excel worksheets for checking the result.
+7. README.md ... This file
+8. fig1.png, fig2.png, fig3.png ... Figures used in README.md
+9. ChangeLog ... Version history
+10. COPYING ... GNU General Public License
 
 ## Installation of GNU Octave and required package
 
@@ -39,7 +57,7 @@ This file can be viewed online here: https://github.com/sekika/swrcfit/blob/mast
 
 After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`.
 
-In case the installation of package with this command fails, download these files manually and put them in appropriate directory:
+In case the installation of package with this command fails, download these files manually and put them in Octave loadpath. You can check loadpath by running `path` in Octave shell.
 
 * [leasqr.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/leasqr.m)
 * [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m)
@@ -56,14 +74,14 @@ Installing [Octave Workshop](http://sourceforge.net/projects/octave-workshop/fil
 ### Windows
 Copy `swrcfit.m` to working directory when octave is executed.
 
-### Mac, Linux and othe Unix-like system
+### Mac, Linux and other Unix-like system
 * Rename `swrcfit.m` to `swrcfit`
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
-`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `Installand install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to DIR. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it shows a message to manually install necessary files.
+`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to `DIR`. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
 
-## Preparation of data
+## Preparation of data file
 
    The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt`. The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
 
@@ -98,16 +116,16 @@ Copy `swrcfit.m` to working directory when octave is executed.
 
    This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.
 
-## Setting
+## Preparation of setting file
 
-Setting for calculation can be given with a setting file. When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program.
+When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program; when setting file is not specified, these default setting is used. Therefore, if you specify a file with only "mode = 2" written as a setting file, other parameters are set as default values.
 
 ```
 # Setting
 mode = 1; # Unimodal model
 # mode = 2; # Bimodal model
 # mode = 3; # Unimodal and bimodal model
-output_precision=7; # precision of the output
+output_precision(5); # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
@@ -117,7 +135,7 @@ pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 ```
 
-The first line, "# Setting",  is a comment. It indicates that this is a setting block. GNU Octave language ignores the rest of a line following a sharp sign ("#").
+The first line, "# Setting",  is a comment. It indicates that this is a setting file. GNU Octave language ignores the rest of a line following a sharp sign ("#").
 
 The 2nd to 4th lines are for setting of the mode of calculation. When mode=1 (default), fitting of unimodal (BC, VG, and LN) models are conducted. When mode=2, fittin of bimodal (DB and BL) models are conducted, and when mode=3, both unimodal and bimodal models are conducted.
 
@@ -147,7 +165,7 @@ The program is executed as
 swrcfit DataFilename [SettingFilename]
 ```
 
-where DataFilename is a filename of the input data, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
+where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
@@ -214,15 +232,15 @@ Fig. 1 Spreadsheet for checking the result
 
 ## Web interface of the SWRC Fit
 
-   The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written in the program language perl and works as a cgi program. The perl program invokes GNU octave and executes the calculation engine of `swrc.m` and `bimodal.m`.
+   The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written in the program language perl and works as a cgi program. The perl program invokes GNU octave and executes the calculation engine of swrcfit.
 
-   The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as the same format as `swrc.txt` in explained above, is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of q[r]=0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
+   The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as explained above, is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of q[r]=0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
 
 ![Fig. 2](./fig2.png)
 
 Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
 
-   In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R^2 values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R^2 values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
+   In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R<sup>2</sup> values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R<sup>2</sup> values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
 
 ![Fig. 3](./fig3.png)
 
