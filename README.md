@@ -237,7 +237,7 @@ Fig. 1 Spreadsheet for checking the result
 
 Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
 
-   In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R^2 values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R^2 values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
+   In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R<sup>2</sup> values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R<sup>2</sup> values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
 
 ![Fig. 3](./fig3.png)
 
