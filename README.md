@@ -257,6 +257,9 @@ Please cite this paper when you publish your work using SWRC Fit.
 
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib) and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris) files are also available.
 
+## Feedback
+[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion) you can find a list of questions and answers about swrcfit. You can submit your own question by getting the accout of GitHub and pressing the green "New Issue" button. Please select the label of "question". It is preferable to send your question publicly this way, because other people having the same question can find answer on the web. However, if your question is confidential, please contact me by email. Tou can find my email address in [this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
+
 ## Reference
 
 1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media. Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
