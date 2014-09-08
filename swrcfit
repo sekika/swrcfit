@@ -55,10 +55,13 @@ Mlab="Measured"; # legend for measured data
 BClab="Brooks and Corey (1964)"; # legend for BC model
 VGlab="van Genuchten (1980)"; # legend for VG model
 LNlab="Kosugi (1996)"; # legend for LN model
+DBlab="Durner (1994)"; # legend for DB model
+BLlab="Seki (2007)"; # legend for BL model
 Mpl="bo"; # Format arguments for measured plot. See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
 msize=5; # Marker size for measured plot
 mcol="b"; # Marker face color for measured plot
 BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
+DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 linewidth=1.5; # Line width of fitting curves
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
@@ -309,6 +312,7 @@ while ( stol >= 0.00001 )
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/8; pin=p; R2b=R2;
 endwhile
+DBp=p;
 if abs(p(4)) > abs(p(6))
   p=[p(1) p(2) 1-p(3) p(6) p(7) p(4) p(5)];
 end
@@ -380,6 +384,7 @@ while ( stol >= 0.00001 )
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/8; pin=p; R2b=R2;
 endwhile
+BLp=p;
 if abs(p(4)) > abs(p(6))
   p=[p(1) p(2) 1-p(3) p(6) p(7) p(4) p(5)];
 end
@@ -401,6 +406,57 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   end
 else
   disp ("Not bimodal");
+end
+
+# Draw graph
+
+if fig==1,
+
+  if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
+  minx=min(x);, if minx==0, minx=x(2);, end
+
+  if (ax==0 && max(x)/minx < 100 || ax==1)
+    x2=(linspace(0,max(x)*1.1,smooth));
+    DB=DB(x2,DBp); BL=BL(x2,BLp);
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,DB,DBpl,"linewidth",linewidth,x2,BL,BLpl,"linewidth",linewidth)
+    axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
+  else
+    minx=10^(floor(log10(minx)));
+    x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
+    DB=DB(x2,DBp); BL=BL(x2,BLp);
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,DB,DBpl,"linewidth",linewidth,x2,BL,BLpl,"linewidth",linewidth)
+    axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
+  end
+
+  h = legend (Mlab,DBlab,BLlab)
+  set (h, "fontsize", fontsize)
+
+  if (showlabel),
+    xlabel (xlab,"fontsize",fontsize)
+    ylabel (ylab,"fontsize",fontsize)
+  end
+
+  set(gca,'fontsize',fontsize)
+
+  if (showgrid), grid; end
+
+  drawnow;
+
+  if (figure),
+    if (figsize == 1),
+      print (figure, "-S320,240");
+    elseif (figsize == 2),
+      print (figure, "-S480,360");
+    else
+      print (figure, "-S640,480");
+    end
+  end
+
+  if (showfig),
+    disp ("Hit return key to finish.")
+    pause()
+  end
+
 end
 
 end
