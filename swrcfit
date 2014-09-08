@@ -200,13 +200,19 @@ if fig==1,
   if (ax==0 && max(x)/minx < 100 || ax==1)
     x2=(linspace(0,max(x)*1.1,smooth));
     BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
-    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,BC,BCpl,"linewidth",linewidth,x2,VG,VGpl,"linewidth",linewidth,x2,LN,LNpl,"linewidth",linewidth)
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,BC,BCpl,"linewidth",linewidth,
+      x2,VG,VGpl,"linewidth",linewidth,
+      x2,LN,LNpl,"linewidth",linewidth)
     axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
   else
     minx=10^(floor(log10(minx)));
     x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
     BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
-    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,BC,BCpl,"linewidth",linewidth,x2,VG,VGpl,"linewidth",linewidth,x2,LN,LNpl,"linewidth",linewidth)
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,BC,BCpl,"linewidth",linewidth,
+      x2,VG,VGpl,"linewidth",linewidth,
+      x2,LN,LNpl,"linewidth",linewidth)
     axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
   end
 
@@ -425,13 +431,17 @@ if fig==1,
   if (ax==0 && max(x)/minx < 100 || ax==1)
     x2=(linspace(0,max(x)*1.1,smooth));
     DB=DB(x2,DBp); BL=BL(x2,BLp);
-    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,DB,DBpl,"linewidth",linewidth,x2,BL,BLpl,"linewidth",linewidth)
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,DB,DBpl,"linewidth",linewidth,
+      x2,BL,BLpl,"linewidth",linewidth)
     axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
   else
     minx=10^(floor(log10(minx)));
     x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
     DB=DB(x2,DBp); BL=BL(x2,BLp);
-    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,DB,DBpl,"linewidth",linewidth,x2,BL,BLpl,"linewidth",linewidth)
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,DB,DBpl,"linewidth",linewidth,
+      x2,BL,BLpl,"linewidth",linewidth)
     axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
   end
 
