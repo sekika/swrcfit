@@ -35,7 +35,7 @@ end
 
 # Default Setting
 mode = 1; # Unimodal model
-output_precision=7; # precision of the output
+output_precision(5); # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
@@ -43,10 +43,12 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
+
+# Setting of plot (experimental)
 fig=0; # fig=0; no figure. fig=1; output fig.png
-ax=0; # automatic selection of axis
-# ax=1; # normal axis
-# ax=2; # log axis
+ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
+figure="fig.png"; # Filename of the figure.
+figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 64
 
 if (argc > 1), source (setting) end
 

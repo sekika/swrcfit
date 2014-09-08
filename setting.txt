@@ -10,9 +10,3 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
-
-# Setting of plot
-fig=0; # fig=0; no figure. fig=1; output fig.png
-ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
-figure="fig.png"; # Filename of the figure.
-figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 64
