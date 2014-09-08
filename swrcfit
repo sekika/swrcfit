@@ -7,7 +7,7 @@
 #
 # Usage: swrcfit DataFilename [SettingFilename]
 
-# Read commandline parameter
+# Read commandline parameters
 
 argc = length (argv);
 if argc == 0,
@@ -19,10 +19,33 @@ end
 arg_list = argv ();
 filename = arg_list{1};
 
+if exist(filename,"file")==0,
+  disp("File does not exist.");
+  return; 
+end
+
 setting = "";
-if argc > 1, setting = arg_list{2}; end
-if argc > 2, setting2 = arg_list{3}; end
-if argc > 3, setting3 = arg_list{4}; end
+if argc > 1,
+  setting = arg_list{2};
+  if exist(setting,"file")==0,
+    disp("File does not exist.");
+    return;
+  end
+end
+if argc > 2,
+  setting2 = arg_list{3};
+  if exist(setting2,"file")==0,
+    disp("File does not exist.");
+    return;
+  end
+end
+if argc > 3,
+   setting3 = arg_list{4};
+  if exist(setting3,"file")==0,
+    disp("File does not exist.");
+    return;
+  end
+end
 
 # Read data from file
 swrc = load ("-ascii",filename);
@@ -51,8 +74,8 @@ adv=0; # adv=1; advanced output; adv=0; normal output;
 
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
-figure="fig.png"; # Filename of the figure of unimodal models.
-figure2="fig2.png"; # Filename of the figure of bimodal models.
+figure="swrc.png"; # Filename of the figure of unimodal models.
+figure2="bimodal.png"; # Filename of the figure of bimodal models.
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 
 smooth=300; # Smoothness of the fitted line
@@ -79,6 +102,11 @@ mcol="b"; # Marker face color for measured plot
 BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
 DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 linewidth=1.5; # Line width of fitting curves
+
+# Read setting files
+rcfile = [getenv("HOME") "/.swrcfitrc"];
+if exist(rcfile, "file"), source(rcfile) end
+if exist("setting.txt", "file"), source ("setting.txt") end
 
 if (argc > 1), source (setting) end
 if (argc > 2), source (setting2) end
@@ -471,7 +499,7 @@ if fig==1,
 
   drawnow;
 
-  if (figure),
+  if (figure2),
     if (figsize == 1),
       print (figure2, "-S320,240");
     elseif (figsize == 2),
