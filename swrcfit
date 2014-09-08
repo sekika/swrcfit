@@ -50,11 +50,13 @@ showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 figure="fig.png"; # Filename of the figure of unimodal models.
 figure2="fig2.png"; # Filename of the figure of bimodal models.
 figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
-fontsize=16; # Font size
 
 smooth=300; # Smoothness of the fitted line
-
+showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
+
+# Text
+fontsize=16; # Font size
 showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
 xlab="Suction"; # X label
 ylab="Volumetric water content"; # Y labe
@@ -64,7 +66,6 @@ VGlab="van Genuchten (1980)"; # legend for VG model
 LNlab="Kosugi (1996)"; # legend for LN model
 DBlab="Durner (1994)"; # legend for DB model
 BLlab="Seki (2007)"; # legend for BL model
-showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 
 # Format arguments of plots
 # See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
