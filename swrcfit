@@ -45,15 +45,31 @@ pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 
 # Setting of plot (experimental)
-fig=0; # fig=0; no figure. fig=1; output fig.png
+fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
+showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
+showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
+xlab="Suction"; # X label
+ylab="Volumetric water content"; # Y labe
+Mlab="Measured"; # legend for measured data
+BClab="Brooks and Corey (1964)"; # legend for BC model
+VGlab="van Genuchten (1980)"; # legend for VG model
+LNlab="Kosugi (1996)"; # legend for LN model
+Mpl="bo"; # Format arguments for measured plot. See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
+msize=5; # Marker size for measured plot
+mcol="b"; # Marker face color for measured plot
+BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
+linewidth=1.5; # Line width of fitting curves
+showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
+figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
+fontsize=16; # Font size
+smooth=300; # Smoothness of the fitted line
 figure="fig.png"; # Filename of the figure.
-figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 64
 
 if (argc > 1), source (setting) end
 
 ######################### Unimodal model #####################
-if (mode - 2 ~= 0),
+if (mode ~= 2),
 
 # Set initial values
 qs=qsin; qr=qrin;
@@ -168,42 +184,52 @@ end
 
 if fig==1,
 
-set (0, "defaultfigurevisible", "off");
-set (0, "defaultaxesposition", [0.15, 0.17, 0.78, 0.78]);
-minx=min(x);, if minx==0, minx=x(2);, end
-if (ax==0 && max(x)/minx < 100 || ax==1)
-  x2=(linspace(0,max(x)*1.1,100))';
-  BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
-  plot (x,y,'rx',x2,BC,'b',x2,VG,'r',x2,LN,'g-')
-  if (figsize == 1),
-    legend ('measured',"BC model","VG model","LN model")
-  else
-    legend ('measured','Brooks and Corey (1964)','van Genuchten (1980)','Kosugi (1996)')
+  if (showfig == 0),
+    set (0, "defaultfigurevisible", "off");
   end
-  axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
-else
-  minx=10^(floor(log10(minx)));
-  x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),100)))';
-  BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
-  # semilogx (x,y,"*",x2,BC,";Brooks and Corey (1964);",x2,VG,";van Genuchten (1980);",x2,LN,";Kosugi (1996);")
-  semilogx (x,y,'rx',x2,BC,'b',x2,VG,'r',x2,LN,'g-')
-  legend ('measured','Brooks and Corey (1964)','van Genuchten (1980)','Kosugi (1996)')
-  axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
-end
+  minx=min(x);, if minx==0, minx=x(2);, end
 
-xlabel ("Suction")
-ylabel ("Volumetric Water Content")
-drawnow;
-if (figsize == 1),
-  print (figure, "-S320,240");
-elseif (figsize == 2),
-  print (figure, "-S480,360");
-else
-  print (figure, "-S640,480");
-endif
+  if (ax==0 && max(x)/minx < 100 || ax==1)
+    x2=(linspace(0,max(x)*1.1,smooth))';
+    BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,BC,BCpl,"linewidth",linewidth,x2,VG,VGpl,"linewidth",linewidth,x2,LN,LNpl,"linewidth",linewidth)
+    axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
+  else
+    minx=10^(floor(log10(minx)));
+    x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)))';
+    BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,x2,BC,BCpl,"linewidth",linewidth,x2,VG,VGpl,"linewidth",linewidth,x2,LN,LNpl,"linewidth",linewidth)
+    axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
+  end
 
-disp ("Hit return key to finish.")
-pause()
+  h = legend (Mlab,BClab,VGlab,LNlab)
+  set (h, "fontsize", fontsize)
+
+  if (showlabel),
+    xlabel (xlab,"fontsize",fontsize)
+    ylabel (ylab,"fontsize",fontsize)
+  end
+
+  set(gca,'fontsize',fontsize)
+
+  if (showgrid), grid; end
+
+  drawnow;
+
+  if (figure),
+    if (figsize == 1),
+      print (figure, "-S320,240");
+    elseif (figsize == 2),
+      print (figure, "-S480,360");
+    else
+      print (figure, "-S640,480");
+    end
+  end
+
+  if (showfig),
+    disp ("Hit return key to finish.")
+    pause()
+  end
 
 end
 
