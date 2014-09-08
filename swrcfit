@@ -64,7 +64,6 @@ VGlab="van Genuchten (1980)"; # legend for VG model
 LNlab="Kosugi (1996)"; # legend for LN model
 DBlab="Durner (1994)"; # legend for DB model
 BLlab="Seki (2007)"; # legend for BL model
-linewidth=1.5; # Line width of fitting curves
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 
 # Format arguments of plots
@@ -74,6 +73,7 @@ msize=5; # Marker size for measured plot
 mcol="b"; # Marker face color for measured plot
 BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
 DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
+linewidth=1.5; # Line width of fitting curves
 
 if (argc > 1), source (setting) end
 
