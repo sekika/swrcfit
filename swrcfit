@@ -45,6 +45,8 @@ pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 
 # Setting of plot (experimental)
+# See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 figure="fig.png"; # Filename of the figure of unimodal models.
