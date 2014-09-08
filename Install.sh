@@ -60,7 +60,7 @@ fi
 # Install octave forge packages
 
 echo "=== Installing packages (pkg install -forge struct optim)"
-# $octave -q --eval "pkg install -forge struct optim"
+$octave -q --eval "pkg install -forge struct optim"
 $installfilename swrc.txt > test.txt
 result=`diff result.txt test.txt`
 if [ "$result" = "" ]; then
