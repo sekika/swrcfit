@@ -61,7 +61,7 @@ ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
 fontsize=16; # Font size
 showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
 xlab="Suction"; # X label
-ylab="Volumetric water content"; # Y labe
+ylab="Volumetric water content"; # Y label
 Mlab="Measured"; # legend for measured data
 BClab="Brooks and Corey (1964)"; # legend for BC model
 VGlab="van Genuchten (1980)"; # legend for VG model
