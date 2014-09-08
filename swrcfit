@@ -305,11 +305,13 @@ pin=[qsin tr(i) w1(i) 1/alpha1(i) n1(i) 1/alpha2(i) n2(i)];
 # Calculate
 function ret=DB(x,p)
   n1=mod(abs(p(5)),49)+1; n2=mod(abs(p(7)),49)+1; w1=mod(p(3),1);
-  ret = p(2)+(p(1)-p(2)).*(w1.*(1+(x./abs(p(4))).^n1).^(1/n1-1) + (1-w1).*(1+(x./abs(p(6))).^n2).^(1/n2-1));
+  ret = p(2)+(p(1)-p(2)).*(w1.*(1+(x./abs(p(4))).^n1).^(1/n1-1) ...
+      + (1-w1).*(1+(x./abs(p(6))).^n2).^(1/n2-1));
 endfunction
 function ret=DB2(x,p)
   n1=mod(abs(p(5)),49)+1; n2=mod(abs(p(7)),49)+1; w1=mod(p(3),1);
-  ret = abs(p(2))+(p(1)-abs(p(2))).*(w1.*(1+(x./abs(p(4))).^n1).^(1/n1-1) + (1-w1).*(1+(x./abs(p(6))).^n2).^(1/n2-1));
+  ret = abs(p(2))+(p(1)-abs(p(2))).*(w1.*(1+(x./abs(p(4))).^n1).^(1/n1-1) ...
+      + (1-w1).*(1+(x./abs(p(6))).^n2).^(1/n2-1));
 endfunction
 stol=8; R2b=0;
 dp=[0 0.001*cqr 0.001 0 0.01 0 0.01];
