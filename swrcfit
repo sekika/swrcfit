@@ -21,6 +21,8 @@ filename = arg_list{1};
 
 setting = "";
 if argc > 1, setting = arg_list{2}; end
+if argc > 2, setting2 = arg_list{3}; end
+if argc > 3, setting3 = arg_list{4}; end
 
 # Read data from file
 swrc = load ("-ascii",filename);
@@ -79,6 +81,8 @@ DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 linewidth=1.5; # Line width of fitting curves
 
 if (argc > 1), source (setting) end
+if (argc > 2), source (setting2) end
+if (argc > 3), source (setting3) end
 
 ######################### Unimodal model #####################
 if (mode ~= 2),
@@ -361,7 +365,8 @@ disp ("=== BL model ===");
 qs=p(1); qr=p(2);
 i=1;
 while (i<3)
-v=[-1:0.2:4]'; xx=10.^v; m=1-1/n(i); yy=(1.+(alpha(i).*xx).^n(i)).^(-m);
+v=[-1:0.2:4]'; # ' is transpose
+xx=10.^v; m=1-1/n(i); yy=(1.+(alpha(i).*xx).^n(i)).^(-m);
 sigma=(n(i)-1)^(-2/3);
 pin=[1 0 1/alpha(i) sigma];
 wt3=ones(length(xx),1);
@@ -381,11 +386,14 @@ pin=[qs, qr, w1, hm(1), sigma(1), hm(2), sigma(2)];
 # Calculate
 function ret=BL(x,p)
   sigma1=mod(abs(p(5)),50)+0.05; sigma2=mod(abs(p(7)),50)+0.05; w1=mod(p(3),1);
-  ret = p(2)+(p(1)-p(2)).*(w1.*(1-normcdf((log(x./abs(p(4)))./sigma1))) + (1-w1).*(1-normcdf((log(x./abs(p(6)))./sigma2))));
+  ret = p(2)+(p(1)-p(2)).*(w1.*(1-normcdf((log(x./abs(p(4)))./sigma1))) ...
+      + (1-w1).*(1-normcdf((log(x./abs(p(6)))./sigma2))));
 endfunction
 function ret=BL2(x,p)
   sigma1=mod(abs(p(5)),50)+0.05; sigma2=mod(abs(p(7)),50)+0.05; w1=mod(p(3),1);
-  ret = abs(p(2))+(p(1)-abs(p(2))).*(w1.*(1-normcdf((log(x./abs(p(4)))./sigma1))) + (1-w1).*(1-normcdf((log(x./abs(p(6)))./sigma2))));
+  ret = abs(p(2))+(p(1)-abs(p(2))) ...
+      .*(w1.*(1-normcdf((log(x./abs(p(4)))./sigma1))) ...
+      + (1-w1).*(1-normcdf((log(x./abs(p(6)))./sigma2))));
 endfunction
 stol=8; R2b=0;
 dp=[0.000001*cqs 0.05*cqr 0.0001 0.001 0.001 0.001 0.001];
