@@ -53,7 +53,7 @@ figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 
 smooth=300; # Smoothness of the fitted line
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
-ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
+ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
 
 # Text
 fontsize=16; # Font size
