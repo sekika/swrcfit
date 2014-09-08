@@ -34,6 +34,7 @@ This file is written with markdown and can be viewed online here: https://github
 - [Checking the result](#checking-the-result)
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
 - [Citation of this work](#citation-of-this-work)
+- [Question](#question)
 - [Reference](#reference)
 
 ## Distributed package
@@ -256,6 +257,9 @@ Please cite this paper when you publish your work using SWRC Fit.
 * Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib) and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris) files are also available.
+
+## Question
+[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion) you can find a list of questions and answers about swrcfit. You can submit your own question by getting the accout of GitHub and pressing the green "New Issue" button. Please select the label of "question". It is preferable to send your question publicly this way, because other people having the same question can find answer on the web. However, if your question is confidential, please contact me by email. Tou can find my email address in [this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
 
 ## Reference
 
