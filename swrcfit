@@ -67,7 +67,8 @@ showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 fontsize=16; # Font size
 smooth=300; # Smoothness of the fitted line
-figure="fig.png"; # Filename of the figure.
+figure="fig.png"; # Filename of the figure of unimodal models.
+figure2="fig2.png"; # Filename of the figure of bimodal models.
 
 if (argc > 1), source (setting) end
 
@@ -428,7 +429,7 @@ if fig==1,
     axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
   end
 
-  h = legend (Mlab,DBlab,BLlab)
+  h = legend (Mlab,DBlab,BLlab);
   set (h, "fontsize", fontsize)
 
   if (showlabel),
@@ -444,11 +445,11 @@ if fig==1,
 
   if (figure),
     if (figsize == 1),
-      print (figure, "-S320,240");
+      print (figure2, "-S320,240");
     elseif (figsize == 2),
-      print (figure, "-S480,360");
+      print (figure2, "-S480,360");
     else
-      print (figure, "-S640,480");
+      print (figure2, "-S640,480");
     end
   end
 
