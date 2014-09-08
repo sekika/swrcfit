@@ -47,6 +47,13 @@ adv=0; # adv=1; advanced output; adv=0; normal output;
 # Setting of plot (experimental)
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
+figure="fig.png"; # Filename of the figure of unimodal models.
+figure2="fig2.png"; # Filename of the figure of bimodal models.
+figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
+fontsize=16; # Font size
+
+smooth=300; # Smoothness of the fitted line
+
 ax=0; # Type of axis. ax=0; automatic, ax=1; normal, ax=2; log
 showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
 xlab="Suction"; # X label
@@ -57,18 +64,16 @@ VGlab="van Genuchten (1980)"; # legend for VG model
 LNlab="Kosugi (1996)"; # legend for LN model
 DBlab="Durner (1994)"; # legend for DB model
 BLlab="Seki (2007)"; # legend for BL model
-Mpl="bo"; # Format arguments for measured plot. See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
+linewidth=1.5; # Line width of fitting curves
+showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
+
+# Format arguments of plots
+# See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
+Mpl="bo"; # Format arguments for measured plot.
 msize=5; # Marker size for measured plot
 mcol="b"; # Marker face color for measured plot
 BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
 DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
-linewidth=1.5; # Line width of fitting curves
-showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
-figsize=3; # Figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
-fontsize=16; # Font size
-smooth=300; # Smoothness of the fitted line
-figure="fig.png"; # Filename of the figure of unimodal models.
-figure2="fig2.png"; # Filename of the figure of bimodal models.
 
 if (argc > 1), source (setting) end
 
