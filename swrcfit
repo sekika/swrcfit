@@ -184,9 +184,7 @@ end
 
 if fig==1,
 
-  if (showfig == 0),
-    set (0, "defaultfigurevisible", "off");
-  end
+  if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
   minx=min(x);, if minx==0, minx=x(2);, end
 
   if (ax==0 && max(x)/minx < 100 || ax==1)
