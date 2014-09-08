@@ -200,6 +200,9 @@ else
   print (figure, "-S640,480");
 endif
 
+disp ("Hit return key to finish.")
+pause()
+
 end
 
 end
