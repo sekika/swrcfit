@@ -68,6 +68,7 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
+simple=0; # simple=1; simple output, simple=0; normal output
 
 # Setting of plot (experimental)
 # See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
@@ -128,7 +129,7 @@ if lambda < 0.1, lambda=0.1;, end
 if lambda > 10, lambda=10;, end
 
 # Brooks and Corey Model
-disp ("=== BC model ===");
+if simple==0, disp ("=== BC model ==="); end
 x2 = x .+ (x == 0) .* 0.001;
 function ret=BC(x,p)
   ret = (x > p(3)) .* (p(2)+(p(1)-p(2)).*(x./p(3)).^(-p(4))) + (x <= p(3)) .* p(1);
@@ -151,14 +152,23 @@ while ( stol >= 0.00001 )
 endwhile
 BCp=p;
 if pqr==1, p(2)=abs(p(2));, end
-qs=p(1), qr=p(2), hb=p(3), lambda=p(4), R2
+
+if simple,
+  disp(p(1)); disp(p(2)); disp(p(3)); disp(p(4)); disp(R2);
+else
+  qs=p(1), qr=p(2), hb=p(3), lambda=p(4), R2
+end
 if adv==1,
-  CorrelationMatrix = corp
-  StandardDeviation = sqrt(diag(covp))
+  if simple,
+    disp(corp); disp(sqrt(diag(covp)));
+  else
+    CorrelationMatrix = corp
+    StandardDeviation = sqrt(diag(covp))
+  end
 end
 
 # van Genuchten Model
-disp ("=== VG model ===");
+if simple==0, disp ("=== VG model ==="); end
 function ret=VG(x,p)
   n=abs(p(4))+1;
   ret = p(2)+(p(1)-p(2)).*(1+(abs(p(3)).*x).^n).^(1/n-1);
@@ -186,14 +196,23 @@ while ( stol >= 0.00001 )
 endwhile
 VGp=p;
 if pqr==1, p(2)=abs(p(2));, end
-qs=p(1), qr=p(2), alpha=abs(p(3)), n=abs(p(4))+1, R2
+if simple,
+  alpha=abs(p(3)); n=abs(p(4))+1;
+  disp(p(1)); disp(p(2)); disp(alpha); disp(n); disp(R2);
+else
+  qs=p(1), qr=p(2), alpha=abs(p(3)), n=abs(p(4))+1, R2
+end
 if adv==1,
-  CorrelationMatrix = corp
-  StandardDeviation = sqrt(diag(covp))
+  if simple,
+    disp(corp); disp(sqrt(diag(covp)));
+  else
+    CorrelationMatrix = corp
+    StandardDeviation = sqrt(diag(covp))
+  end
 end
 
 # Lognormal Pore-Size Distribution Model of Kosugi
-disp ("=== LN model ===");
+if simple==0, disp ("=== LN model ==="); end
 function ret=LN(x,p)
   ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/abs(p(3))))./abs(p(4))));
 endfunction
@@ -218,10 +237,19 @@ while ( stol >= 0.00001 )
 endwhile
 LNp=p;
 if pqr==1, p(2)=abs(p(2));, end
-qs=p(1), qr=p(2), hm=abs(p(3)), sigma=abs(p(4)), R2
+
+if simple,
+  disp(p(1)); disp(p(2)); disp(abs(p(3))); disp(abs(p(4))); disp(R2);
+else
+  qs=p(1), qr=p(2), hm=abs(p(3)), sigma=abs(p(4)), R2
+end
 if adv==1,
-  CorrelationMatrix = corp
-  StandardDeviation = sqrt(diag(covp))
+  if simple,
+    disp(corp); disp(sqrt(diag(covp)));
+  else
+    CorrelationMatrix = corp
+    StandardDeviation = sqrt(diag(covp))
+  end
 end
 
 # Draw graph
@@ -290,7 +318,11 @@ if (mode > 1),
 if i < 8, disp("Too few points for bimodal analysis."), exit, end
 
 # Bimodal model of Durner
-disp ("=== DB model ===");
+if simple==0, disp ("=== DB model ==="); end
+
+oldpager = PAGER('/dev/null'); # Supress output
+oldpso = page_screen_output(0);
+oldpoi = page_output_immediately(0);
 
 i = 3;
 while (i < length(x)-1)
@@ -367,29 +399,43 @@ if abs(p(4)) > abs(p(6))
 end
 w1 = mod(p(3),1);
 if pqr==1, p(2)=abs(p(2));, end
+
+PAGER(oldpager); # Restore output
+page_screen_output(oldpso);
+page_output_immediately(oldpoi);
+
 if (w1 > 0.01) * (w1 < 0.99)
-  qs = p(1)
-  qr = p(2)
-  w1
+  qs = p(1);
+  qr = p(2);
+  w1;
   alpha(1) = 1/abs(p(4));
-  alpha1=alpha(1)
+  alpha1=alpha(1);
   n(1) = mod(abs(p(5)),49)+1;
-  n1=n(1)
- alpha(2) = 1/abs(p(6));
- alpha2=alpha(2)
- n(2) = mod(abs(p(7)),49)+1;
- n2=n(2)
-  R2
+  n1=n(1);
+  alpha(2) = 1/abs(p(6));
+  alpha2=alpha(2);
+  n(2) = mod(abs(p(7)),49)+1;
+  n2=n(2);
+  if simple,
+    disp(qs); disp(qr); disp(w1); disp(alpha1); disp(n1);
+    disp(alpha2); disp(n2); disp(R2);
+  else
+    qs, qr, w1, alpha1, n1, alpha2, n2, R2
+  end
   if adv==1,
-    CorrelationMatrix = corp
-    StandardDeviation = sqrt(diag(covp))
+    if simple,
+      disp(corp); disp(sqrt(diag(covp)));
+    else
+      CorrelationMatrix = corp
+      StandardDeviation = sqrt(diag(covp))
+    end
   end
 else
   disp ("Not bimodal");
 end
 
 # Bimodal Lognormal model
-disp ("=== BL model ===");
+if simple==0, disp ("=== BL model ==="); end
 
 # Initial condition
 qs=p(1); qr=p(2);
@@ -445,17 +491,26 @@ end
 w1 = mod(p(3),1);
 if pqr==1, p(2)=abs(p(2));, end
 if (w1 > 0.01) * (w1 < 0.99) +1
-  qs = p(1)
-  qr = p(2)
-  w1
-  hm1 = abs(p(4))
-  sigma1 = mod(abs(p(5)),50)+0.05
-  hm2 = abs(p(6))
-  sigma2 = mod(abs(p(7)),50)+0.05
-  R2
+  qs = p(1);
+  qr = p(2);
+  hm1 = abs(p(4));
+  sigma1 = mod(abs(p(5)),50)+0.05;
+  hm2 = abs(p(6));
+  sigma2 = mod(abs(p(7)),50)+0.05;
+
+  if simple,
+    disp(qs); disp(qr); disp(w1); disp(hm1); disp(sigma1); 
+    disp(hm2); disp(sigma2); disp(R2);
+  else
+    qs, qr, w1, hm1, sigma1, hm2, sigma2, R2
+  end
   if adv==1,
-    CorrelationMatrix = corp
-    StandardDeviation = sqrt(diag(covp))
+    if simple,
+      disp(corp); disp(sqrt(diag(covp)));
+    else
+      CorrelationMatrix = corp
+      StandardDeviation = sqrt(diag(covp))
+    end
   end
 else
   disp ("Not bimodal");
