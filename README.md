@@ -250,6 +250,8 @@ Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net
 
 Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/swrc/)
 
+For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
+
 ## Citation of this work
 
 Please cite this paper when you publish your work using SWRC Fit.
