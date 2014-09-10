@@ -246,11 +246,11 @@ Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net
 
    In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R<sup>2</sup> values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R<sup>2</sup> values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
 
+For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
+
 ![Fig. 3](./fig3.png)
 
 Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/swrc/)
-
-For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
 
 ## Citation of this work
 
