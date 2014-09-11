@@ -56,10 +56,10 @@ This file is written with markdown and the latest verstion can be viewed online 
 ## Quick installation guide
 
 ### Windows
-Install [cygwin](https://www.cygwin.com/) with packages of octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest package)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. Check if it is installed with `swrcfit swrc.txt`.
+Install [cygwin](https://www.cygwin.com/) with packages of octave, gnuplot and wget. Run cygwin and in the cygwin terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. Check if it is installed with `swrcfit swrc.txt`.
 
 ## Linux and Mac OS X
-Install octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest package)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. Check if it is installed by `swrcfit swrc.txt`.
+Install octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. Check if it is installed by `swrcfit swrc.txt`.
 
 ## Installation of GNU Octave and required package
 
