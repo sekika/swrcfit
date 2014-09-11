@@ -3,7 +3,7 @@
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-  version = "swrcfit version 2.0-beta.1";
+  version = "swrcfit version 2.0-beta.2";
 #
 # usage: swrcfit [-v] DataFilename [SettingFilename]
 
