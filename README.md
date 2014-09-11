@@ -19,9 +19,11 @@ Basic information of this program is summarized:
 * Web interface: http://seki.webmasters.gr.jp/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 1.3
+* Version of this distribution: 2.0-beta.1
 
-This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
+This is a beta release of version 2.0. Please referrer to [New features in version 2.0](#new-features-in-version-20). If you are using older version and want to get the latest beta release, please download it from https://github.com/sekika/swrcfit/releases.
+
+This file is written with markdown and the latest verstion can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
 ## Contents
 
@@ -153,6 +155,33 @@ qrin=0.05; cqr=0;
 
    The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
 
+### New features in version 2.0
+
+   From version 2.0, new features are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
+   
+   The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+   
+   The second feature is the option of simple output. It is controlled with the option of
+```
+simple=0; # simple=1; simple output, simple=0; normal output
+```
+when simple=1 is set, the output is only numbers, without showing variable names. It is therefore easy to call swrcfit from other program and get the result to parameters.
+
+   The third feature is that swrcfit reads default setting files and multiple setting files can also be specified. It reads setting files in the order of
+   
+1. $HOME/.swrcfitrc
+2. ./setting.txt
+3. 1st setting file specified with command line
+4. 2nd setting file specified with command line
+5. 3rd setting file specified with command line
+
+The latter overwrites formers. You can write your preference in $HOME/.swrcfitrc, and preference for special set of data files in a directory in setting.txt, and these setting will be read without specifying at command line parameters. You can specify up to 3 other setting files in command line, so the usage is now
+
+```
+swrcfit DataFilename [SettingFile] [SettingFile] [SettingFile]
+```
+For example, you can prepare a setting file pf `mode=2` in the file name of `bimodal.txt`, and invoke the swrcfit specifying the `bimodal.txt`. This way, you can select bimodal model only when you want to, without rewriting setting file each time.
+
 ## Running the program
 
 In Unix-like system, the program is executed as
@@ -225,7 +254,7 @@ alpha =  0.021547
 ```
 
    The order of the element is the same as the result display; in the order of qs, qr, hb and lambda. The above example is the case where q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either or both of the parameters are set as constant, correlation matrix and standard deviation are shown only for the parameters set as a variable.
-
+   
 ## Checking the result
 
    Using the Microsoft Excel worksheet, `swrc.xls`, the fitted curves can be checked (**Fig. 1**). By copying and pasting the result of the program output onto the yellow part and the measured data onto the blue part of the spreadsheet, The fitted curves are drawn in the graph of the same spreadsheet.  
@@ -238,13 +267,15 @@ Fig. 1 Spreadsheet for checking the result
 
    The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written in the program language perl and works as a cgi program. The perl program invokes GNU octave and executes the calculation engine of swrcfit.
 
-   The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as explained above, is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of q[r]=0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
+   The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as [explained above](#preparation-of-data-file), is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of &theta;<sub>r</sub> = 0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
 
 ![Fig. 2](./fig2.png)
 
 Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
 
    In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R<sup>2</sup> values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R<sup>2</sup> values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
+
+For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
 
 ![Fig. 3](./fig3.png)
 
