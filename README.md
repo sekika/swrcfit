@@ -81,10 +81,10 @@ In case the installation of package with this command fails, download these file
 
 ## Installation of this program
 
-### Windows
+### Windows (without cygwin)
 Copy `swrcfit` to the same directory where octave is installed, for example, `C:\Software\Octave-3.6.4\bin`.
 
-### Mac, Linux and other Unix-like system
+### Mac, Linux, Windows with cygwin, and other Unix-like system
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
