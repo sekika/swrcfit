@@ -52,6 +52,14 @@ This file is written with markdown and the latest verstion can be viewed online 
 9. ChangeLog ... Version history
 10. COPYING ... GNU General Public License
 
+## Quick installation guide
+
+### Windows
+Install [cygwin](https://www.cygwin.com/) with packages of octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest package)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package`, and `./Install.sh`. Check if it is installed with `swrcfit swrc.txt`.
+
+## Linux and Mac OS X
+Install octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest package)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package`, and `sudo ./Install.sh`. Check if it is installed by `swrcfit swrc.txt`.
+
 ## Installation of GNU Octave and required package
 
    SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
