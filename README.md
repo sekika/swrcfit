@@ -64,6 +64,8 @@ Install octave, gnuplot and wget. Download the [latest release of swrcfit](https
 
 ## More information on installation
 
+First of all, if you are using Windows, install cygwin. It can be installed without cygwin, but it is tedius and not documented here.
+
    SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
 After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`.
@@ -80,10 +82,6 @@ In case the installation of package with this command fails, download these file
 
 After octave and necesssary package are installed, install swrcfit as follows.
 
-### Windows (without cygwin)
-Copy `swrcfit` to the same directory where octave is installed, for example, `C:\Software\Octave-3.6.4\bin`.
-
-### Mac, Linux, Windows with cygwin, and other Unix-like system
 * Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
 * Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
 
@@ -201,14 +199,6 @@ swrcfit DataFilename [SettingFilename]
 ```
 
 where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output. The blanket [ ] indicates that it is not required.
-
-In Windows, the program is executed from command prompt as
-
-```
-octave swrcfit DataFileName [SettingFileName]
-```
-
-where full path name of octave, DataFileName and SettingFileName should be specified. If Octave is installed in, for example, C:\Software\Octave-3.6.4\bin, you can put all the files, swrcfit, data file, and setting file, in the same directory, and run in the command prompt `C:; cd C:\Software\Octave-3.6.4\bin` to get in the directory, and then you can just type `octave swrcfit DataFileName [SettingFileName]`. Another way is to set path to the directory where octave and swrcfit are installed. Then you can set data file and setting file to separate directory and run swrcfit in the data directory.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
 
