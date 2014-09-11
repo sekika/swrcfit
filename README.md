@@ -19,7 +19,7 @@ Basic information of this program is summarized:
 * Web interface: http://seki.webmasters.gr.jp/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 1.3
+* Version of this distribution: 2.0-beta.1
 
 This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
@@ -225,6 +225,8 @@ alpha =  0.021547
 ```
 
    The order of the element is the same as the result display; in the order of qs, qr, hb and lambda. The above example is the case where q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either or both of the parameters are set as constant, correlation matrix and standard deviation are shown only for the parameters set as a variable.
+   
+   From version 2.0, new options are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
 
 ## Checking the result
 
