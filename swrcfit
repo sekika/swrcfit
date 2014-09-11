@@ -3,9 +3,10 @@
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-# Version: 1.3
+  version = "swrcfit version 2.0-beta.1";
 #
 # Usage: swrcfit DataFilename [SettingFilename]
+# swrcfit -v to show version
 
 # Read commandline parameters
 
@@ -18,6 +19,11 @@ end
 
 arg_list = argv ();
 filename = arg_list{1};
+
+if strcmp (filename, "-v")
+  disp(version);
+  return;
+end
 
 if exist(filename,"file")==0,
   disp("File does not exist.");
