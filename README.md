@@ -21,7 +21,9 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 2.0-beta.1
 
-This file is written with markdown and can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
+This is a beta release of version 2.0. Please referrer to [New features in version 2.0](#new-features-in-version-2.0). If you are using older version and want to get the latest beta release, please download it from https://github.com/sekika/swrcfit/releases.
+
+This file is written with markdown and the latest verstion can be viewed online here: https://github.com/sekika/swrcfit/blob/master/README.md
 
 ## Contents
 
