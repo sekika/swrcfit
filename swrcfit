@@ -1,9 +1,9 @@
-#!/usr//bin/octave -qf
+#!/usr/bin/octave -qf
 # swrcfit - Soil Water Retention Curve Fit
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-  version = "swrcfit version 2.0-beta.2";
+  version = "swrcfit version 2.0-beta.3";
 #
 # usage: swrcfit [-v] DataFilename [SettingFilename]
 

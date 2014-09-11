@@ -1,6 +1,6 @@
 SWRC Fit Version History
 
-Version 2.0-beta.1 (2014-09-11)
+Version 2.0-beta.3 (2014-09-11)
   - New feature to draw graphs of the result
   - Simple output mode
   - Read default setting at $HOME/.swrcfitrc and ./setting.txt
