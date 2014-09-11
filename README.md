@@ -55,7 +55,11 @@ This file is written with markdown and the latest verstion can be viewed online 
 ## Quick installation guide
 
 ### Windows
-Install [cygwin](https://www.cygwin.com/), [choosing packages](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) of `octave`, `gnuplot` and `wget`. Run cygwin and in the cygwin terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. Check if swrcfit is properly installed with `swrcfit swrc.txt`.
+1. Install [cygwin](https://www.cygwin.com/)
+2. While installing cygwin, [choose cygwin packages](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) of `octave`, `gnuplot` and `wget`.
+3. Run cygwin
+4. In the cygwin terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. You can run this step by `wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt`.
+5. Check if swrcfit is properly installed with `swrcfit swrc.txt`.
 
 If you want to see figure on the screen, you have to [set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
 
