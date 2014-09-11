@@ -152,7 +152,9 @@ qrin=0.05; cqr=0;
    To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to be changed to pqr=0.
 
    The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
-   
+
+### New features in version 2.0
+
    From version 2.0, new features are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
    
    The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
