@@ -1,5 +1,12 @@
 SWRC Fit Version History
 
+Version 2.0-beta.1 (2014-09-11)
+  - New feature to draw graphs of the result
+  - Simple output mode
+  - Read default setting at $HOME/.swrcfitrc and ./setting.txt
+  - Up to 3 setting files from command line parameter
+  - Show version with -v option
+
 Version 1.3 (2014-09-07)
   - swrc.m and bimodal.m were combined to swrcfit, and unimodal
     and bimodal calculation is to be selected from setting.
