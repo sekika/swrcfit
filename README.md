@@ -19,7 +19,7 @@ Basic information of this program is summarized:
 * Web interface: http://seki.webmasters.gr.jp/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0-beta.3
+* Version of this distribution: 2.0-beta.4
 
 This is a beta release of version 2.0. Please refer to [New features in version 2.0](#new-features-in-version-20). If you are using older version and want to get the latest beta release, please download it from https://github.com/sekika/swrcfit/releases. From version 2.0, you can check installed version by `swrcfit -v`. If your swrcfit is older, error message of `File does not exist.` is shown.
 
