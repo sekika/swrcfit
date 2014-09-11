@@ -58,6 +58,8 @@ This file is written with markdown and the latest verstion can be viewed online 
 ### Windows
 Install [cygwin](https://www.cygwin.com/) with packages of octave, gnuplot and wget. Run cygwin and in the cygwin terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. Check if it is installed with `swrcfit swrc.txt`.
 
+If you want to see figure on the screen, you have to [set up X server](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
+
 ## Linux and Mac OS X
 Install octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. Check if it is installed by `swrcfit swrc.txt`.
 
