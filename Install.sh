@@ -89,14 +89,14 @@ else
 fi
 
 package="http://sourceforge.net/p/octave/optim/ci/default/tree/inst/"
-echo -n "Downloading " 
+echo "Downloading \c" 
 
 for i in leasqr.m dfdp.m cpiv_bard.m; do
-  echo -n $i"... "
+  echo $i"... \c"
   wget -q -O $loadpath/$i "$package""$i""?format=raw"
 done
 for i in __dfdp__.m __lm_svd__.m __plot_cmds__.m __do_user_interaction__.m; do
-  echo -n $i"... "
+  echo $i"... \c"
   wget -q -O $loadpath/$i "$package"private/"$i""?format=raw"
 done
 echo "finished."
