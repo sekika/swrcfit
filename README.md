@@ -29,8 +29,7 @@ This file is written with markdown and the latest verstion can be viewed online 
 
 - [Distributed package](#distributed-package)
 - [Quick installation guide](#quick-installation-guide)
-- [Installation of GNU Octave and required package](#installation-of-gnu-octave-and-required-package)
-- [Installation of this program](#installation-of-this-program)
+- [More information on installation](#mode-information-on-installation)
 - [Preparation of data file](#preparation-of-data-file)
 - [Preparation of setting file](#preparation-of-setting-file)
 - [Running the program](#running-the-program)
@@ -60,10 +59,10 @@ Install [cygwin](https://www.cygwin.com/) with packages of octave, gnuplot and w
 
 If you want to see figure on the screen, you have to [set up X server](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
 
-## Linux and Mac OS X
+### Linux and Mac OS X
 Install octave, gnuplot and wget. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. Check if it is installed by `swrcfit swrc.txt`.
 
-## Installation of GNU Octave and required package
+## More informarmation on installation
 
    SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
@@ -79,7 +78,7 @@ In case the installation of package with this command fails, download these file
 * [\__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
 * [\__do_user_interaction__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__do_user_interaction__.m)
 
-## Installation of this program
+After octave and necesssary package are installed, install swrcfit as follows.
 
 ### Windows (without cygwin)
 Copy `swrcfit` to the same directory where octave is installed, for example, `C:\Software\Octave-3.6.4\bin`.
