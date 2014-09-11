@@ -5,14 +5,13 @@
 # Licence: GNU Public License
   version = "swrcfit version 2.0-beta.1";
 #
-# Usage: swrcfit DataFilename [SettingFilename]
-# swrcfit -v to show version
+# usage: swrcfit [-v] DataFilename [SettingFilename]
 
 # Read commandline parameters
 
 argc = length (argv);
 if argc == 0,
-  disp ("Usage: swrcfit DataFilename [SettingFilename]");
+  disp ("usage: swrcfit [-v] DataFilename [SettingFilename]");
   disp ("See https://github.com/sekika/swrcfit/blob/master/README.md");
   return;
 end
