@@ -64,7 +64,7 @@ Install octave, gnuplot and wget. Download the [latest release of swrcfit](https
 
 ## More information on installation
 
-First of all, if you are using Windows, install cygwin. It can be installed without cygwin, but it is tedius and not documented here.
+First of all, if you are using Windows, install cygwin. It can be installed without cygwin, but it requires special skill and not documented here.
 
    SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. It works on various operating systems including Windows, Mac OS X, Linux and OS/2.
 
