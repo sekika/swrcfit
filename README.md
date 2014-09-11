@@ -157,8 +157,26 @@ qrin=0.05; cqr=0;
    
    The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
    
-   The second feature is the option of simple output.
+   The second feature is the option of simple output. It is controlled with the option of
+```
+simple=0; # simple=1; simple output, simple=0; normal output
+```
+when simple=1 is set, the output is only numbers, without showing variable names. It is therefore easy to call swrcfit from other program and get the result to parameters.
 
+   The third feature is that swrcfit reads default setting files and multiple setting files can also be specified. It reads setting files in the order of
+   
+1. $HOME/.swrcfitrc
+2. ./setting.txt
+3. 1st setting file specified with command line
+4. 2nd setting file specified with command line
+5. 3rd setting file specified with command line
+
+The latter overwrites formers. You can write your preference in $HOME/.swrcfitrc, and preference for special set of data files in a directory in setting.txt, and these setting will be read without specifying at command line parameters. You can specify up to 3 other setting files in command line, so the usage is now
+
+```
+swrcfit DataFilename [SettingFile] [SettingFile] [SettingFile]
+```
+For example, you can prepare a setting file pf `mode=2` in the file name of `bimodal.txt`, and invoke the swrcfit specifying the `bimodal.txt`. This way, you can select bimodal model only when you want to, without rewriting setting file each time.
 
 ## Running the program
 
