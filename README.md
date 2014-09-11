@@ -192,7 +192,7 @@ For example, you can prepare a setting file pf `mode=2` in the file name of `bim
 
 ## Running the program
 
-In Unix-like system, the program is executed as
+Run the program with
 
 ```
 swrcfit DataFilename [SettingFilename]
