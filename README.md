@@ -152,6 +152,13 @@ qrin=0.05; cqr=0;
    To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to be changed to pqr=0.
 
    The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
+   
+   From version 2.0, new features are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
+   
+   The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+   
+   The second feature is the option of simple output.
+
 
 ## Running the program
 
@@ -226,8 +233,6 @@ alpha =  0.021547
 
    The order of the element is the same as the result display; in the order of qs, qr, hb and lambda. The above example is the case where q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either or both of the parameters are set as constant, correlation matrix and standard deviation are shown only for the parameters set as a variable.
    
-   From version 2.0, new options are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
-
 ## Checking the result
 
    Using the Microsoft Excel worksheet, `swrc.xls`, the fitted curves can be checked (**Fig. 1**). By copying and pasting the result of the program output onto the yellow part and the measured data onto the blue part of the spreadsheet, The fitted curves are drawn in the graph of the same spreadsheet.  
