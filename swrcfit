@@ -11,7 +11,7 @@
 
 argc = length (argv);
 if argc == 0,
-  disp ("usage: swrcfit [-v] DataFilename [SettingFilename]");
+  disp ("usage: swrcfit [-v] DataFilename [SettingFile1] [SettingFile2] [SettingFile3]");
   disp ("See https://github.com/sekika/swrcfit/blob/master/README.md");
   return;
 end
