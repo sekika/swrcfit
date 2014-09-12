@@ -88,43 +88,43 @@ for the suction of 1050.
 ## Preparation of setting file
 
 When setting file is specified, it is read before calculation starts.
-A sample setting file is included in the package as `setting.txt`.
-The file starts as follows and it is the default setting of the program;
-when setting file is not specified, these default setting is used.
-Therefore, if you specify a file with only "mode = 2" written as a
-setting file, other parameters are set as default values.
+A sample setting file is included in the package as `setting.txt`
+[download](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt).
+The file describes the default setting of the program; when setting
+file is not specified, these default setting is used. Therefore,
+if you specify a file with only "mode = 2" written as a setting file,
+other parameters are set as default values.
 
 ```
 # Setting
-mode = 1; # Unimodal model
-# mode = 2; # Bimodal model
-# mode = 3; # Unimodal and bimodal model
-output_precision(5); # precision of the output
-qsin = max(y); # initial value of qs
-cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
-qrin = min(y); # initial value of qr
-cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
-# qrin=0; cqr=0; # For setting qr=0 as a constant
-pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
-adv=0; # adv=1; advanced output; adv=0; normal output;
-simple=0; # simple=1; simple output, simple=0; normal output
 ```
-
 The first line, "# Setting",  is a comment. It indicates that this
 is a setting file. GNU Octave language ignores the rest of a line
 following a sharp sign ("#").
 
-The 2nd to 4th lines are for setting of the mode of calculation.
+```
+mode = 1; # Unimodal model
+# mode = 2; # Bimodal model
+# mode = 3; # Unimodal and bimodal model
+```
+These lines are for setting of the mode of calculation.
 When mode=1 (default), fitting of unimodal (BC, VG, and LN) models
 are conducted. When mode=2, fittin of bimodal (DB and BL) models
 are conducted, and when mode=3, both unimodal and bimodal models
 are conducted.
 
-The 5th line sets the precision of the ouput. In GNU Octave, the
+```
+output_precision(5); # precision of the output
+```
+This line sets the precision of the ouput. In GNU Octave, the
 variable output_precision specifies the minimum number of significant
 figures to display for numeric output. Default value is 7.
 
-The lines 6-7 specify the variable &theta;<sub>s</sub>, the saturated
+```
+qsin = max(y); # initial value of qs
+cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
+```
+These lines specify the variable &theta;<sub>s</sub>, the saturated
 water content. In this program, &theta;<sub>s</sub> is shown as "qs".
 Two parameters, qsin and cqs, controls how the program treats this
 variable. qsin is the initial value of &theta;<sub>s</sub> and cqs
@@ -134,14 +134,16 @@ constant, and when cqs is 1, &theta;<sub>s</sub> is treated as a
 variable. By default, initial value of &theta;<sub>s</sub>is set as
 the maximum value of the soil water content, and it is set as a
 variable, but it can be changed by editing this section. For example,
-for setting &theta;<sub>s</sub> = 0.35 as a constant, following
-line can be added after the third line;
+for setting &theta;<sub>s</sub> = 0.35 as a constant, write
+`qsin=0.35; cqr=0;` in the setting file.
 
 ```
-qsin=0.35; cqr=0;
+qrin = min(y); # initial value of qr
+cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
+# qrin=0; cqr=0; # For setting qr=0 as a constant
+pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 ```
-
-The lines 8-11 specify the variable &theta;<sub>r</sub>, the residual
+These lines specify the variable &theta;<sub>r</sub>, the residual
 water content. In this program, &theta;<sub>r</sub> is shown as "qr".
 Three parameters, qrin, cqr and pqr, controls how the program treats
 this variable. qrin is the initial value of &theta;<sub>r</sub>, cqr
@@ -156,16 +158,16 @@ content, and it is set as a variable with the restriction of
 section. For example, for seting &theta;<sub>r</sub> = 0 as a constant
 value, the 7th line is to be commented out,, i.e., the first "#" mark
 is to be deleted. For setting &theta;<sub>r</sub> = 0.05 as a constant
-value, following line can be added after the 7th line;
+value, write `qrin=0.05;` in the setting file;
+
+To disable the restriction of &theta;<sub>r</sub> >= 0, write `pqr=0;`
+in setting file.
 
 ```
-qrin=0.05; cqr=0;
+adv=0; # adv=1; advanced output; adv=0; normal output;
 ```
 
-To disable the restriction of &theta;<sub>r</sub> >= 0,  the 8th line,
-pqr=1, is to be changed to pqr=0.
-
-The line 9 controls the output mode; the parameter adv defines how
+This line controls the output mode; the parameter adv defines how
 the result is shown. The default value is adv=0, where only basic
 information is shown (normal mode), and when it is changed to adv=1,
 advanced information (correlation matrix and standard deviation) is
