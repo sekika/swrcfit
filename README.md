@@ -82,22 +82,38 @@ For more information, refer to [Installtion of SWRC Fit](https://github.com/seki
 wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
 ```
 
-Check if swrcfit is properly installed with `swrcfit swrc.txt` in the directory of the downloaded archive.
+Check if swrcfit is properly installed with `swrcfit swrc.txt` in the
+directory of the downloaded archive.
 
-If you want to see figure on the screen, you have to [set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
+If you want to see figure on the screen, you have to
+[set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or
+`startxwin`. Without X server, you can create figure files.
 
 ### Linux and Mac OS X
-1. Install octave, gnuplot and wget with [package manager](http://en.wikipedia.org/wiki/Package_management_system) that you are using. [Homebrew](http://brew.sh/) is recommended for Mac OS X.
-2. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. You can run this entire 2nd step by
+1. Install octave, gnuplot and wget with
+   [package manager](http://en.wikipedia.org/wiki/Package_management_system)
+   that you are using. [Homebrew](http://brew.sh/) is recommended for
+    Mac OS X.
+2. Download the
+   [latest release of swrcfit](https://github.com/sekika/swrcfit/releases)
+   by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz
+   (downloaded file)`, `cd (directory of the unpacked package)`, and
+   `sudo ./Install.sh`. You can run this entire 2nd step by
 ```
 wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
 ```
 
-Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of the downloaded archive.
+Check if swrcfit is properly installed by `swrcfit swrc.txt` in the
+directory of the downloaded archive.
 
 ## Preparation of data file
 
-   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt` ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
+The input data, i.e., the soil water retention curve, should be prepared
+as a text file with two columns. Sample data is included in the package
+as `swrc.txt`
+([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). 
+The first column is the suction head and the second column is the
+volumetric water content, where space is used as a delimiter. For example;
 
 ```
 0 0.2628
@@ -113,11 +129,14 @@ Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of
 1050 0.1159
 ```
 
-   Lines beginning with "#" are regarded as comment and neglected.  Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.
+Lines beginning with "#" are regarded as comment and neglected.
+Any unit can be used as the input data, and the calculated data depends
+on the unit used as the input data.
 
-   Optionally, the data file can have the third column. When it has the third column, it is interpreted as a weight for each parameter.
+Optionally, the data file can have the third column. When it has the
+third column, it is interpreted as a weight for each parameter.
 
-  For example,
+For example,
 
 ```
 0 0.2628 1
@@ -128,11 +147,17 @@ Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of
 1050 0.1159 3
 ```
 
-   This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.
+This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3
+for the suction of 1050.
 
 ## Preparation of setting file
 
-When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file starts as follows and it is the default setting of the program; when setting file is not specified, these default setting is used. Therefore, if you specify a file with only "mode = 2" written as a setting file, other parameters are set as default values.
+When setting file is specified, it is read before calculation starts.
+A sample setting file is included in the package as `setting.txt`.
+The file starts as follows and it is the default setting of the program;
+when setting file is not specified, these default setting is used.
+Therefore, if you specify a file with only "mode = 2" written as a
+setting file, other parameters are set as default values.
 
 ```
 # Setting
@@ -150,41 +175,84 @@ adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 ```
 
-The first line, "# Setting",  is a comment. It indicates that this is a setting file. GNU Octave language ignores the rest of a line following a sharp sign ("#").
+The first line, "# Setting",  is a comment. It indicates that this
+is a setting file. GNU Octave language ignores the rest of a line
+following a sharp sign ("#").
 
-The 2nd to 4th lines are for setting of the mode of calculation. When mode=1 (default), fitting of unimodal (BC, VG, and LN) models are conducted. When mode=2, fittin of bimodal (DB and BL) models are conducted, and when mode=3, both unimodal and bimodal models are conducted.
+The 2nd to 4th lines are for setting of the mode of calculation.
+When mode=1 (default), fitting of unimodal (BC, VG, and LN) models
+are conducted. When mode=2, fittin of bimodal (DB and BL) models
+are conducted, and when mode=3, both unimodal and bimodal models
+are conducted.
 
-The 5th line sets the precision of the ouput. In GNU Octave, the variable output_precision specifies the minimum number of significant figures to display for numeric output. Default value is 7.
+The 5th line sets the precision of the ouput. In GNU Octave, the
+variable output_precision specifies the minimum number of significant
+figures to display for numeric output. Default value is 7.
 
-The lines 6-7 specify the variable q[s], the saturated water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs, controls how the program treats this variable. qsin is the initial value of q[s] and cqs is a parameter which decides q[s] is constant or variable; when cqs is set as 0, q[s] is treated as a constant, and when cqs is 1, q[s] is treated as a variable. By default, initial value of q[s]is set as the maximum value of the soil water content, and it is set as a variable, but it can be changed by editing this section. For example, for setting q[s] = 0.35 as a constant, following line can be added after the third line;
+The lines 6-7 specify the variable q[s], the saturated water content.
+In this program, q[s] is shown as "qs". Two parameters, qsin and cqs,
+controls how the program treats this variable. qsin is the initial
+value of q[s] and cqs is a parameter which decides q[s] is constant
+or variable; when cqs is set as 0, q[s] is treated as a constant,
+and when cqs is 1, q[s] is treated as a variable. By default, initial
+value of q[s]is set as the maximum value of the soil water content,
+and it is set as a variable, but it can be changed by editing this
+section. For example, for setting q[s] = 0.35 as a constant, following
+line can be added after the third line;
 
 ```
 qsin=0.35; cqr=0;
 ```
 
-The lines 8-11 specify the variable q[r], the residual water content. In this program, q[r] is shown as "qr". Three parameters, qrin, cqr and pqr, controls how the program treats this variable. qrin is the initial value of q[r], cqr is a parameter which decides q[r] is constant or variable; when cqr is set as 0, q[r] is treated as a constant, and when cqr is 1, q[r] is treated as a variable, and pqr is a variable which decides if the restriction of q[r] >= 0 is imposed. By default, initial value of q[r] is set as the minimum value of the soil water content, and it is set as a variable with the restriction of q[r] >= 0, but it can be changed by editing this section. For example, for seting q[r] = 0 as a constant value, the 7th line is to be commented out,, i.e., the first "#" mark is to be deleted. For setting q[r] = 0.05 as a constant value, following line can be added after the 7th line;
+The lines 8-11 specify the variable q[r], the residual water content.
+In this program, q[r] is shown as "qr". Three parameters, qrin, cqr
+and pqr, controls how the program treats this variable. qrin is the
+initial value of q[r], cqr is a parameter which decides q[r] is
+constant or variable; when cqr is set as 0, q[r] is treated as a
+constant, and when cqr is 1, q[r] is treated as a variable, and pqr
+is a variable which decides if the restriction of q[r] >= 0 is imposed.
+By default, initial value of q[r] is set as the minimum value of the
+soil water content, and it is set as a variable with the restriction
+of q[r] >= 0, but it can be changed by editing this section. For
+example, for seting q[r] = 0 as a constant value, the 7th line is
+to be commented out,, i.e., the first "#" mark is to be deleted. For
+setting q[r] = 0.05 as a constant value, following line can be added
+after the 7th line;
 
 ```
 qrin=0.05; cqr=0;
 ```
 
-   To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to be changed to pqr=0.
+To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to
+be changed to pqr=0.
 
-   The line 9 controls the output mode; the parameter adv defines how the result is shown. The default value is adv=0, where only basic information is shown (normal mode), and when it is changed to adv=1, advanced information (correlation matrix and standard deviation) is also shown as a result (advanced mode).
+The line 9 controls the output mode; the parameter adv defines how
+the result is shown. The default value is adv=0, where only basic
+information is shown (normal mode), and when it is changed to adv=1,
+advanced information (correlation matrix and standard deviation) is
+also shown as a result (advanced mode).
 
 ### New features in version 2.0
 
    From version 2.0, several new features are available.
    
-   The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+The first feature is to draw graph. You can control if you draw a graph
+on terminal or/and file, and how the graph look like, within the
+setting file. Detail is described here:
+https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
    
-   The second feature is the option of simple output. It is controlled with the option of
+The second feature is the option of simple output. It is controlled
+with the option of
 ```
 simple=0; # simple=1; simple output, simple=0; normal output
 ```
-when simple=1 is set, the output is only numbers, without showing variable names. It is therefore easy to call swrcfit from other program and get the result to parameters.
+when simple=1 is set, the output is only numbers, without showing
+variable names. It is therefore easy to call swrcfit from other program
+and get the result to parameters.
 
-   The third feature is that swrcfit reads default setting files and multiple setting files can also be specified. It reads setting files in the order of
+The third feature is that swrcfit reads default setting files and
+multiple setting files can also be specified. It reads setting files
+in the order of
 
 1. System default value
 2. .swrcfitrc in user's home directory
@@ -193,12 +261,19 @@ when simple=1 is set, the output is only numbers, without showing variable names
 5. 2nd setting file specified with command line
 6. 3rd setting file specified with command line
 
-The latter overwrites formers. You can write your preference in $HOME/.swrcfitrc, and preference for special set of data files in a directory in setting.txt, and these setting will be read without specifying at command line parameters. You can specify up to 3 other setting files in command line, so the usage is now
+The latter overwrites formers. You can write your preference in
+$HOME/.swrcfitrc, and preference for special set of data files in a
+directory in setting.txt, and these setting will be read without
+specifying at command line parameters. You can specify up to 3 other
+setting files in command line, so the usage is now
 
 ```
 swrcfit DataFilename [SettingFile1] [SettingFile2] [SettingFile3]
 ```
-For example, you can prepare a setting file pf `mode=2` in the file name of `bimodal.txt`, and invoke the swrcfit specifying the `bimodal.txt`. This way, you can select bimodal model only when you want to, without rewriting setting file each time.
+For example, you can prepare a setting file pf `mode=2` in the file
+name of `bimodal.txt`, and invoke the swrcfit specifying the
+`bimodal.txt`. This way, you can select bimodal model only when you
+want to, without rewriting setting file each time.
 
 ## Running the program
 
@@ -208,9 +283,15 @@ Run the program with
 swrcfit DataFilename [SettingFilename]
 ```
 
-where DataFilename is a filename of the data file, and SettingFilename is a filename of the setting file. When SettingFilename is not specified, default setting is used. The calculation result is shown in Octave terminal or standard output. The blanket [ ] indicates that it is not required.
+where DataFilename is a filename of the data file, and SettingFilename
+ is a filename of the setting file. When SettingFilename is not
+specified, default setting is used. The calculation result is shown
+in Octave terminal or standard output. The blanket [ ] indicates that
+it is not required.
 
-If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`, sample result which is included as `result.txt` in the package is shown as follows.
+If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`,
+sample result which is included as `result.txt` in the package is
+shown as follows.
 
 ```
 === BC model ===
@@ -233,7 +314,8 @@ sigma =  0.10818
 R2 =  0.99167
 ```
 
-   If advanced mode is selected (see the previous section), correlation matrix and standard deviation are also shown as follows.
+If advanced mode is selected (see the previous section), correlation
+matrix and standard deviation are also shown as follows.
 
 ```
 === BC model ===
@@ -263,11 +345,20 @@ alpha =  0.021547
 (continued)
 ```
 
-   The order of the element is the same as the result display; in the order of qs, qr, hb and lambda. The above example is the case where q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either or both of the parameters are set as constant, correlation matrix and standard deviation are shown only for the parameters set as a variable.
+The order of the element is the same as the result display; in the
+order of qs, qr, hb and lambda. The above example is the case where
+q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either
+or both of the parameters are set as constant, correlation matrix and
+standard deviation are shown only for the parameters set as a variable.
    
 ## Checking the result
 
-   Using the Microsoft Excel worksheet, `swrc.xlsx` ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)), the fitted curves can be checked (**Fig. 1**). By copying and pasting the result of the program output onto the yellow part and the measured data onto the blue part of the spreadsheet, The fitted curves are drawn in the graph of the same spreadsheet.  
+Using the Microsoft Excel worksheet, `swrc.xlsx`
+([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
+the fitted curves can be checked (**Fig. 1**). By copying and pasting
+the result of the program output onto the yellow part and the measured
+data onto the blue part of the spreadsheet, The fitted curves are
+drawn in the graph of the same spreadsheet.  
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
 
@@ -275,17 +366,38 @@ Fig. 1 Spreadsheet for checking the result
 
 ## Web interface of the SWRC Fit
 
-   The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written in the program language perl and works as a cgi program. The perl program invokes GNU octave and executes the calculation engine of swrcfit.
+The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
+in the program language perl and works as a cgi program. The perl program
+invokes GNU octave and executes the calculation engine of swrcfit.
 
-   The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as [explained above](#preparation-of-data-file), is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of &theta;<sub>r</sub> = 0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
+The screenshot of the user interface is shown in **Fig. 2**. Soil water
+retention data, prepared as [explained above](#preparation-of-data-file),
+is to be copied and pasted in the textbox. It can also be selected from
+the sample soil water retention data in the UNSODA database (Nemes et al.,
+2001).  In other textboxes, the description of the soil sample, soil
+texture, and name can be written. The description written here appears
+in the results screen. The calculation options of &theta;<sub>r</sub> = 0
+can be set by checking appropriate boxes. By default, only unimodal (BC,
+VG and LN) models are used, and when the users select the "Bimodal models"
+checkbox, bimodal (DB and BL) models will also be used. After that, the
+calculation starts by pressing the "Calculate" button.
 
 ![Fig. 2](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
 
 Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
 
-   In the result screen, the result of the nonlinear fit is shown as **Fig. 3**. The models, equations, parameters, and R<sup>2</sup> values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. If the bimodal model is selected, the results of the bimodal models are shown separately. By looking at the results, the accuracy of the fit with different models can be compared in both R<sup>2</sup> values and fitting curves. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
+In the result screen, the result of the nonlinear fit is shown as **Fig.
+3**. The models, equations, parameters, and R<sup>2</sup> values are
+shown in tabular form, and the fitting curves with measured data points
+are also shown in a graph. If the bimodal model is selected, the results
+of the bimodal models are shown separately. By looking at the results,
+the accuracy of the fit with different models can be compared in both
+R<sup>2</sup> values and fitting curves. The description of the soil
+sample and the original data is also displayed in the results screen
+so that the users can print out and store all the necessary information.
 
-For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
+For those who might be interested, you can read [source code of the web
+interface](https://github.com/sekika/swrcfit-cgi).
 
 ![Fig. 3](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig3.png)
 
@@ -295,18 +407,39 @@ Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/s
 
 Please cite this paper when you publish your work using SWRC Fit.
 
-* Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
+* Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
+  retention curve for soils having unimodal and bimodal pore structure.
+  Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
+  [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 
-[BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib) and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris) files are also available.
+[BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib)
+and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
+files are also available.
 
 ## Question
-[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion) you can find a list of questions and answers about swrcfit. You can submit your own question by getting the accout of GitHub and pressing the green "New Issue" button. Please select the label of "question". It is preferable to send your question publicly this way, because other people having the same question can find answer on the web. However, if your question is confidential, please contact me by email. Tou can find my email address in [this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
+[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)
+you can find a list of questions and answers about swrcfit. You can submit
+your own question by getting the accout of GitHub and pressing the green
+"New Issue" button. Please select the label of "question". It is preferable
+to send your question publicly this way, because other people having the
+same question can find answer on the web. However, if your question is
+confidential, please contact me by email. Tou can find my email address in
+[this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
 
 ## Reference
 
-1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media. Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
-2. Durner, W.: Hydraulic conductivity estimation for soils with heterogeneous pore structure. Water Resour. Res., 30(2): 211--223, 1994.
-3. Kosugi, K.: Lognormal distribution model for unsaturated soil hydraulic properties. Water Resour. Res. 32(9), 2697--2703, 1996.
-Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol. (Amsterdam) 251:151--162, 2001.
-4. Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
-5. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898, 1980.
+1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media.
+   Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
+2. Durner, W.: Hydraulic conductivity estimation for soils with
+   heterogeneous pore structure. Water Resour. Res., 30(2): 211--223, 1994.
+3. Kosugi, K.: Lognormal distribution model for unsaturated soil hydraulic
+   properties. Water Resour. Res. 32(9), 2697--2703, 1996.
+4. Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of
+   the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol.
+   (Amsterdam) 251:151--162, 2001.
+5. Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
+   retention curve for soils having unimodal and bimodal pore structure.
+   Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
+6. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic
+   conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898,
+   1980.
