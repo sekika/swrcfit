@@ -75,7 +75,7 @@ pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 
-# Setting of plot (experimental)
+# Figure options (from version 2.0)
 # See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
 
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file

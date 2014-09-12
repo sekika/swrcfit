@@ -11,3 +11,22 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
+
+# Figure options (from version 2.0)
+# See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+
+fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
+showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
+figure="swrc.png"; # Filename of the figure of unimodal models.
+figure2="bimodal.png"; # Filename of the figure of bimodal models.
+figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
+smooth=300; # Smoothness of the fitted line
+showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
+ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
+
+# Text
+fontsize=16; # Font size
+showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
+
+# More figure options are available. See the site above for detail.
+
