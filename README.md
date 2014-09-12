@@ -190,17 +190,18 @@ simple=0; # simple=1; simple output, simple=0; normal output
 when simple=1 is set, the output is only numbers, without showing variable names. It is therefore easy to call swrcfit from other program and get the result to parameters.
 
    The third feature is that swrcfit reads default setting files and multiple setting files can also be specified. It reads setting files in the order of
-   
-1. $HOME/.swrcfitrc
-2. ./setting.txt
-3. 1st setting file specified with command line
-4. 2nd setting file specified with command line
-5. 3rd setting file specified with command line
+
+1. System default value
+2. .swrcfitrc in user's home directory
+3. setting.txt in current directory
+4. 1st setting file specified with command line
+5. 2nd setting file specified with command line
+6. 3rd setting file specified with command line
 
 The latter overwrites formers. You can write your preference in $HOME/.swrcfitrc, and preference for special set of data files in a directory in setting.txt, and these setting will be read without specifying at command line parameters. You can specify up to 3 other setting files in command line, so the usage is now
 
 ```
-swrcfit DataFilename [SettingFile] [SettingFile] [SettingFile]
+swrcfit DataFilename [SettingFile1] [SettingFile2] [SettingFile3]
 ```
 For example, you can prepare a setting file pf `mode=2` in the file name of `bimodal.txt`, and invoke the swrcfit specifying the `bimodal.txt`. This way, you can select bimodal model only when you want to, without rewriting setting file each time.
 
