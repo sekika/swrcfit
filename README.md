@@ -137,7 +137,7 @@ After octave and necesssary package are installed, install swrcfit as follows.
 
 ## Preparation of setting file
 
-When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file is as follows and it is the default setting of the program; when setting file is not specified, these default setting is used. Therefore, if you specify a file with only "mode = 2" written as a setting file, other parameters are set as default values.
+When setting file is specified, it is read before calculation starts. A sample setting file is included in the package as `setting.txt`. The file starts as follows and it is the default setting of the program; when setting file is not specified, these default setting is used. Therefore, if you specify a file with only "mode = 2" written as a setting file, other parameters are set as default values.
 
 ```
 # Setting
@@ -152,6 +152,7 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 adv=0; # adv=1; advanced output; adv=0; normal output;
+simple=0; # simple=1; simple output, simple=0; normal output
 ```
 
 The first line, "# Setting",  is a comment. It indicates that this is a setting file. GNU Octave language ignores the rest of a line following a sharp sign ("#").
