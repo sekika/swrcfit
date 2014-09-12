@@ -230,7 +230,8 @@ it is not required.
 
 If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`,
 sample result which is included as `result.txt` in the package is
-shown as follows.
+shown as follows. See equations and parameters
+[here](https://github.com/sekika/swrcfit/wiki/SWRC-models).
 
 ```
 === BC model ===
