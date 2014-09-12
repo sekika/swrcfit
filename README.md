@@ -103,7 +103,7 @@ After octave and necesssary package are installed, install swrcfit as follows.
 
 ## Preparation of data file
 
-   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt`. The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
+   The input data, i.e., the soil water retention curve, should be prepared as a text file with two columns. Sample data is included in the package as `swrc.txt` ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. For example;
 
 ```
 0 0.2628
