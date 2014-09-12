@@ -48,9 +48,8 @@ This file is written with markdown and the latest verstion can be viewed online 
 5. Install.sh ... Install script for Unix-like system
 6. swrc.xlsx ... Microsoft Excel worksheets for checking the result.
 7. README.md ... This file
-8. fig1.png, fig2.png, fig3.png ... Figures used in README.md
-9. ChangeLog ... Version history
-10. COPYING ... GNU General Public License
+8. ChangeLog ... Version history
+9. COPYING ... GNU General Public License
 
 ## Quick installation guide
 
