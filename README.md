@@ -410,18 +410,9 @@ confidential, please contact me by email. Tou can find my email address in
 
 ## Reference
 
-1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media.
-   Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
-2. Durner, W.: Hydraulic conductivity estimation for soils with
-   heterogeneous pore structure. Water Resour. Res., 30(2): 211--223, 1994.
-3. Kosugi, K.: Lognormal distribution model for unsaturated soil hydraulic
-   properties. Water Resour. Res. 32(9), 2697--2703, 1996.
-4. Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of
+1. Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of
    the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol.
    (Amsterdam) 251:151--162, 2001.
-5. Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
+2. Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
    retention curve for soils having unimodal and bimodal pore structure.
    Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
-6. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic
-   conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898,
-   1980.
