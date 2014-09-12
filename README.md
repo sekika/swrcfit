@@ -125,41 +125,45 @@ variable output_precision specifies the minimum number of significant
 figures to display for numeric output. Default value is 7.
 
 The lines 6-7 specify the variable &theta;<sub>s</sub>, the saturated
-water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs,
-controls how the program treats this variable. qsin is the initial
-value of q[s] and cqs is a parameter which decides q[s] is constant
-or variable; when cqs is set as 0, q[s] is treated as a constant,
-and when cqs is 1, q[s] is treated as a variable. By default, initial
-value of q[s]is set as the maximum value of the soil water content,
-and it is set as a variable, but it can be changed by editing this
-section. For example, for setting q[s] = 0.35 as a constant, following
+water content. In this program, &theta;<sub>s</sub> is shown as "qs".
+Two parameters, qsin and cqs, controls how the program treats this
+variable. qsin is the initial value of &theta;<sub>s</sub> and cqs
+is a parameter which decides &theta;<sub>s</sub> is constant or
+variable; when cqs is set as 0, &theta;<sub>s</sub> is treated as a
+constant, and when cqs is 1, &theta;<sub>s</sub> is treated as a
+variable. By default, initial value of &theta;<sub>s</sub>is set as
+the maximum value of the soil water content, and it is set as a
+variable, but it can be changed by editing this section. For example,
+for setting &theta;<sub>s</sub> = 0.35 as a constant, following
 line can be added after the third line;
 
 ```
 qsin=0.35; cqr=0;
 ```
 
-The lines 8-11 specify the variable q[r], the residual water content.
-In this program, q[r] is shown as "qr". Three parameters, qrin, cqr
-and pqr, controls how the program treats this variable. qrin is the
-initial value of q[r], cqr is a parameter which decides q[r] is
-constant or variable; when cqr is set as 0, q[r] is treated as a
-constant, and when cqr is 1, q[r] is treated as a variable, and pqr
-is a variable which decides if the restriction of q[r] >= 0 is imposed.
-By default, initial value of q[r] is set as the minimum value of the
-soil water content, and it is set as a variable with the restriction
-of q[r] >= 0, but it can be changed by editing this section. For
-example, for seting q[r] = 0 as a constant value, the 7th line is
-to be commented out,, i.e., the first "#" mark is to be deleted. For
-setting q[r] = 0.05 as a constant value, following line can be added
-after the 7th line;
+The lines 8-11 specify the variable &theta;<sub>r</sub>, the residual
+water content. In this program, &theta;<sub>r</sub> is shown as "qr".
+Three parameters, qrin, cqr and pqr, controls how the program treats
+this variable. qrin is the initial value of &theta;<sub>r</sub>, cqr
+is a parameter which decides &theta;<sub>r</sub> is constant or
+variable; when cqr is set as 0, &theta;<sub>r</sub> is treated as a
+constant, and when cqr is 1, &theta;<sub>r</sub> is treated as a
+variable, and pqr is a variable which decides if the restriction of
+&theta;<sub>r</sub> >= 0 is imposed. By default, initial value of
+&theta;<sub>r</sub> is set as the minimum value of the soil water
+content, and it is set as a variable with the restriction of
+&theta;<sub>r</sub> >= 0, but it can be changed by editing this
+section. For example, for seting &theta;<sub>r</sub> = 0 as a constant
+value, the 7th line is to be commented out,, i.e., the first "#" mark
+is to be deleted. For setting &theta;<sub>r</sub> = 0.05 as a constant
+value, following line can be added after the 7th line;
 
 ```
 qrin=0.05; cqr=0;
 ```
 
-To disable the restriction of q[r] >= 0,  the 8th line, pqr=1, is to
-be changed to pqr=0.
+To disable the restriction of &theta;<sub>r</sub> >= 0,  the 8th line,
+pqr=1, is to be changed to pqr=0.
 
 The line 9 controls the output mode; the parameter adv defines how
 the result is shown. The default value is adv=0, where only basic
@@ -219,7 +223,7 @@ swrcfit DataFilename [SettingFilename]
 ```
 
 where DataFilename is a filename of the data file, and SettingFilename
- is a filename of the setting file. When SettingFilename is not
+is a filename of the setting file. When SettingFilename is not
 specified, default setting is used. The calculation result is shown
 in Octave terminal or standard output. The blanket [ ] indicates that
 it is not required.
