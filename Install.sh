@@ -18,7 +18,12 @@ elif [ -d $dest ]; then
     echo "You have no permission to write to $dest directory."; exit -1
   fi
 else
-  echo "Destination directory $dest doen't exist."; exit -1
+  mkdir -p $dest
+  if [ -d $dest ]; then
+     echo "=== Directory $dest created"
+  else
+     echo "Directory $dest cannot be created."; exit -1
+  fi
 fi
 
 installfilename="$dest"/swrcfit
