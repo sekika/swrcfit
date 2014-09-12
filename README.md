@@ -1,28 +1,10 @@
 # swrcfit (SWRC Fit) - Fitting soil water retention curve
 
 SWRC Fit is a program which performs nonlinear fitting of soil water
-retention curve with following 5 models by Levenberg-Marquardt method.
-This software was used in
+retention curve with
+[5 SWRC models](https://github.com/sekika/swrcfit/wiki/SWRC-models)
+by Levenberg-Marquardt method. This software was used in
 [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
-
-|Model|Equation|Reference|
-|-----|--------|---------|-
-|BC |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BC.png) |Brooks and Corey, 1964|
-|VG |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BC.png) (m = 1-1/n) |van Genuchten, 1980|
-|LN |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/LN.png) |Kosugi, 1996|
-|DB |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
-|BL |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BL.png) |Seki, 2007|
-
-where h is the suction head, &theta; is volumetric water content,
-S<sub>e</sub> is the effective water content defined by
-![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e.,
-![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is
-the complementary cumulative normal distribution function, defined by
-Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the
-cumulative normal distribution function. Please note that Q(x) is
-different from error function. Other parameters are soil hydraulic
-parameters to be optimized with swrcfit.
-
 Basic information of this program is summarized:
 
 * Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
