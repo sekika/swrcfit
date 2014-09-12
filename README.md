@@ -5,10 +5,10 @@ SWRC Fit is a program which performs nonlinear fitting of soil water retention c
 |Model|Equation|Reference|
 |-----|--------|---------|-
 |BC |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BC.png) |Brooks and Corey, 1964|
-|VG |![equation](http://swrcfit.sourceforge.net/img/BC.png) (m = 1-1/n) |van Genuchten, 1980|
-|LN |![equation](http://swrcfit.sourceforge.net/img/LN.png) |Kosugi, 1996|
-|DB |![equation](http://swrcfit.sourceforge.net/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
-|BL |![equation](http://swrcfit.sourceforge.net/img/BL.png) |Seki, 2007|
+|VG |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BC.png) (m = 1-1/n) |van Genuchten, 1980|
+|LN |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/LN.png) |Kosugi, 1996|
+|DB |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
+|BL |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BL.png) |Seki, 2007|
 
 where h is the suction head, &theta; is volumetric water content, S<sub>e</sub> is the effective water content defined by ![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e., ![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the cumulative normal distribution function. Please note that Q(x) is different from error function. Other parameters are soil hydraulic parameters to be optimized with swrcfit.
 
