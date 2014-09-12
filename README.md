@@ -265,14 +265,12 @@ want to, without rewriting setting file each time.
 
 Using the Microsoft Excel worksheet, `swrc.xlsx`
 ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
-the fitted curves can be checked (**Fig. 1**). By copying and pasting
+the fitted curves can be checked as the figure. By copying and pasting
 the result of the program output onto the yellow part and the measured
 data onto the blue part of the spreadsheet, The fitted curves are
 drawn in the graph of the same spreadsheet.  
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
-
-Fig. 1 Spreadsheet for checking the result
 
 ## Web interface of the SWRC Fit
 
@@ -280,38 +278,6 @@ The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
 in the program language perl and works as a cgi program. The perl program
 invokes GNU octave and executes the calculation engine of swrcfit.
 
-The screenshot of the user interface is shown in **Fig. 2**. Soil water
-retention data, prepared as [explained above](#preparation-of-data-file),
-is to be copied and pasted in the textbox. It can also be selected from
-the sample soil water retention data in the UNSODA database (Nemes et al.,
-2001).  In other textboxes, the description of the soil sample, soil
-texture, and name can be written. The description written here appears
-in the results screen. The calculation options of &theta;<sub>r</sub> = 0
-can be set by checking appropriate boxes. By default, only unimodal (BC,
-VG and LN) models are used, and when the users select the "Bimodal models"
-checkbox, bimodal (DB and BL) models will also be used. After that, the
-calculation starts by pressing the "Calculate" button.
-
-![Fig. 2](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
-
-Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
-
-In the result screen, the result of the nonlinear fit is shown as **Fig.
-3**. The models, equations, parameters, and R<sup>2</sup> values are
-shown in tabular form, and the fitting curves with measured data points
-are also shown in a graph. If the bimodal model is selected, the results
-of the bimodal models are shown separately. By looking at the results,
-the accuracy of the fit with different models can be compared in both
-R<sup>2</sup> values and fitting curves. The description of the soil
-sample and the original data is also displayed in the results screen
-so that the users can print out and store all the necessary information.
-
-For those who might be interested, you can read [source code of the web
-interface](https://github.com/sekika/swrcfit-cgi).
-
-![Fig. 3](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig3.png)
-
-Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/swrc/)
 
 ## Citation of this work
 
@@ -335,12 +301,3 @@ to send your question publicly this way, because other people having the
 same question can find answer on the web. However, if your question is
 confidential, please contact me by email. Tou can find my email address in
 [this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
-
-## Reference
-
-1. Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of
-   the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol.
-   (Amsterdam) 251:151--162, 2001.
-2. Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
-   retention curve for soils having unimodal and bimodal pore structure.
-   Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
