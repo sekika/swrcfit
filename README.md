@@ -107,9 +107,10 @@ mode = 1; # Unimodal model
 ```
 These lines are for setting of the mode of calculation.
 When mode=1 (default), fitting of unimodal (BC, VG, and LN) models
-are conducted. When mode=2, fittin of bimodal (DB and BL) models
+are conducted. When mode=2, fitting of bimodal (DB and BL) models
 are conducted, and when mode=3, both unimodal and bimodal models
-are conducted.
+are conducted. Therefore, if you write a setting file of
+`mode = 2;`, bimodal models are used for fitting.
 
 ```
 output_precision(5); # precision of the output
