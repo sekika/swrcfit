@@ -63,7 +63,7 @@ Quick guide for installation on each operating system is shown here. For more in
 wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
 ```
 
-Check if swrcfit is properly installed with `swrcfit swrc.txt`.
+Check if swrcfit is properly installed with `swrcfit swrc.txt` in the directory of the downloaded archive.
 
 If you want to see figure on the screen, you have to [set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
 
@@ -74,7 +74,7 @@ If you want to see figure on the screen, you have to [set up Cygwin/X](http://x.
 wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
 ```
 
-Check if swrcfit is properly installed by `swrcfit swrc.txt`.
+Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of the downloaded archive.
 
 ## Preparation of data file
 
