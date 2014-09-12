@@ -89,7 +89,7 @@ for the suction of 1050.
 
 When setting file is specified, it is read before calculation starts.
 A sample setting file is included in the package as `setting.txt`
-[download](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt).
+([download](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt)).
 The file describes the default setting of the program; when setting
 file is not specified, these default setting is used. Therefore,
 if you specify a file with only "mode = 2" written as a setting file,
