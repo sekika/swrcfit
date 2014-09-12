@@ -56,7 +56,7 @@ is not specified, default setting is used. The calculation result
 is shown in Octave terminal or standard output. The blanket [ ]
 indicates that it is not required.
 
-If you execute the sample data, `swrc.txt`
+If you use the sample data in the source package, `swrc.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
 by `swrcfit swrc.txt`, sample result which is included as `result.txt`
 in the package is shown as follows. See equations and parameters
