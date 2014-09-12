@@ -67,7 +67,7 @@ Check if swrcfit is properly installed with `swrcfit swrc.txt`.
 If you want to see figure on the screen, you have to [set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or `startxwin`. Without X server, you can create figure files.
 
 ### Linux and Mac OS X
-1. Install octave, gnuplot and wget.
+1. Install octave, gnuplot and wget with [package manager](http://en.wikipedia.org/wiki/Package_management_system) that you are using. [Homebrew](http://brew.sh/) is recommended for Mac OS X.
 2. Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `sudo ./Install.sh`. You can run this entire 2nd step by
 ```
 wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
