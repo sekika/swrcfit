@@ -60,7 +60,8 @@ If you use the sample data in the source package, `swrc.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
 by `swrcfit swrc.txt`, sample result which is included as `result.txt`
 in the package is shown as follows. See equations and parameters
-[here](https://github.com/sekika/swrcfit/wiki/SWRC-models).
+[here](https://github.com/sekika/swrcfit/wiki/SWRC-models). Please note
+that q represents &theta;.
 
 ```
 === BC model ===
