@@ -251,42 +251,10 @@ R2 =  0.99167
 ```
 
 If advanced mode is selected (see the previous section), correlation
-matrix and standard deviation are also shown as follows.
+matrix and standard deviation are also shown. If qs and/or qr are
+set as constant, correlation matrix and standard deviation are shown
+only for the parameters set as variables.
 
-```
-=== BC model ===
-qs =  0.38316
-qr =  0.047638
-hb =  41.704
-lambda =  7.0104
-R2 =  0.99279
-CorrelationMatrix =
-
-   1.000000  -0.071401  -0.345313  -0.164434
-  -0.071401   1.000000   0.376894   0.663845
-  -0.345313   0.376894   1.000000   0.807590
-  -0.164434   0.663845   0.807590   1.000000
-
-StandardDeviation =
-
-   0.0035511
-   0.0040837
-   0.4535012
-   0.6777662
-
-=== VG model ===
-qs =  0.38656
-qr =  0.055190
-alpha =  0.021547
-(continued)
-```
-
-The order of the element is the same as the result display; in the
-order of qs, qr, hb and lambda. The above example is the case where
-q[s] and q[r] are set as variables (cqs=1 and cqr=1), and if either
-or both of the parameters are set as constant, correlation matrix and
-standard deviation are shown only for the parameters set as a variable.
-   
 ## Checking the result
 
 Using the Microsoft Excel worksheet, `swrc.xlsx`
