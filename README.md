@@ -1,6 +1,9 @@
 # swrcfit (SWRC Fit) - Fitting soil water retention curve
 
-SWRC Fit is a program which performs nonlinear fitting of soil water retention curve with following 5 models by Levenberg-Marquardt method. This software was used in [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
+SWRC Fit is a program which performs nonlinear fitting of soil water
+retention curve with following 5 models by Levenberg-Marquardt method.
+This software was used in
+[more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 
 |Model|Equation|Reference|
 |-----|--------|---------|-
@@ -10,7 +13,15 @@ SWRC Fit is a program which performs nonlinear fitting of soil water retention c
 |DB |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
 |BL |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BL.png) |Seki, 2007|
 
-where h is the suction head, &theta; is volumetric water content, S<sub>e</sub> is the effective water content defined by ![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e., ![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the cumulative normal distribution function. Please note that Q(x) is different from error function. Other parameters are soil hydraulic parameters to be optimized with swrcfit.
+where h is the suction head, &theta; is volumetric water content,
+S<sub>e</sub> is the effective water content defined by
+![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e.,
+![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is
+the complementary cumulative normal distribution function, defined by
+Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the
+cumulative normal distribution function. Please note that Q(x) is
+different from error function. Other parameters are soil hydraulic
+parameters to be optimized with swrcfit.
 
 Basic information of this program is summarized:
 
@@ -21,9 +32,16 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 2.0-beta.4
 
-This is a beta release of version 2.0. Please refer to [New features in version 2.0](#new-features-in-version-20). If you are using older version and want to get the latest beta release, please download it from https://github.com/sekika/swrcfit/releases. From version 2.0, you can check installed version by `swrcfit -v`. If your swrcfit is older, error message of `File does not exist.` is shown.
+This is a beta release of version 2.0. Please refer to
+[New features in version 2.0](#new-features-in-version-20). If you are
+using older version and want to get the latest beta release, please
+download it from https://github.com/sekika/swrcfit/releases. From
+version 2.0, you can check installed version by `swrcfit -v`. If your
+swrcfit is older, error message of `File does not exist.` is shown.
 
-This file is written in markdown language and online version is better for browzing. User's manual of SWRC fit for each version is available here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
+This file is written in markdown language and online version is better
+for browzing. User's manual of SWRC fit for each version is available
+here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## Contents
 
@@ -52,7 +70,8 @@ This file is written in markdown language and online version is better for browz
 
 ## How to install
 
-Quick guide for installation on each operating system is shown here. For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+Quick guide for installation on each operating system is shown here.
+For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
 
 ### Windows
 1. Install [cygwin](https://www.cygwin.com/)
