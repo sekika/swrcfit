@@ -1,5 +1,8 @@
 SWRC Fit Version History
 
+HEAD
+  - Install.sh creates destination directory
+
 Version 2.0-beta.4 (2014-09-11)
   - New feature to draw graphs of the result
   - Simple output mode
