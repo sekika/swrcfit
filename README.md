@@ -124,8 +124,8 @@ The 5th line sets the precision of the ouput. In GNU Octave, the
 variable output_precision specifies the minimum number of significant
 figures to display for numeric output. Default value is 7.
 
-The lines 6-7 specify the variable q[s], the saturated water content.
-In this program, q[s] is shown as "qs". Two parameters, qsin and cqs,
+The lines 6-7 specify the variable &theta;<sub>s</s>, the saturated
+water content. In this program, q[s] is shown as "qs". Two parameters, qsin and cqs,
 controls how the program treats this variable. qsin is the initial
 value of q[s] and cqs is a parameter which decides q[s] is constant
 or variable; when cqs is set as 0, q[s] is treated as a constant,
