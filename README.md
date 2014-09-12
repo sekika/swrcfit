@@ -271,7 +271,7 @@ alpha =  0.021547
    
 ## Checking the result
 
-   Using the Microsoft Excel worksheet, `swrc.xlsx`, the fitted curves can be checked (**Fig. 1**). By copying and pasting the result of the program output onto the yellow part and the measured data onto the blue part of the spreadsheet, The fitted curves are drawn in the graph of the same spreadsheet.  
+   Using the Microsoft Excel worksheet, `swrc.xlsx` ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)), the fitted curves can be checked (**Fig. 1**). By copying and pasting the result of the program output onto the yellow part and the measured data onto the blue part of the spreadsheet, The fitted curves are drawn in the graph of the same spreadsheet.  
 
 ![Fig. 1](./fig1.png)
 
