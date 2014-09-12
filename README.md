@@ -4,7 +4,7 @@ SWRC Fit is a program which performs nonlinear fitting of soil water retention c
 
 |Model|Equation|Reference|
 |-----|--------|---------|-
-|BC |![equation](http://swrcfit.sourceforge.net/img/BC.png) |Brooks and Corey, 1964|
+|BC |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BC.png) |Brooks and Corey, 1964|
 |VG |![equation](http://swrcfit.sourceforge.net/img/BC.png) (m = 1-1/n) |van Genuchten, 1980|
 |LN |![equation](http://swrcfit.sourceforge.net/img/LN.png) |Kosugi, 1996|
 |DB |![equation](http://swrcfit.sourceforge.net/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
