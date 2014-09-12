@@ -83,7 +83,7 @@ sigma =  0.10818
 R2 =  0.99167
 ```
 
-If advanced mode is selected (see [setting section](#preparation-of-setting-file],
+If advanced mode is selected (see [setting section](#preparation-of-setting-file),
 correlation matrix and standard deviation are also shown. If qs and/or
 qr are set as constant, correlation matrix and standard deviation are shown
 only for the parameters set as variables.
