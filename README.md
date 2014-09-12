@@ -117,7 +117,7 @@ output_precision(5); # precision of the output
 ```
 This line sets the precision of the ouput. In GNU Octave, the
 variable output_precision specifies the minimum number of significant
-figures to display for numeric output. Default value is 7.
+figures to display for numeric output. Default value is 5.
 
 ```
 qsin = max(y); # initial value of qs
