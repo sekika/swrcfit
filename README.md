@@ -27,7 +27,6 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## Contents
 
-- [Distributed package](#distributed-package)
 - [How to install](#how-to-install)
 - [Preparation of data file](#preparation-of-data-file)
 - [Preparation of setting file](#preparation-of-setting-file)
@@ -38,55 +37,10 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Question](#question)
 - [Reference](#reference)
 
-## Distributed package
-
-1. swrcfit ... Main progtam
-2. swrc.txt ... Sample data
-3. setting.txt ... Sample setting file
-4. result.txt ... Sample result obtained from sample data
-5. Install.sh ... Install script for Unix-like system
-6. swrc.xlsx ... Microsoft Excel worksheets for checking the result.
-7. README.md ... This file
-8. ChangeLog ... Version history
-9. COPYING ... GNU General Public License
-
 ## How to install
 
-Quick guide for installation on each operating system is shown here.
-For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
-
-### Windows
-1. Install [cygwin](https://www.cygwin.com/)
-2. While installing cygwin, [choose cygwin packages](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) of `octave`, `gnuplot` and `wget`.
-3. Run cygwin
-4. In the cygwin terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./Install.sh`. You can run this entire 4th step by
-```
-wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
-```
-
-Check if swrcfit is properly installed with `swrcfit swrc.txt` in the
-directory of the downloaded archive.
-
-If you want to see figure on the screen, you have to
-[set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and `startx` or
-`startxwin`. Without X server, you can create figure files.
-
-### Linux and Mac OS X
-1. Install octave, gnuplot and wget with
-   [package manager](http://en.wikipedia.org/wiki/Package_management_system)
-   that you are using. [Homebrew](http://brew.sh/) is recommended for
-    Mac OS X.
-2. Download the
-   [latest release of swrcfit](https://github.com/sekika/swrcfit/releases)
-   by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz
-   (downloaded file)`, `cd (directory of the unpacked package)`, and
-   `sudo ./Install.sh`. You can run this entire 2nd step by
-```
-wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
-```
-
-Check if swrcfit is properly installed by `swrcfit swrc.txt` in the
-directory of the downloaded archive.
+Read [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+for instruction.
 
 ## Preparation of data file
 
