@@ -283,7 +283,7 @@ Fig. 1 Spreadsheet for checking the result
 
    The screenshot of the user interface is shown in **Fig. 2**. Soil water retention data, prepared as [explained above](#preparation-of-data-file), is to be copied and pasted in the textbox. It can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).  In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The calculation options of &theta;<sub>r</sub> = 0 can be set by checking appropriate boxes. By default, only unimodal (BC, VG and LN) models are used, and when the users select the "Bimodal models" checkbox, bimodal (DB and BL) models will also be used. After that, the calculation starts by pressing the "Calculate" button.
 
-![Fig. 2](./fig2.png)
+![Fig. 2](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
 
 Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net/swrc/)
 
@@ -291,7 +291,7 @@ Fig. 2 Screenshot of the input display of the web interface (http://purl.org/net
 
 For those who might be interested, you can read [source code of the web interface](https://github.com/sekika/swrcfit-cgi).
 
-![Fig. 3](./fig3.png)
+![Fig. 3](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig3.png)
 
 Fig. 3 Screenshot of the results display of web interface (http://purl.org/net/swrc/)
 
