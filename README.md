@@ -179,7 +179,7 @@ qrin=0.05; cqr=0;
 
 ### New features in version 2.0
 
-   From version 2.0, new features are available. Version 2.0 is now beta release and can be obtained from https://github.com/sekika/swrcfit/releases.
+   From version 2.0, several new features are available.
    
    The first feature is to draw graph. You can control if you draw a graph on terminal or/and file, and how the graph look like, within the setting file. Detail is described here: https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
    
