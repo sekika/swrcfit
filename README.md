@@ -51,9 +51,9 @@ This file is written with markdown and the latest verstion can be viewed online 
 8. ChangeLog ... Version history
 9. COPYING ... GNU General Public License
 
-## Quick installation guide
+## How to install
 
-Here only quick guide for installation on each platform is documented. For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+Quick guide for installation on each operating system is shown here. For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
 
 ### Windows
 1. Install [cygwin](https://www.cygwin.com/)
