@@ -18,8 +18,7 @@ This is a beta release of version 2.0. Please refer to
 [new features in version 2.0](#new-features-in-version-20). If you are
 using older version and want to get the latest beta release, please
 download it from https://github.com/sekika/swrcfit/releases. From
-version 2.0, you can check installed version by `swrcfit -v`. If your
-swrcfit is older, error message of `File does not exist.` is shown.
+version 2.0, you can check installed version by `swrcfit -v`.
 
 This file is written in markdown language and online version is better
 for browzing. User's manual of SWRC fit for each version is available
