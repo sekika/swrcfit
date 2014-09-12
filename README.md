@@ -277,6 +277,7 @@ drawn in the graph of the same spreadsheet.
 The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
 in the program language perl and works as a cgi program. The perl program
 invokes GNU octave and executes the calculation engine of swrcfit.
+[More information about the web insterface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
 
 
 ## Citation of this work
