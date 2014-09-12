@@ -158,8 +158,7 @@ content, and it is set as a variable with the restriction of
 section. For example, for seting &theta;<sub>r</sub> = 0 as a constant
 value, the 7th line is to be commented out,, i.e., the first "#" mark
 is to be deleted. For setting &theta;<sub>r</sub> = 0.05 as a constant
-value, write `qrin=0.05;` in the setting file;
-
+value, write `qrin=0.05;` in the setting file.
 To disable the restriction of &theta;<sub>r</sub> >= 0, write `pqr=0;`
 in setting file.
 
