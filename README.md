@@ -51,7 +51,7 @@ swrcfit DataFilename [SettingFilename]
 
 where DataFilename is a filename of the [data file](#preparation-of-data-file),
 and SettingFilename is a filename of the
-[setting file]([Preparation of setting file]. When SettingFilename
+[setting file](#preparation-of-setting-file). When SettingFilename
 is not specified, default setting is used. The calculation result
 is shown in Octave terminal or standard output. The blanket [ ]
 indicates that it is not required.
