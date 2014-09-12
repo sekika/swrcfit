@@ -28,8 +28,7 @@ This file is written with markdown and the latest verstion can be viewed online 
 ## Contents
 
 - [Distributed package](#distributed-package)
-- [Quick installation guide](#quick-installation-guide)
-- [More information on installation](#more-information-on-installation)
+- [How to install](#how-to-install)
 - [Preparation of data file](#preparation-of-data-file)
 - [Preparation of setting file](#preparation-of-setting-file)
 - [Running the program](#running-the-program)
