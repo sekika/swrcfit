@@ -27,10 +27,10 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 ## Contents
 
 - [How to install](#how-to-install)
+- [Running the program](#running-the-program)
 - [Preparation of data file](#preparation-of-data-file)
 - [Preparation of setting file](#preparation-of-setting-file)
-- [Running the program](#running-the-program)
-- [Checking the result](#checking-the-result)
+- [Checking the result with Excel file](#checking-the-result-with-excel-file)
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
@@ -40,6 +40,54 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 Read [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
 for instruction.
+
+## Running the program
+
+Run the program with
+
+```
+swrcfit DataFilename [SettingFilename]
+```
+
+where DataFilename is a filename of the [data file](#preparation-of-data-file),
+and SettingFilename is a filename of the
+[setting file]([Preparation of setting file]. When SettingFilename
+is not specified, default setting is used. The calculation result
+is shown in Octave terminal or standard output. The blanket [ ]
+indicates that it is not required.
+
+If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`
+([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
+sample result which is included as `result.txt` in the package is
+shown as follows. See equations and parameters
+[here](https://github.com/sekika/swrcfit/wiki/SWRC-models).
+
+```
+=== BC model ===
+qs =  0.38316
+qr =  0.047638
+hb =  41.704
+lambda =  7.0104
+R2 =  0.99279
+=== VG model ===
+qs =  0.38656
+qr =  0.055190
+alpha =  0.021547
+n =  15.923
+R2 =  0.99246
+=== LN model ===
+qs =  0.38625
+qr =  0.056345
+hm =  46.631
+sigma =  0.10818
+R2 =  0.99167
+```
+
+If advanced mode is selected (see [setting section]([Preparation of setting file]. When SettingFilename
+),
+correlation matrix and standard deviation are also shown. If qs and/or
+qr are set as constant, correlation matrix and standard deviation are shown
+only for the parameters set as variables.
 
 ## Preparation of data file
 
@@ -214,52 +262,7 @@ name of `bimodal.txt`, and invoke the swrcfit specifying the
 `bimodal.txt`. This way, you can select bimodal model only when you
 want to, without rewriting setting file each time.
 
-## Running the program
-
-Run the program with
-
-```
-swrcfit DataFilename [SettingFilename]
-```
-
-where DataFilename is a filename of the data file, and SettingFilename
-is a filename of the setting file. When SettingFilename is not
-specified, default setting is used. The calculation result is shown
-in Octave terminal or standard output. The blanket [ ] indicates that
-it is not required.
-
-If you execute the sample data, `swrc.txt`, by `swrcfit swrc.txt`,
-sample result which is included as `result.txt` in the package is
-shown as follows. See equations and parameters
-[here](https://github.com/sekika/swrcfit/wiki/SWRC-models).
-
-```
-=== BC model ===
-qs =  0.38316
-qr =  0.047638
-hb =  41.704
-lambda =  7.0104
-R2 =  0.99279
-=== VG model ===
-qs =  0.38656
-qr =  0.055190
-alpha =  0.021547
-n =  15.923
-R2 =  0.99246
-=== LN model ===
-qs =  0.38625
-qr =  0.056345
-hm =  46.631
-sigma =  0.10818
-R2 =  0.99167
-```
-
-If advanced mode is selected (see the previous section), correlation
-matrix and standard deviation are also shown. If qs and/or qr are
-set as constant, correlation matrix and standard deviation are shown
-only for the parameters set as variables.
-
-## Checking the result
+## Checking the result with Excel file
 
 Using the Microsoft Excel worksheet, `swrc.xlsx`
 ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
