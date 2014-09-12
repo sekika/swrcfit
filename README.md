@@ -53,6 +53,8 @@ This file is written with markdown and the latest verstion can be viewed online 
 
 ## Quick installation guide
 
+Here only quick guide for installation on each platform is documented. For more information, refer to [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+
 ### Windows
 1. Install [cygwin](https://www.cygwin.com/)
 2. While installing cygwin, [choose cygwin packages](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) of `octave`, `gnuplot` and `wget`.
@@ -74,31 +76,6 @@ wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
 ```
 
 Check if swrcfit is properly installed by `swrcfit swrc.txt`.
-
-## More information on installation
-
-First of all, if you are using Windows, install cygwin. It can be installed without cygwin with some workaround, but it is not documented here.
-
-   SWRC Fit is written in GNU Octave, and therefore GNU Octave should be installed in the system. GNU Octave is a high-level language, primarily intended for numerical computations, available for downloading from the GNU Octave Website (http://www.gnu.org/software/octave/). The installation instructions are given in the Website. If you are using cygwin on Windows or some package manager, please install octave with it. GNU Octave works on various operating systems including Windows, Mac OS X, Linux and OS/2.
-
-After installing GNU Octave, some necessary packages for running SWRC Fit, `leasqr.m` and `dfdp.m` and several other files which are used from these files should be installed from the octave-forge package (http://octave.sourceforge.net/). From octave shell, these files can be installed with `pkg install -forge struct optim`.
-
-In case the installation of package with this command fails, download these files manually and put them in Octave loadpath. You can check loadpath by running `path` in Octave shell.
-
-* [leasqr.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/leasqr.m)
-* [dfdp.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/dfdp.m)
-* [cpiv_bard.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/cpiv_bard.m)
-* [\__dfdp__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__dfdp__.m)
-* [\__lm_svd__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__lm_svd__.m)
-* [\__plot_cmds__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__plot_cmds__.m)
-* [\__do_user_interaction__.m](http://sourceforge.net/p/octave/optim/ci/default/tree/inst/private/__do_user_interaction__.m)
-
-After octave and necesssary package are installed, install swrcfit as follows.
-
-* Edit the first line of swrcfit, `#!/usr/bin/octave -qf`, to the path where octave is installed.
-* Copy to wherever the path is set, such as /usr/local/bin or /usr/bin.
-
-`Install.sh` script tries to automatically do the job so far. It first checks if Octave is installed, and install swrcfit to `/usr/local/bin`. If it is invoked with `./Install.sh DIR`, swrcfit is installed to `DIR`. After that, the script runs swrcfit with sample data and checks if it is identical to sample result. If it is not, it tries to install optim package from octave forge. If it is not successful, it tries to get necessary files directly from sourceforge by wget command.
 
 ## Preparation of data file
 
