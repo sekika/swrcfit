@@ -162,9 +162,9 @@ are conducted. Therefore, if you write a setting file of
 ```
 output_precision(5); # precision of the output
 ```
-This line sets the precision of the ouput. In GNU Octave, the
-variable output_precision specifies the minimum number of significant
-figures to display for numeric output. Default value is 5.
+This line sets the precision of the ouput, i.e., the numbers of
+[significant figures](http://en.wikipedia.org/wiki/Significant_figures)
+to display. Default value is 5.
 
 ```
 qsin = max(y); # initial value of qs
