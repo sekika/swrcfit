@@ -153,13 +153,13 @@ variable, and pqr is a variable which decides if the restriction of
 &theta;<sub>r</sub> >= 0 is imposed. By default, initial value of
 &theta;<sub>r</sub> is set as the minimum value of the soil water
 content, and it is set as a variable with the restriction of
-&theta;<sub>r</sub> >= 0, but it can be changed by editing this
-section. For example, for seting &theta;<sub>r</sub> = 0 as a constant
-value, the 7th line is to be commented out,, i.e., the first "#" mark
-is to be deleted. For setting &theta;<sub>r</sub> = 0.05 as a constant
-value, write `qrin=0.05;` in the setting file.
-To disable the restriction of &theta;<sub>r</sub> >= 0, write `pqr=0;`
-in setting file.
+&theta;<sub>r</sub> >= 0, but it can be changed by writing a setting
+file. For example, for seting &theta;<sub>r</sub> = 0 as a constant
+value, write a setting file of `qrin=0; cqr=0;` (if you use the
+distributed `setting.txt` file, remove # at the third line).
+For setting &theta;<sub>r</sub> = 0.05 as a constant value, write
+`qrin=0.05;` in the setting file. To disable the restriction of
+&theta;<sub>r</sub> >= 0, write `pqr=0;` in setting file.
 
 ```
 adv=0; # adv=1; advanced output; adv=0; normal output;
