@@ -34,7 +34,6 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
-- [Reference](#reference)
 
 ## How to install
 
