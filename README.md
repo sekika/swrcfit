@@ -139,9 +139,7 @@ setting involves a character "=", swrcfit evaluates the equation.
 If the setting does not have "=" character, swrcfit understands that
 it is a filename and read setting from the specified file.
 
-Detailed description of [setting file](https://github.com/sekika/swrcfit/wiki/Setting-file)
-is shown elsewhere. Here, some examples of calculation options are
-shown.
+Here, some examples of calculation options are shown.
 
 |Calculation option|Meaning|
 |------------------|----------------|
@@ -149,6 +147,15 @@ shown.
 |qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
 |fig=1             |Make figure file of plot |
+
+For example, if you execute
+```
+swrcfit swrc.txt mode=2 fig=1
+```
+Fitting of bimodal models are conducted with the input parameters in
+`swrc.txt` and figure file of "bimodal.png" is created.
+
+[Detailed description of calaulation option](https://github.com/sekika/swrcfit/wiki/Setting-file).
 
 ## Checking the result with Excel file
 
