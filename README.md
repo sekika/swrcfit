@@ -12,13 +12,13 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0-beta.4
+* Version of this distribution: 2.0-beta.5
 
 This is a beta release of version 2.0. Please refer to
-[new features in version 2.0](#new-features-in-version-20). If you are
-using older version and want to get the latest beta release, please
-download it from https://github.com/sekika/swrcfit/releases. From
-version 2.0, you can check installed version by `swrcfit -v`.
+[version history](./ChangeLog). If you are using older version and
+want to get the latest beta release, please download it from
+https://github.com/sekika/swrcfit/releases. From version 2.0, you can
+check installed version by `swrcfit -v`.
 
 This file is written in markdown language and online version is better
 for browzing. User's manual of SWRC fit for each version is available
@@ -29,7 +29,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [How to install](#how-to-install)
 - [Running the program](#running-the-program)
 - [Preparation of data file](#preparation-of-data-file)
-- [Preparation of setting file](#preparation-of-setting-file)
+- [Calculation options](#calculation-options)
 - [Checking the result with Excel file](#checking-the-result-with-excel-file)
 - [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
 - [Citation of this work](#citation-of-this-work)
@@ -45,14 +45,13 @@ for instruction.
 In your [terminal](http://en.wikipedia.org/wiki/Terminal_emulator), run the program with
 
 ```
-swrcfit DataFilename [SettingFilename]
+swrcfit DataFile [setting]...
 ```
 
-where DataFilename is a filename of the [data file](#preparation-of-data-file),
-and SettingFilename is a filename of the
-[setting file](#preparation-of-setting-file). When SettingFilename
-is not specified, default setting is used. The blanket [ ] indicates that
-it is not required.
+where DataFile is a filename of the [data file](#preparation-of-data-file),
+and setting is the [calculation options](#calculation-options).
+When setting is not specified, default setting is used. Multiple setting
+can be specified. The blanket [ ] indicates that it is not required.
 
 If you use the sample data in the source package, `swrc.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
@@ -131,9 +130,15 @@ For example,
 This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3
 for the suction of 1050.
 
-## Preparation of setting file
+## Calulation options
 
-When setting file is specified, it is read before calculation starts.
+Calculation options can be specified from command line option in the
+form of `parameter=value`. Calculation option can also be specified
+with a file where a set of calculatio options are written. If the
+setting involves a character "=", swrcfit evaluates the equation.
+If the setting does not have "=" character, swrcfit understands that
+it is a filename and read setting from the specified file.
+
 A sample setting file is included in the source package as `setting.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt)).
 The file describes the default setting of the program; when setting

@@ -1,6 +1,8 @@
 SWRC Fit Version History
 
-HEAD
+Version 2.0-beta.5 (2014-09-14)
+  - Setting option can be either equation or filename
+  - Multiple setting without limitation of numbers
   - Install.sh creates destination directory
 
 Version 2.0-beta.4 (2014-09-11)
