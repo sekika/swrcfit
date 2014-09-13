@@ -81,7 +81,7 @@ sigma =  0.10818
 R2 =  0.99167
 ```
 
-If advanced mode is selected (see [setting section](#preparation-of-setting-file)),
+If advanced mode is selected (see [calculation option](#calculation-options)),
 correlation matrix and standard deviation are also shown. If qs and/or
 qr are set as constant, correlation matrix and standard deviation are shown
 only for the parameters set as variables.
@@ -143,9 +143,10 @@ Here, some examples of calculation options are shown.
 
 |Calculation option|Meaning|
 |------------------|----------------|
-|mode=2            |bimodal analysis|
+|mode=2            |Bimodal analysis|
 |qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
+|adv=1             |Advanced output showing correlation matrix and standard deviation|
 |fig=1             |Make figure file of plot |
 
 For example, when this command is executed,
