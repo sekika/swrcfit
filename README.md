@@ -146,8 +146,9 @@ shown.
 |Calculation option|Meaning|
 |------------------|----------------|
 |mode=2            |bimodal analysis|
-|qsin=0.35 cqr=0   |&theta;<sub>s</sub>=0.35 is constant|
+|qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
+|fig=1             |Make figure file of plot |
 
 ## Checking the result with Excel file
 
