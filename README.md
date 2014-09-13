@@ -43,7 +43,7 @@ for instruction.
 
 ## Running the program
 
-Run the program with
+In your [terminal](http://en.wikipedia.org/wiki/Terminal_emulator), run the program with
 
 ```
 swrcfit DataFilename [SettingFilename]
