@@ -165,7 +165,7 @@ Using the Microsoft Excel worksheet, `swrc.xlsx`
 ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
 the fitted curves can be checked as the figure. By copying and pasting
 the result of the program output onto the yellow part and the measured
-data onto the blue part of the spreadsheet, The fitted curves are
+data onto the blue part of the spreadsheet, the fitted curves are
 drawn in the graph of the same spreadsheet.  
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
