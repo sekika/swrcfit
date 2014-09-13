@@ -153,7 +153,8 @@ For example, when this command is executed,
 swrcfit swrc.txt mode=2 fig=1
 ```
 Fitting of bimodal models are conducted with the input parameters in
-`swrc.txt` and figure file of "bimodal.png" is created.
+`swrc.txt` and figure file of `bimodal.png` (default file name for
+bimodal figure) is created.
 
 [Detailed description of calaulation option](https://github.com/sekika/swrcfit/wiki/Setting-file).
 
