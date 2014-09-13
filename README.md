@@ -148,7 +148,7 @@ Here, some examples of calculation options are shown.
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
 |fig=1             |Make figure file of plot |
 
-For example, if you execute
+For example, when this command is executed,
 ```
 swrcfit swrc.txt mode=2 fig=1
 ```
