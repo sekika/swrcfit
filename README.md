@@ -50,8 +50,8 @@ swrcfit DataFile [setting]...
 
 where DataFile is a filename of the [data file](#preparation-of-data-file),
 and setting is the [calculation options](#calculation-options).
-When setting is not specified, default setting is used. Multiple setting
-can be specified. The blanket [ ] indicates that it is not required.
+The blanket [ ] indicates that it is not required, and ... indicates that
+multiple settings can be specified.
 
 If you use the sample data in the source package, `swrc.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
@@ -135,7 +135,7 @@ for the suction of 1050.
 Calculation options can be specified from command line option in the
 form of `parameter=value`. Calculation option can also be specified
 with a file where calculation options are written. If the setting
-involves a character "=", swrcfit evaluates the equation.
+involves a character "=", swrcfit evaluates the given equation.
 If the setting does not have "=" character, swrcfit understands that
 it is a filename and reads setting from the specified file.
 
