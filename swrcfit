@@ -3,15 +3,15 @@
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-  version = "swrcfit version 2.0-beta.4";
+  version = "swrcfit version 2.0-beta.5";
 #
-# usage: swrcfit [-v] DataFilename [SettingFile1] [SettingFile2] [SettingFile3]]
+# usage: swrcfit [-v] DataFile [setting]...
 
 # Read commandline parameters
 
 argc = length (argv);
 if argc == 0,
-  disp ("usage: swrcfit [-v] DataFilename [SettingFile1] [SettingFile2] [SettingFile3]");
+  disp ("usage: swrcfit [-v] DataFile [setting]...
   disp ("See https://github.com/sekika/swrcfit/blob/master/README.md");
   return;
 end
@@ -25,31 +25,8 @@ if strcmp (filename, "-v")
 end
 
 if exist(filename,"file")==0,
-  disp("File does not exist.");
+  disp("Data file does not exist.");
   return; 
-end
-
-setting = "";
-if argc > 1,
-  setting = arg_list{2};
-  if exist(setting,"file")==0,
-    disp("File does not exist.");
-    return;
-  end
-end
-if argc > 2,
-  setting2 = arg_list{3};
-  if exist(setting2,"file")==0,
-    disp("File does not exist.");
-    return;
-  end
-end
-if argc > 3,
-   setting3 = arg_list{4};
-  if exist(setting3,"file")==0,
-    disp("File does not exist.");
-    return;
-  end
 end
 
 # Read data from file
@@ -109,14 +86,27 @@ BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
 DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 linewidth=1.5; # Line width of fitting curves
 
-# Read setting files
+# Read default setting files
 rcfile = [getenv("HOME") "/.swrcfitrc"];
 if exist(rcfile, "file"), source(rcfile) end
 if exist("setting.txt", "file"), source ("setting.txt") end
 
-if (argc > 1), source (setting) end
-if (argc > 2), source (setting2) end
-if (argc > 3), source (setting3) end
+# Read setting from command line parameters
+
+if (argc > 1),
+  for j = 2:argc
+    setting = arg_list{j};
+    if index(setting, "=")==0,
+      if exist(setting,"file")==0,
+        disp(cstrcat("Setting file ",setting," does not exist."));
+        return;
+      end
+      source (setting)
+    else
+      eval (strcat(setting,";"))
+    end
+  endfor
+end
 
 ######################### Unimodal model #####################
 if (mode ~= 2),
