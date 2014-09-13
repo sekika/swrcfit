@@ -11,7 +11,7 @@
 
 argc = length (argv);
 if argc == 0,
-  disp ("usage: swrcfit [-v] DataFile [setting]...
+  disp ("usage: swrcfit [-v] DataFile [setting]...");
   disp ("See https://github.com/sekika/swrcfit/blob/master/README.md");
   return;
 end
