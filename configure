@@ -20,7 +20,6 @@ while test "$1" != "" ; do
            error="true"
         ;;
       esac
-      shift
    fi
    shift
 done
