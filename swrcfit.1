@@ -10,19 +10,26 @@ swrcfit \- fitting of soil water retention curve
 DataFile [setting]...
 .SH DESCRIPTION
 .B SWRC Fit (swrcfit)
-performs nonlinear fitting of SWRC (soil water retention curve) with 5 SWRC models by Levenberg-Marquardt method. It runs on GNU Octave and requires some libraries of
+performs nonlinear fitting of SWRC (soil water retention curve) with
+5 SWRC models by Levenberg-Marquardt method. It runs on GNU Octave
+and requires some libraries of
 .B optim
 package in octave-forge.
 
 .B DataFile
-is a file name of the input SWRC. It is a text file with two columns; the first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. Optionally, the data file can have the third column which specifies a weight for each data point.
+is a file name of the input SWRC. It is a text file with two columns;
+the first column is the suction head and the second column is the
+volumetric water content, where space is used as a delimiter.
+Optionally, the data file can have the third column which specifies
+a weight for each data point.
 
 .B setting
 is equation in the form of
 .B parameter=value
 when a character
 .B =
-is involved. Otherwise, it is a file name where calculation options are written.
+is involved. Otherwise, it is a file name where calculation options
+are written.
 
 See online document below for description of calculation options.
 .SH OPTIONS
