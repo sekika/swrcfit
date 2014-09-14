@@ -1,0 +1,49 @@
+# /bin/sh
+# read comman line option of --prefix and create Makefile
+
+PREFIX=/usr/local
+
+# Read command line options and set PREFIX
+
+while test "$1" != "" ; do
+   if [ -z `echo $1 | grep "="` ]; then
+      echo "No such option $1"
+      error="true"
+   else
+      param=`echo $1 | sed -e 's/=.*$//'`
+      case $param in
+        -prefix | --prefix | --prefi | --pref | --pre | --pr | --p)
+           PREFIX=`echo $1 | sed -e 's/^.*=//' | sed -e 's/\/$//'`
+        ;;
+        -*)
+           echo "No such option $param"
+           error="true"
+        ;;
+      esac
+      shift
+   fi
+   shift
+done
+if [ "$error" = "true" ]; then
+   echo "This configure script supports only --prefix"
+fi
+
+# Write Makefile
+
+cat << EOF > Makefile
+PREFIX := $PREFIX
+
+all:
+	@echo "Nothing to compile. Run (sudo) make install."
+
+install:
+	@echo "=== Installing manual to \$(DESTDIR)\$(PREFIX)/share/man/man1"
+	@mkdir -p \$(DESTDIR)\$(PREFIX)/share/man/man1
+	@cp swrcfit.1 \$(DESTDIR)\$(PREFIX)/share/man/man1/
+	@gzip -f \$(DESTDIR)\$(PREFIX)/share/man/man1/swrcfit.1
+	@mkdir -p \$(DESTDIR)\$(PREFIX)/bin
+	@sh Install.sh \$(DESTDIR)\$(PREFIX)/bin/
+EOF
+
+echo "Makefile created."
+echo "Run (sudo) make install."

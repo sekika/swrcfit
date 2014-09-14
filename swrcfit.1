@@ -1,0 +1,38 @@
+.\" Manpage for swrcfit.
+.TH swrcfit 1
+.SH NAME
+swrcfit \- fitting of soil water retention curve
+.SH SYNOPSIS
+.B swrcfit
+.RB [ \-v ]
+.br
+.B swrcfit
+DataFile [setting]...
+.SH DESCRIPTION
+.B SWRC Fit (swrcfit)
+performs nonlinear fitting of SWRC (soil water retention curve) with 5 SWRC models by Levenberg-Marquardt method. It runs on GNU Octave and requires some libraries of
+.B optim
+package in octave-forge.
+
+.B DataFile
+is a file name of the input SWRC. It is a text file with two columns; the first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. Optionally, the data file can have the third column which specifies a weight for each data point.
+
+.B setting
+is equation in the form of
+.B parameter=value
+when a character
+.B =
+is involved. Otherwise, it is a file name where calculation options are written.
+
+See online document below for description of calculation options.
+.SH OPTIONS
+.B \-\^v
+Show version.
+.SH ONLINE DOCUMENT
+https://github.com/sekika/swrcfit/blob/master/README.md
+.SH SEE ALSO
+octave(1)
+.SH BUGS
+Send bug report at https://github.com/sekika/swrcfit/issues
+.SH AUTHOR
+Katsutoshi Seki (http://researchmap.jp/sekik/)
