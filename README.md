@@ -31,7 +31,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Preparation of data file](#preparation-of-data-file)
 - [Calculation options](#calculation-options)
 - [Checking the result with Excel file](#checking-the-result-with-excel-file)
-- [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
+- [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
 
@@ -170,7 +170,7 @@ drawn in the graph of the same spreadsheet.
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
 
-## Web interface of the SWRC Fit
+## Web interface
 
 The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
 in the program language perl and works as a cgi program. The perl program
