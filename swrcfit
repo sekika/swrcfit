@@ -3,7 +3,7 @@
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-  version = "swrcfit version 2.0-beta.5";
+  version = "swrcfit version 2.0-beta.6";
 #
 # usage: swrcfit [-v] DataFile [setting]...
 
@@ -103,7 +103,8 @@ if (argc > 1),
       end
       source (setting)
     else
-      eval (strcat(setting,";"))
+      command = strcat(setting,";")
+      eval (command)
     end
   endfor
 end
