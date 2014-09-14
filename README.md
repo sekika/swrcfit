@@ -114,7 +114,7 @@ Any unit can be used as the input data, and the calculated data depends
 on the unit used as the input data.
 
 Optionally, the data file can have the third column. When it has the
-third column, it is interpreted as a weight for each parameter.
+third column, it is interpreted as a weight for each data point.
 
 For example,
 
