@@ -37,7 +37,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## How to install
 
-Read [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+Read [Installation of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
 for instruction.
 
 ## Running the program
