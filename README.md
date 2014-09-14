@@ -31,7 +31,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Preparation of data file](#preparation-of-data-file)
 - [Calculation options](#calculation-options)
 - [Checking the result with Excel file](#checking-the-result-with-excel-file)
-- [Web interface of the SWRC Fit](#web-interface-of-the-swrc-fit)
+- [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
 
@@ -50,8 +50,8 @@ swrcfit DataFile [setting]...
 
 where DataFile is a filename of the [data file](#preparation-of-data-file),
 and setting is the [calculation options](#calculation-options).
-When setting is not specified, default setting is used. Multiple setting
-can be specified. The blanket [ ] indicates that it is not required.
+The blanket [ ] indicates that it is not required, and ... indicates that
+multiple settings can be specified.
 
 If you use the sample data in the source package, `swrc.txt`
 ([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
@@ -114,7 +114,7 @@ Any unit can be used as the input data, and the calculated data depends
 on the unit used as the input data.
 
 Optionally, the data file can have the third column. When it has the
-third column, it is interpreted as a weight for each parameter.
+third column, it is interpreted as a weight for each data point.
 
 For example,
 
@@ -134,10 +134,10 @@ for the suction of 1050.
 
 Calculation options can be specified from command line option in the
 form of `parameter=value`. Calculation option can also be specified
-with a file where a set of calculatio options are written. If the
-setting involves a character "=", swrcfit evaluates the equation.
+with a file where calculation options are written. If the setting
+involves a character "=", swrcfit evaluates the given equation.
 If the setting does not have "=" character, swrcfit understands that
-it is a filename and read setting from the specified file.
+it is a filename and reads setting from the specified file.
 
 Here, some examples of calculation options are shown.
 
@@ -165,12 +165,12 @@ Using the Microsoft Excel worksheet, `swrc.xlsx`
 ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
 the fitted curves can be checked as the figure. By copying and pasting
 the result of the program output onto the yellow part and the measured
-data onto the blue part of the spreadsheet, The fitted curves are
+data onto the blue part of the spreadsheet, the fitted curves are
 drawn in the graph of the same spreadsheet.  
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
 
-## Web interface of the SWRC Fit
+## Web interface
 
 The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
 in the program language perl and works as a cgi program. The perl program
