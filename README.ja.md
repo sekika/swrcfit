@@ -121,17 +121,15 @@ qsやqrが定数の時は、変数に対しての相関行列と標準偏差が�
 1050 0.1159 3
 ```
 
-このデータは 0, 20, 40, 70, 100 のサクションに対しては 1、
+このような入力データがあると、 0, 20, 40, 70, 100 のサクションに対しては 1、
 1050 に対しては 3 の重み付けで、回帰をする。
 
 ## 設定
 
-Calculation options can be specified from command line option in the
-form of `parameter=value`. Calculation option can also be specified
-with a file where calculation options are written. If the setting
-involves a character "=", swrcfit evaluates the given equation.
-If the setting does not have "=" character, swrcfit understands that
-it is a filename and reads setting from the specified file.
+設定は、コマンドラインオプションから `パラメータ=値` の式で指定できる。
+設定ファイルを用意して指定することも可能である。
+コマンドラインオプションが `=` を含む時は式であると解釈され、
+含まない時はファイル名であると解釈される。
 
 Here, some examples of calculation options are shown.
 
