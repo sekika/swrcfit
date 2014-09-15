@@ -134,9 +134,9 @@ for the suction of 1050.
 
 Calculation options can be specified from command line option in the
 form of `parameter=value`. Calculation option can also be specified
-with a file where calculation options are written. If the setting
-involves a character "=", swrcfit evaluates the given equation.
-If the setting does not have "=" character, swrcfit understands that
+with a file where calculation options are written. If the option
+involves a character `=`, swrcfit evaluates the given equation.
+If the option does not have `=` character, swrcfit understands that
 it is a filename and reads setting from the specified file.
 
 Here, some examples of calculation options are shown.
