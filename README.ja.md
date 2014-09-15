@@ -1,4 +1,4 @@
-# swrcfit (SWRC Fit) - 土壌水分特性曲線の非線形回帰
+# swrcfit (SWRC Fit) - 土壌水分特性曲線の回帰
 
 SWRC Fit は、土壌水分特性曲線をレーベンバーグ・マルカート法によって、
 [5 つの土壌水分特性モデル](https://github.com/sekika/swrcfit/wiki/SWRC-models)
