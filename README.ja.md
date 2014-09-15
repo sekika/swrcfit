@@ -18,7 +18,7 @@ https://github.com/sekika/swrcfit/releases からダウンロードできる。
 バージョン 2.0 からは、インスールされているバージョンを
 `swrcfit -v` によって確認できる。
 
-このユーザーマニュアルは、ウェブで読むとより読みやすい。
+このユーザーマニュアルは、ウェブで読むと読みやすい。
 それぞれのバージョンのユーザーマニュアルは、ここから読むことができる。
 https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
