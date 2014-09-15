@@ -37,7 +37,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## How to install
 
-Read [Installtion of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
+Read [Installation of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
 for instruction.
 
 ## Running the program
@@ -91,7 +91,7 @@ only for the parameters set as variables.
 The input data, i.e., the soil water retention curve, should be prepared
 as a text file with two columns. Sample data is included in the source
 package as `swrc.txt`
-([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt). 
+([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). 
 The first column is the suction head and the second column is the
 volumetric water content, where space is used as a delimiter. For example;
 
