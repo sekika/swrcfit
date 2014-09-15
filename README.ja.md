@@ -26,8 +26,8 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 - [インストールの方法](#インストールの方法)
 - [プログラムの実行](#プログラムの実行)
-- [Preparation of data file](#preparation-of-data-file)
-- [Calculation options](#calculation-options)
+- [データファイルの準備](#データファイルの準備)
+- [設定](#設定)
 - [Checking the result with Excel file](#checking-the-result-with-excel-file)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
@@ -46,8 +46,8 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 swrcfit DataFile [setting]...
 ```
 
-DataFile は[データファイル](#preparation-of-data-file)のファイル名で、
-setting は[設定](#calculation-options)である。
+DataFile は[データファイル](#データファイルの準備)のファイル名で、
+setting は[設定](#設定)である。
 鉤括弧 [ ] は省略可能であることを示し、 ... は複数の設定を書けることを示している。
 
 ソースパッケージに含まれている`swrc.txt` というファイル
@@ -80,19 +80,17 @@ sigma =  0.10818
 R2 =  0.99167
 ```
 
-If advanced mode is selected (see [calculation option](#calculation-options)),
-correlation matrix and standard deviation are also shown. If qs and/or
-qr are set as constant, correlation matrix and standard deviation are shown
-only for the parameters set as variables.
+詳細表示モードが選択が選択されると ([設定](#設定)参照)
+相関行列と標準偏差が表示される。
+qsやqrが定数の時は、変数に対しての相関行列と標準偏差が表示される。
 
-## Preparation of data file
+## データファイルの準備
 
-The input data, i.e., the soil water retention curve, should be prepared
-as a text file with two columns. Sample data is included in the source
-package as `swrc.txt`
-([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). 
-The first column is the suction head and the second column is the
-volumetric water content, where space is used as a delimiter. For example;
+入力データ、すなわち土壌水分特性曲線は、1行目にサクション（負圧）の水頭、2行目に体積含水率の形式のテキストファイルとして準備する。
+区切り記号にはスペースを使う。
+サンプルのデータは、ソースパッケージの `swrc.txt` というファイル
+([ダウンロード](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt))
+に含まれている。たとえば、以下のようなデータである。
 
 ```
 0 0.2628
@@ -108,14 +106,11 @@ volumetric water content, where space is used as a delimiter. For example;
 1050 0.1159
 ```
 
-Lines beginning with "#" are regarded as comment and neglected.
-Any unit can be used as the input data, and the calculated data depends
-on the unit used as the input data.
+# で始まる行は無視されるので、コメントを記入することができる。
+入力データの単位は自由で、計算結果の単位は入力データの単位に依存する。
 
-Optionally, the data file can have the third column. When it has the
-third column, it is interpreted as a weight for each data point.
-
-For example,
+3行目のデータが存在すると、それぞれの測定点に対する重みであると解釈される。
+例えば、
 
 ```
 0 0.2628 1
@@ -126,10 +121,10 @@ For example,
 1050 0.1159 3
 ```
 
-This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3
-for the suction of 1050.
+このデータは 0, 20, 40, 70, 100 のサクションに対しては 1、
+1050 に対しては 3 の重み付けで、回帰をする。
 
-## Calculation options
+## 設定
 
 Calculation options can be specified from command line option in the
 form of `parameter=value`. Calculation option can also be specified
