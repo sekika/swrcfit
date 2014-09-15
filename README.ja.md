@@ -40,23 +40,24 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## プログラムの実行
 
-In your [terminal](http://en.wikipedia.org/wiki/Terminal_emulator), run the program with
+[端末エミュレータ](http://ja.wikipedia.org/wiki/%E7%AB%AF%E6%9C%AB%E3%82%A8%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF)から、次のコマンドを実行する。
 
 ```
 swrcfit DataFile [setting]...
 ```
 
-where DataFile is a filename of the [data file](#preparation-of-data-file),
-and setting is the [calculation options](#calculation-options).
-The blanket [ ] indicates that it is not required, and ... indicates that
-multiple settings can be specified.
+DataFile は[データファイル](#preparation-of-data-file)のファイル名で、
+setting は[設定](#calculation-options)である。
+鉤括弧 [ ] は省略可能であることを示し、 ... は複数の設定を書けることを示している。
 
-If you use the sample data in the source package, `swrc.txt`
-([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)),
-by `swrcfit swrc.txt`, sample result which is included as `result.txt`
-in the package is shown as follows. See equations and parameters
-[here](https://github.com/sekika/swrcfit/wiki/SWRC-models). Please note
-that q represents &theta;.
+ソースパッケージに含まれている`swrc.txt` というファイル
+([ダウンロード](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt))
+のディレクトリで
+`swrcfit swrc.txt` と実行することで、サンプルに含まれている
+`result.txt` と同じ、以下のような結果が表示される。
+式とパラメータについては
+[ここ](https://github.com/sekika/swrcfit/wiki/SWRC-models)を参照のこと。
+ここで、 q は &theta; のことである。
 
 ```
 === BC model ===
