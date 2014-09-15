@@ -7,8 +7,8 @@ SWRC Fit は、土壌水分特性曲線をレーベンバーグ・マルカー�
 で使われた。
 
 * 文献: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
-* ホームページ: http://swrcfit.sourceforge.net/
-* ウェブインターフェース: http://purl.org/net/swrc/
+* ホームページ: http://swrcfit.sourceforge.net/jp/
+* ウェブインターフェース: http://purl.org/net/swrc/index-ja.html
 * 作者: [関 勝寿](http://researchmap.jp/sekik/)
 * ライセンス: GNU General Public License
 
