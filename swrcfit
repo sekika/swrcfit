@@ -103,7 +103,7 @@ if (argc > 1),
       end
       source (setting)
     else
-      command = strcat(setting,";")
+      command = strcat(setting,";");
       eval (command)
     end
   endfor
