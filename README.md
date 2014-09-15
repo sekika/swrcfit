@@ -91,7 +91,7 @@ only for the parameters set as variables.
 The input data, i.e., the soil water retention curve, should be prepared
 as a text file with two columns. Sample data is included in the source
 package as `swrc.txt`
-([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt). 
+([download](https://raw.githubusercontent.com/sekika/swrcfit/master/swrc.txt)). 
 The first column is the suction head and the second column is the
 volumetric water content, where space is used as a delimiter. For example;
 
