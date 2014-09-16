@@ -1,12 +1,13 @@
 SWRC Fit Version History
 
-Version 2.0-beta.6 (2014-09-15)
+Version 2.0-beta.7 (2014-09-15)
   - Setting option can be either equation or filename
   - Multiple setting without limitation of numbers
   - Manual in man page style was created.
   - configure script was created.
   - ./configure; (sudo) make install installs both program and man page.
   - Install.sh creates destination directory
+  - Japanese document (README.ja.md)
 
 Version 2.0-beta.4 (2014-09-11)
   - New feature to draw graphs of the result

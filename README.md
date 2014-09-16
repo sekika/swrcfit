@@ -12,7 +12,7 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0-beta.6
+* Version of this distribution: 2.0-beta.7
 
 This is a beta release of version 2.0. Please refer to
 [version history](./ChangeLog). If you are using older version and
