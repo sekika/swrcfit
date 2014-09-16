@@ -28,7 +28,7 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [プログラムの実行](#プログラムの実行)
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
-- [Excel ファイルによる結果の確認](#Excel-ファイルによる結果の確認)
+- [Excel ファイルによる結果の確認](#excel-ファイルによる結果の確認)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
