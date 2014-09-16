@@ -177,7 +177,7 @@ SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/)
 
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib)
 と [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
-のファイルを段ロードできます。
+のファイルをダウンロードできます。
 
 ## 質問
 SWRC Fit に関する質問の一覧は
