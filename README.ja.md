@@ -181,7 +181,6 @@ SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/)
 
 ## 質問
 SWRC Fit に関する質問の一覧は
-[こちら](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)
-こちらで見ることができます。
+[こちら](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)で見ることができます。
 あなたの質問を投稿するためには、GitHub のアカウントを取得して緑色の「New Issue」ボタンを押して下さい。
 Label は「question」を選んで下さい。日本語での質問も可能です。 質問を公開出来ない場合には、[作者](http://www2.toyo.ac.jp/~seki_k/)にメールを送って下さい。
