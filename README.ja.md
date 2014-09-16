@@ -28,7 +28,7 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [プログラムの実行](#プログラムの実行)
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
-- [Checking the result with Excel file](#checking-the-result-with-excel-file)
+- [Excel ファイルによる結果の確認](#Excel-ファイルによる結果の確認)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
@@ -131,27 +131,26 @@ qsやqrが定数の時は、変数に対しての相関行列と標準偏差が�
 コマンドラインオプションが `=` を含む時は式であると解釈され、
 含まない時はファイル名であると解釈される。
 
-Here, some examples of calculation options are shown.
+いくつかの設定例を示す。
 
-|Calculation option|Meaning|
+|設定              |意味|
 |------------------|----------------|
-|mode=2            |Bimodal analysis|
-|qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
-|qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
-|adv=1             |Advanced output showing correlation matrix and standard deviation|
-|fig=1             |Make figure file of plot |
+|mode=2            |二峰性モデル解析|
+|qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 が定数|
+|qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 が定数|
+|adv=1             |相関行列と標準偏差を表示する詳細表示モード|
+|fig=1             |グラフをファイルに保存 |
 
-For example, when this command is executed,
+たとえば、このようなコマンドが実行されると、
 ```
 swrcfit swrc.txt mode=2 fig=1
 ```
-Fitting of bimodal models are conducted with the input parameters in
-`swrc.txt` and figure file of `bimodal.png` (default file name for
-bimodal figure) is created.
+`swrc.txt` のデータから二峰性モデルによる回帰がされて、
+そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
 
-Please read [detailed description of calculation options](https://github.com/sekika/swrcfit/wiki/Setting-file).
+[設定の詳細な説明](https://github.com/sekika/swrcfit/wiki/Setting-file)を参照。
 
-## Checking the result with Excel file
+## Excel ファイルによる結果の確認
 
 Using the Microsoft Excel worksheet, `swrc.xlsx`
 ([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
