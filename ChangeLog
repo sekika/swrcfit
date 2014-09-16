@@ -1,6 +1,6 @@
 SWRC Fit Version History
 
-Version 2.0-beta.7 (2014-09-15)
+Version 2.0-beta.7 (2014-09-17)
   - Setting option can be either equation or filename
   - Multiple setting without limitation of numbers
   - Manual in man page style was created.
