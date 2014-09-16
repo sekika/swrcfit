@@ -29,9 +29,9 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
 - [Excel ファイルによる結果の確認](#excel-ファイルによる結果の確認)
-- [Web interface](#web-interface)
-- [Citation of this work](#citation-of-this-work)
-- [Question](#question)
+- [ウェブインターフェース](#ウェブインターフェース)
+- [引用](#引用)
+- [質問](#質問)
 
 ## インストールの方法
 
@@ -152,26 +152,23 @@ swrcfit swrc.txt mode=2 fig=1
 
 ## Excel ファイルによる結果の確認
 
-Using the Microsoft Excel worksheet, `swrc.xlsx`
-([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
-the fitted curves can be checked as the figure. By copying and pasting
-the result of the program output onto the yellow part and the measured
-data onto the blue part of the spreadsheet, the fitted curves are
-drawn in the graph of the same spreadsheet.  
+Microsoft Excel のワークシート
+`swrc.xlsx` ([ダウンロード](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx))
+を使うと、回帰曲線の確認ができる。
+計算結果を黄色い部分に張り付けて、測定データを青い箇所に貼り付けると、回帰曲線が得られる。
 
 ![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
 
-## Web interface
+## ウェブインターフェース
 
-The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
-in the program language perl and works as a cgi program. The perl program
-invokes GNU octave and executes the calculation engine of swrcfit.
-[More information about the web insterface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
+SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/)
+は、perl 言語で書かれ、cgi プログラムとして動作する。
+[詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit)。
 
 
-## Citation of this work
+## 引用
 
-Please cite this paper when you publish your work using SWRC Fit.
+このソフトを使った研究を公表する時には、この文献を引用して下さい。
 
 * Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water
   retention curve for soils having unimodal and bimodal pore structure.
@@ -179,15 +176,12 @@ Please cite this paper when you publish your work using SWRC Fit.
   [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
 
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib)
-and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
-files are also available.
+と [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
+のファイルを段ロードできます。
 
-## Question
-[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)
-you can find a list of questions and answers about swrcfit. You can submit
-your own question by getting the accout of GitHub and pressing the green
-"New Issue" button. Please select the label of "question". It is preferable
-to send your question publicly this way, because other people having the
-same question can find answer on the web. However, if your question is
-confidential, please contact me by email. Tou can find my email address in
-[this paper](http://file.scirp.org/Html/2-1660128_33490.htm).
+## 質問
+SWRC Fit に関する質問の一覧は
+[こちら](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)
+こちらで見ることができます。
+あなたの質問を投稿するためには、GitHub のアカウントを取得して緑色の「New Issue」ボタンを押して下さい。
+Label は「question」を選んで下さい。日本語での質問も可能です。 質問を公開出来ない場合には、[作者](http://www2.toyo.ac.jp/~seki_k/)にメールを送って下さい。
