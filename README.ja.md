@@ -163,7 +163,7 @@ Microsoft Excel のワークシート
 
 SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/)
 は、perl 言語で書かれ、cgi プログラムとして動作する。
-[詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit)。
+[詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%82%A6%E3%82%A7%E3%83%96%E7%89%88)。
 
 
 ## 引用
