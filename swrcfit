@@ -137,10 +137,10 @@ endfunction
 pin=[qs, qr, hb, lambda];
 stol=1;
 dp=[0.00001*cqs 0.001*cqr 0.1 0.01]; R2b=0;
-er = 1;
 
-# Following 17 lines were added from version 2.0, because it turned out that
+# Following 18 lines were added from version 2.0, because it turned out that
 # in a certain case "error: weighted residuals are not real" with leasqr.m
+er = 1;
 while ( er > 0 )
   try
     if pqr==0
