@@ -137,6 +137,27 @@ endfunction
 pin=[qs, qr, hb, lambda];
 stol=1;
 dp=[0.00001*cqs 0.001*cqr 0.1 0.01]; R2b=0;
+er = 1;
+
+# Following 16 lines were added from version 2.0, because it turned out that
+# in a case "error: weighted residuals are not real" with leasqr.m
+while ( er == 1 )
+  try
+    if pqr==0
+       [f,p,kvg,itr,corp,covp,covr,std,z,R2]=leasqr(x2,y,pin,"BC",stol,20,wt,dp);
+    else
+       [f,p,kvg,itr,corp,covp,covr,std,z,R2]=leasqr(x2,y,pin,"BC2",stol,20,wt,dp);
+    end
+    er = 0;
+    if kvg ==0, p=pin; R2=R2b;, stol=0;, end
+    stol=stol/10; pin=p; R2b=R2;
+  catch
+    er = 1;
+    if lambda < 1, lambda = lambda*1.05; else lambda = lambda/1.055; end
+    pin=[qs, qr, hb, lambda];
+  end_try_catch
+endwhile
+
 while ( stol >= 0.00001 )
   if pqr==0
     [f,p,kvg,itr,corp,covp,covr,std,z,R2]=leasqr(x2,y,pin,"BC",stol,20,wt,dp);
