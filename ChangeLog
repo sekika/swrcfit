@@ -1,5 +1,11 @@
 SWRC Fit Version History
 
+Version 2.0-beta.8 (2014-09-24)
+  - In a certain case reported by a user, "error: weighted residuals are
+    not real" was returned from initial calculation of BC fit with leasqr.m.
+    Error handling block was added to fix this problem. If you find further
+    problem with your data, please report bug to the author.
+
 Version 2.0-beta.7 (2014-09-17)
   - Setting option can be either equation or filename
   - Multiple setting without limitation of numbers
