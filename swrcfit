@@ -140,7 +140,7 @@ dp=[0.00001*cqs 0.001*cqr 0.1 0.01]; R2b=0;
 er = 1;
 
 # Following 16 lines were added from version 2.0, because it turned out that
-# in a case "error: weighted residuals are not real" with leasqr.m
+# in a certain case "error: weighted residuals are not real" with leasqr.m
 while ( er == 1 )
   try
     if pqr==0
