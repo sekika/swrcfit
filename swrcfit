@@ -152,7 +152,7 @@ while ( er > 0 )
     if kvg ==0, p=pin; R2=R2b;, stol=0;, end
     stol=stol/10; pin=p; R2b=R2;
   catch
-    er = er + 1; if ( er > 100 ), exit, end
+    er = er + 1; if ( er > 50 ), exit, end
     if ( er < 5 ), lambda = lambda/1.1;, end
     if ( lambda < 12 ), lambda = lambda*1.05; else lambda = lambda/1.055; end
     pin=[qs, qr, hb, lambda];
