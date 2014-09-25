@@ -172,7 +172,7 @@ BCp=p;
 if pqr==1, p(2)=abs(p(2));, end
 
 if simple,
-  disp(p(1)); disp(p(2)); disp(p(3)); disp(p(4)); disp(R2);
+  disp(p(1)); disp(p(2)); hb=p(3); disp(hb); disp(p(4)); disp(R2);
 else
   qs=p(1), qr=p(2), hb=p(3), lambda=p(4), R2
 end
@@ -275,7 +275,7 @@ end
 if fig==1,
 
   if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
-  minx=min(x);, if minx==0, minx=x(2);, end
+  minx=min(x);, if minx==0, minx=min([hb,x(2)]);, end
 
   if (ax==0 && max(x)/minx < 100 || ax==1)
     x2=(linspace(0,max(x)*1.1,smooth));
@@ -539,7 +539,7 @@ end
 if fig==1,
 
   if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
-  minx=min(x);, if minx==0, minx=x(2);, end
+  minx=min(x);, if minx==0, minx=min([1/alpha1,x(2)]);, end
 
   if (ax==0 && max(x)/minx < 100 || ax==1)
     x2=(linspace(0,max(x)*1.1,smooth));
