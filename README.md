@@ -12,13 +12,9 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0-beta.9
+* Version of this distribution: 2.0
 
-This is version 2.0. Please refer to
-[version history](./ChangeLog). If you are using older version and
-want to get the latest beta release, please download it from
-https://github.com/sekika/swrcfit/releases. From version 2.0, you can
-check installed version by `swrcfit -v`.
+From version 2.0, you can check installed version by `swrcfit -v`.
 
 This file is written in markdown language and online version is better
 for browzing. User's manual of SWRC fit for each version is available
