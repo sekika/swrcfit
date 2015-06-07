@@ -14,7 +14,7 @@ Basic information of this program is summarized:
 * License: GNU General Public License
 * Version of this distribution: 2.0-beta.9
 
-This is a beta release of version 2.0. Please refer to
+This is version 2.0. Please refer to
 [version history](./ChangeLog). If you are using older version and
 want to get the latest beta release, please download it from
 https://github.com/sekika/swrcfit/releases. From version 2.0, you can
