@@ -7,6 +7,9 @@
 #
 # usage: swrcfit [-v] DataFile [setting]...
 
+# Load packages
+pkg load all
+
 # Read commandline parameters
 
 argc = length (argv);
