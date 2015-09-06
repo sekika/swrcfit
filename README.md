@@ -194,5 +194,5 @@ your own question by getting the accout of GitHub and pressing the green
 "New Issue" button. Please select the label of "question". It is preferable
 to send your question publicly this way, because other people having the
 same question can find answer on the web. However, if your question is
-confidential, please contact me by email. Tou can find my email address in
+confidential, please contact me by email. You can find my email address in
 [this paper](http://dx.doi.org/10.1016/j.geoderma.2015.02.013).
