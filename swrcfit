@@ -37,6 +37,11 @@ swrc = load ("-ascii",filename);
 [s, i] = sort (swrc (:, 1));
 sorted = swrc (i, :);
 x=sorted(:,1); y=sorted(:,2);
+N=rows(x); # Sample size
+if N<2,
+  disp("Invalid input data.");
+  return;
+end
 if columns(sorted)==2,
   wt=ones(length(y),1);
 else
@@ -118,10 +123,11 @@ if (mode ~= 2),
 # Set initial values
 qs=qsin; qr=qrin;
 hbi = sum (y > max(y) * 0.95 + min(y) * 0.05)+1;
-hb=x(hbi); hby=(y(hbi)-qr)/(qs-qr);
-if hb==0, hb=x(2)/10;, end
 hli = sum (y > max(y) * 0.15 + min(y) * 0.85);
 if hbi==hli; hli=hli+1;, end
+if hbi>hli; hbi=hbi-1; hli=hbi+1; , end
+hb=x(hbi); hby=(y(hbi)-qr)/(qs-qr);
+if hb==0, hb=x(2)/10;, end
 hl=x(hli); hly=(y(hli)-qr)/(qs-qr);
 lambda=-log(hly/hby)/log(hl/hb);
 if lambda < 0.1, lambda=0.1;, end
@@ -141,9 +147,10 @@ pin=[qs, qr, hb, lambda];
 stol=1;
 dp=[0.00001*cqs 0.001*cqr 0.1 0.01]; R2b=0;
 
-# Following 18 lines were added from version 2.0, because it turned out that
+# Following lines up to endwhile were added from version 2.0, because it turned out that
 # in a certain case "error: weighted residuals are not real" with leasqr.m
 er = 1;
+if N==2, p=pin; R2=1; er=0; end
 while ( er > 0 )
   try
     if pqr==0
@@ -155,14 +162,14 @@ while ( er > 0 )
     if kvg ==0, p=pin; R2=R2b;, stol=0;, end
     stol=stol/10; pin=p; R2b=R2;
   catch
-    er = er + 1; if ( er > 50 ), exit, end
+    er = er + 1; if ( er > 50 ), warning(lasterror.identifier, lasterror.message); exit (-1), end
     if ( er < 5 ), lambda = lambda/1.1;, end
     if ( lambda < 12 ), lambda = lambda*1.05; else lambda = lambda/1.055; end
     pin=[qs, qr, hb, lambda];
   end_try_catch
 endwhile
 
-while ( stol >= 0.00001 )
+while ( stol >= 0.00001 && R2 < 1 )
   if pqr==0
     [f,p,kvg,itr,corp,covp,covr,std,z,R2]=leasqr(x2,y,pin,"BC",stol,20,wt,dp);
   else
@@ -192,18 +199,19 @@ end
 if simple==0, disp ("=== VG model ==="); end
 function ret=VG(x,p)
   n=abs(p(4))+1;
-  ret = p(2)+(p(1)-p(2)).*(1+(abs(p(3)).*x).^n).^(1/n-1);
+  ret = p(2)+(p(1)-p(2)).*(1+(x./(x(1)+abs(p(3)))).^n).^(1/n-1);
 endfunction
 function ret=VG2(x,p)
   n=abs(p(4))+1;
-  ret = abs(p(2))+(p(1)-abs(p(2))).*(1+(abs(p(3)).*x).^n).^(1/n-1);
+  ret = abs(p(2))+(p(1)-abs(p(2))).*(1+(x./(x(1)+abs(p(3)))).^n).^(1/n-1);
 endfunction
 qs=qsin; qr=qrin;
 hm = x(sum(y > max(y)/2 + min(y)/2)+1);
+if (hm==x(N)), hm=x(N-1); endif
 alpha=1/hm; n=lambda+1;
 if n < 1.1, n=1.1;, end
 if n > 10, n=10;, end
-pin=[qs, qr, alpha, n-1];
+pin=[qs, qr, 1/alpha-x(1), n-1];
 stol=1; dp=[0.00001*cqs 0.001*cqr 0.1 0.001]; R2b=0;
 while ( stol >= 0.00001 )
   if pqr==0
@@ -218,10 +226,10 @@ endwhile
 VGp=p;
 if pqr==1, p(2)=abs(p(2));, end
 if simple,
-  alpha=abs(p(3)); n=abs(p(4))+1;
+  alpha=1/(abs(p(3))+x(1)); n=abs(p(4))+1;
   disp(p(1)); disp(p(2)); disp(alpha); disp(n); disp(R2);
 else
-  qs=p(1), qr=p(2), alpha=abs(p(3)), n=abs(p(4))+1, R2
+  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1
 end
 if adv==1,
   if simple,
@@ -341,12 +349,9 @@ if i < 8, disp("Too few points for bimodal analysis."), exit, end
 # Bimodal model of Durner
 if simple==0, disp ("=== DB model ==="); end
 
-oldpager = PAGER('/dev/null'); # Supress output
-oldpso = page_screen_output(0);
-oldpoi = page_output_immediately(0);
-
 i = 3;
-while (i < length(x)-1)
+while (qsin <= min(y(1:i))); i++; endwhile
+while (i < length(x)-2)
 xi=x(1:i); yi=y(1:i);
 qs=qsin; qr=min(yi);
 S=(yi.-qr)./(qs-qr);
@@ -377,6 +382,20 @@ while ( stol >= 0.0001 )
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/10; pin=p; R2b=R2;
 endwhile
+if (real(p(3))*x(N)<1)
+  pin=[qr qrin 1/hm 1]; stol=1; 
+  dp=[0 0 0.0001 0.0001]; R2b=0;
+  while ( stol >= 0.0001 )
+    try
+      [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG",stol,20,wt,dp);
+    catch
+      R2=R2b; stol=0;
+    end_try_catch
+    if kvg == 0, p=pin;, R2=R2b;, stol=0;, end
+    if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
+    stol=stol/10; pin=p; R2b=R2;
+  endwhile
+endif
 alpha2(i)=real(p(3)); n2(i)=abs(real(p(4)))+1;
 tr(i)=real(p(2)); w1(i)=(qs-qr)/(qs-tr(i));
 R(i)=real(R2);
@@ -414,6 +433,8 @@ while ( stol >= 0.00001 )
   else
     [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"DB2",stol,20,wt,dp);
   end
+  p(5) = mod(abs(p(5)),49);
+  p(7) = mod(abs(p(7)),49);
   if kvg == 0, p=pin;, R2=R2b;, stol=0;, end
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/8; pin=p; R2b=R2;
@@ -424,10 +445,6 @@ if abs(p(4)) > abs(p(6))
 end
 w1 = mod(p(3),1);
 if pqr==1, p(2)=abs(p(2));, end
-
-PAGER(oldpager); # Restore output
-page_screen_output(oldpso);
-page_output_immediately(oldpoi);
 
 if (w1 > 0.01) * (w1 < 0.99)
   qs = p(1);
