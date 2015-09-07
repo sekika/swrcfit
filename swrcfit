@@ -229,7 +229,7 @@ if simple,
   alpha=1/(abs(p(3))+x(1)); n=abs(p(4))+1;
   disp(p(1)); disp(p(2)); disp(alpha); disp(n); disp(R2);
 else
-  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1
+  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1, R2
 end
 if adv==1,
   if simple,
@@ -243,16 +243,16 @@ end
 # Lognormal Pore-Size Distribution Model of Kosugi
 if simple==0, disp ("=== LN model ==="); end
 function ret=LN(x,p)
-  ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/abs(p(3))))./abs(p(4))));
+  ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/(x(1)+abs(p(3)))))./abs(p(4))));
 endfunction
 function ret=LN2(x,p)
-  ret = abs(p(2))+(p(1)-abs(p(2))).*(1-normcdf((log(x/abs(p(3))))./abs(p(4))));
+  ret = abs(p(2))+(p(1)-abs(p(2))).*(1-normcdf((log(x/(x(1)+abs(p(3)))))./abs(p(4))));
 endfunction
 qs=qsin; qr=qrin; hm=1/alpha;
 sigma=1.2*(n-1)^(-0.8);
 if sigma < 0.15, sigma=0.15;, end
 if sigma > 3, sigma=3;, end
-pin=[qs, qr, hm, sigma];
+pin=[qs, qr, hm-x(1), sigma];
 stol=1; dp=[0.00001*cqs 0.0001*cqr 0.01 0.01]; R2b=0;
 while ( stol >= 0.00001 )
   if pqr==0
@@ -268,9 +268,9 @@ LNp=p;
 if pqr==1, p(2)=abs(p(2));, end
 
 if simple,
-  disp(p(1)); disp(p(2)); disp(abs(p(3))); disp(abs(p(4))); disp(R2);
+  disp(p(1)); disp(p(2)); disp(abs(p(3))+x(1)); disp(abs(p(4))); disp(R2);
 else
-  qs=p(1), qr=p(2), hm=abs(p(3)), sigma=abs(p(4)), R2
+  qs=p(1), qr=p(2), hm=abs(p(3))+x(1), sigma=abs(p(4)), R2
 end
 if adv==1,
   if simple,
@@ -290,6 +290,8 @@ if fig==1,
 
   if (ax==0 && max(x)/minx < 100 || ax==1)
     x2=(linspace(0,max(x)*1.1,smooth));
+    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
+    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
     BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
     plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
       x2,BC,BCpl,"linewidth",linewidth,
@@ -299,6 +301,8 @@ if fig==1,
   else
     minx=10^(floor(log10(minx)));
     x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
+    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
+    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
     BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
     semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
       x2,BC,BCpl,"linewidth",linewidth,
