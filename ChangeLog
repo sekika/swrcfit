@@ -1,5 +1,12 @@
 SWRC Fit Version History
 
+Version 2.1 (Under development)
+  - Paramter restrictions of alpha < 1/h1 (VG model) and hm > h1 (LN model),
+    where h1 is the smallest suction head of the measured point, were imposed,
+    because in certain cases inflection points of VG and LN models become too
+    small while the saturated water content becomes unrealistically high.
+    Some other fixes for parameter handling.
+
 Version 2.0 (2015-06-07)
   - Release of stable version
 
