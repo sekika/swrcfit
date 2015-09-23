@@ -12,7 +12,7 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0
+* Version of this distribution: 2.1
 
 From version 2.0, you can check installed version by `swrcfit -v`.
 
