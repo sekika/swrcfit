@@ -54,7 +54,7 @@ fi
 echo "=== Checking swrcfit"
 if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
   echo "Not yet installed properly. Trying to install Octave forge packages."
 fi
@@ -65,12 +65,11 @@ echo "=== Installing packages (pkg install -forge struct optim)"
 $octave -q --eval "pkg install -forge struct optim"
 if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
   echo "Octave forge was not installed successfully."
   echo "Not yet installed properly. Trying to get necessary files from sourceforge.net."
 fi
-rm -f test.txt
 
 # Check if wget is installed
 wget=`which wget`
@@ -103,10 +102,9 @@ echo "finished."
 
 if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
   echo "Octave forge was not installed successfully."
   echo "Not yet installed properly. Give up."
 fi
-rm -f test.txt
 
