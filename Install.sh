@@ -52,13 +52,10 @@ fi
 
 # Check if it works
 echo "=== Cheking swrcfit"
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
   rm -f test.txt; exit 0
 else
-  echo "Result of swcfit swrc.txt is different from result.txt."
   echo "Not yet installed properly. Trying to install Octave forge packages."
 fi
 
@@ -66,9 +63,7 @@ fi
 
 echo "=== Installing packages (pkg install -forge struct optim)"
 $octave -q --eval "pkg install -forge struct optim"
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
   rm -f test.txt; exit 0
 else
@@ -106,9 +101,7 @@ for i in __dfdp__.m __lm_svd__.m __plot_cmds__.m __do_user_interaction__.m; do
 done
 echo "finished."
 
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
   rm -f test.txt; exit 0
 else
