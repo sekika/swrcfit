@@ -51,7 +51,7 @@ else
 fi
 
 # Check if it works
-echo "=== Cheking swrcfit"
+echo "=== Checking swrcfit"
 if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
   rm -f test.txt; exit 0
