@@ -1,5 +1,19 @@
 SWRC Fit Version History
 
+Version 2.1 (2015-09-23)
+  - BUG FIX: SWRC Fit version 2.0 or before does not work with the latest
+    version of Octave. Command "pkg load all" was added to fix this problem,
+    to load necessary packages explicitly. In older version of Octave (not
+    sure exactly until which version), packages could be loaded automatically
+    without this command, but it should be specified explicitly with the
+    latest verion of Octave. Therefore, users should upgrade to SWRC Fit
+    version 2.1, to use it with the latest version of Octave.  
+  - Paramter restrictions of alpha < 1/h1 (VG model) and hm > h1 (LN model),
+    where h1 is the smallest suction head of the measured point, were imposed,
+    because in certain cases inflection points of VG and LN models become too
+    small while the saturated water content becomes unrealistically high.
+    Some other fixes for parameter handling.
+
 Version 2.0 (2015-06-07)
   - Release of stable version
 
