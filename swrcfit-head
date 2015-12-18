@@ -3,7 +3,7 @@
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
 # Licence: GNU Public License
-  version = "swrcfit version 3.0";
+  version = "swrcfit version 2.0";
 #
 # usage: swrcfit [-v] DataFile [setting]...
 
@@ -48,51 +48,30 @@ else
   wt=sorted(:,3);
 end
 
-######################### Default setting ######################
-precision=5; # precision of the output
-
-# Model selection
+# Default Setting
 mode = 1; # Unimodal model
-bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes)
-db=1; bl=1; # Bimodal models (0=no, 1=yes)
-
-# qs and qr handling
+output_precision(5); # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
 cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
-
-# Correction function (CF) of FX model
-fxc=0; # fxc=1; use CF, fxc=0; no CF (CF=1)
-psir=30000; # psi_r of CF
-psimax=10000000; # psi_max of CF
-
-# Output format of the result
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
-data=0; # Show original input data (0=no, 1=yes)
-K=0; # Show numbers of parameters (0=no, 1=yes)
-r2=1; # Show R^2 (coefficient of determination) (0=no, 1=yes)
-rmse=0; # Show RMSE (root mean square error) (0=no, 1=yes)
-ns=0; # Show sample size (0=no, 1=yes)
-aic=0; # Show AIC (Akaike information criterion) (0=no, 1=yes)
-bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 
 # Figure options (from version 2.0)
 # See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
 
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
-figure="swrc.png"; # Filename of the figure
+figure="swrc.png"; # Filename of the figure of unimodal models.
+figure2="bimodal.png"; # Filename of the figure of bimodal models.
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 
 smooth=300; # Smoothness of the fitted line
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
-minx=0; maxx=0; # Range of X axis. Automatic for 0.
-miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 
 # Text
 fontsize=16; # Font size
@@ -103,7 +82,6 @@ Mlab="Measured"; # legend for measured data
 BClab="Brooks and Corey (1964)"; # legend for BC model
 VGlab="van Genuchten (1980)"; # legend for VG model
 LNlab="Kosugi (1996)"; # legend for LN model
-FXlab="Fredlund and Xing (1994)"; # legend for FX model
 DBlab="Durner (1994)"; # legend for DB model
 BLlab="Seki (2007)"; # legend for BL model
 
@@ -112,12 +90,12 @@ BLlab="Seki (2007)"; # legend for BL model
 Mpl="bo"; # Format arguments for measured plot.
 msize=5; # Marker size for measured plot
 mcol="b"; # Marker face color for measured plot
+BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
+DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 linewidth=1.5; # Line width of fitting curves
-col = "krbgmc"; # Line color is set in this order
 
-######################### User setting #####################
-# Read default setting files (~/.swrcfitrc, ./setting.txt)
-rcfile = [getenv("HOME") "/.swrcfitrc"]; 
+# Read default setting files
+rcfile = [getenv("HOME") "/.swrcfitrc"];
 if exist(rcfile, "file"), source(rcfile) end
 if exist("setting.txt", "file"), source ("setting.txt") end
 
@@ -139,33 +117,7 @@ if (argc > 1),
   endfor
 end
 
-# Set colors in the order of col variable
-BCpl=strcat(col(1),"-");
-VGpl=strcat(col(bc+1),"-");
-LNpl=strcat(col(bc+vg+1),"-");
-FXpl=strcat(col(bc+vg+ln+1),"-");
-if mode==2,
-  DBpl=strcat(col(1),"-");
-  BLpl=strcat(col(db+1),"-");
-else
-  DBpl=strcat(col(bc+vg+ln+fx+1),"-");
-  BLpl=strcat(col(bc+vg+ln+fx+db+1),"-");
-end
-
-# precision of the output
-output_precision(precision);
-
-######################### Show input data #####################
-if data==1,
-  if (simple==0), disp ("=== Input data ==="); disp (filename); end
-  disp([x y]);
-end
-if ns==1,
-  if simple==1, disp(N), else N, end
-end
-
 ######################### Unimodal model #####################
-if (x(1)==0), hb=x(2); endif
 if (mode ~= 2),
 
 # Set initial values
@@ -182,7 +134,7 @@ if lambda < 0.1, lambda=0.1;, end
 if lambda > 10, lambda=10;, end
 
 # Brooks and Corey Model
-if (simple==0) && (bc==1), disp ("=== BC model ==="); end
+if simple==0, disp ("=== BC model ==="); end
 x2 = x .+ (x == 0) .* 0.001;
 function ret=BC(x,p)
   ret = (x > p(3)) .* (p(2)+(p(1)-p(2)).*(x./abs(p(3))).^(-p(4))) + (x <= abs(p(3))) .* p(1);
@@ -228,27 +180,11 @@ while ( stol >= 0.00001 && R2 < 1 )
 endwhile
 BCp=p;
 if pqr==1, p(2)=abs(p(2));, end
-RMSE = sqrt(mean((y.-BC(x2,p)).^2));
 
-hb=abs(p(3));
-if bc==1,
-k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
 if simple,
-  disp(p(1)); disp(p(2)); disp(hb); disp(p(4));
-  if K==1, disp(k); end
-  if r2==1, disp(R2); end
-  if rmse==1, disp(RMSE); end
-  if aic==1, disp(AIC); end
-  if bic==1, disp(BIC); end
+  disp(p(1)); disp(p(2)); hb=abs(p(3)); disp(hb); disp(p(4)); disp(R2);
 else
-  qs=p(1), qr=p(2), hb=abs(p(3)), lambda=p(4),
-  if K==1, k, end
-  if r2==1, R2, end
-  if rmse==1, RMSE, end
-  if aic==1, AIC, end
-  if bic==1, BIC, end
+  qs=p(1), qr=p(2), hb=abs(p(3)), lambda=p(4), R2
 end
 if adv==1,
   if simple,
@@ -258,10 +194,9 @@ if adv==1,
     StandardDeviation = sqrt(diag(covp))
   end
 end
-end
 
 # van Genuchten Model
-if (simple==0) && (vg==1), disp ("=== VG model ==="); end
+if simple==0, disp ("=== VG model ==="); end
 function ret=VG(x,p)
   n=abs(p(4))+1;
   ret = p(2)+(p(1)-p(2)).*(1+(x./(x(1)+abs(p(3)))).^n).^(1/n-1);
@@ -288,29 +223,13 @@ while ( stol >= 0.00001 )
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/10; pin=p; R2b=R2;
 endwhile
-VGp=p; VGR2=R2;
+VGp=p;
 if pqr==1, p(2)=abs(p(2));, end
-RMSE = sqrt(mean((y.-VG(x,p)).^2));
-
-if vg==1,
-k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
 if simple,
   alpha=1/(abs(p(3))+x(1)); n=abs(p(4))+1;
-  disp(p(1)); disp(p(2)); disp(alpha); disp(n);
-  if K==1, disp(k); end
-  if r2==1, disp(R2); end
-  if rmse==1, disp(RMSE); end
-  if aic==1, disp(AIC); end
-  if bic==1, disp(BIC); end
+  disp(p(1)); disp(p(2)); disp(alpha); disp(n); disp(R2);
 else
-  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1
-   if K==1, k, end
-  if r2==1, R2, end
-  if rmse==1, RMSE, end
-  if aic==1, AIC, end
-  if bic==1, BIC, end
+  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1, R2
 end
 if adv==1,
   if simple,
@@ -320,10 +239,9 @@ if adv==1,
     StandardDeviation = sqrt(diag(covp))
   end
 end
-end
 
 # Lognormal Pore-Size Distribution Model of Kosugi
-if (simple==0) && (ln==1), disp ("=== LN model ==="); end
+if simple==0, disp ("=== LN model ==="); end
 function ret=LN(x,p)
   ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/(x(1)+abs(p(3)))))./abs(p(4))));
 endfunction
@@ -346,28 +264,13 @@ while ( stol >= 0.00001 )
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
   stol=stol/10; pin=p; R2b=R2;
 endwhile
-LNp=p; LNR2=R2;
+LNp=p;
 if pqr==1, p(2)=abs(p(2));, end
-RMSE = sqrt(mean((y.-LN(x,p)).^2));
 
-if ln==1,
-k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
 if simple,
-  disp(p(1)); disp(p(2)); disp(abs(p(3))+x(1)); disp(abs(p(4)));
-  if K==1, disp(k); end
-  if r2==1, disp(R2); end
-  if rmse==1, disp(RMSE); end
-  if aic==1, disp(AIC); end
-  if bic==1, disp(BIC); end
+  disp(p(1)); disp(p(2)); disp(abs(p(3))+x(1)); disp(abs(p(4))); disp(R2);
 else
-  qs=p(1), qr=p(2), hm=abs(p(3))+x(1), sigma=abs(p(4))
-  if K==1, k, end
-  if r2==1, R2, end
-  if rmse==1, RMSE, end
-  if aic==1, AIC, end
-  if bic==1, BIC, end
+  qs=p(1), qr=p(2), hm=abs(p(3))+x(1), sigma=abs(p(4)), R2
 end
 if adv==1,
   if simple,
@@ -377,94 +280,78 @@ if adv==1,
     StandardDeviation = sqrt(diag(covp))
   end
 end
+
+# Draw graph
+
+if fig==1,
+
+  if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
+  minx=min(x);, if minx==0, minx=min([hb,x(2)]);, end
+
+  if (ax==0 && max(x)/minx < 100 || ax==1)
+    x2=(linspace(0,max(x)*1.1,smooth));
+    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
+    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
+    BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,BC,BCpl,"linewidth",linewidth,
+      x2,VG,VGpl,"linewidth",linewidth,
+      x2,LN,LNpl,"linewidth",linewidth)
+    axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
+  else
+    minx=10^(floor(log10(minx)));
+    x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
+    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
+    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
+    BC=BC(x2,BCp); VG=VG(x2,VGp); LN=LN(x2,LNp);
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,BC,BCpl,"linewidth",linewidth,
+      x2,VG,VGpl,"linewidth",linewidth,
+      x2,LN,LNpl,"linewidth",linewidth)
+    axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
+  end
+
+  h = legend (Mlab,BClab,VGlab,LNlab);
+  set (h, "fontsize", fontsize)
+
+  if (showlabel),
+    xlabel (xlab,"fontsize",fontsize)
+    ylabel (ylab,"fontsize",fontsize)
+  end
+
+  set(gca,'fontsize',fontsize)
+
+  if (showgrid), grid; end
+
+  drawnow;
+
+  if (figure),
+    if (figsize == 1),
+      print (figure, "-S320,240");
+    elseif (figsize == 2),
+      print (figure, "-S480,360");
+    else
+      print (figure, "-S640,480");
+    end
+  end
+
+  if (showfig),
+    disp ("Hit return key to finish.")
+    pause()
+  end
+
 end
 
-# Fredlund and Xing Model
-if (simple==0) && (fx==1)
-  if (fxc==0),
-    disp ("=== FX model (Correction function not used) ===");
-  else
-    disp ("=== FX model ===");
-    printf("Using correction function of psi_r = %d and psi_max = %u\n", psir, psimax);
-  end
-end
-# Correction function
-if (fxc==0),
-  function ret=C(x,psir,psimax)
-    ret=1;
-  endfunction
-else
-  function ret=C(x,psir,psimax)
-    ret=-log(1+x/psir)./log(1+psimax/psir)+1;
-  endfunction
-end
-# Main function
-function ret=FX(x,p)
-  ret =  p(2)+(p(1)-p(2)).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4))).*C(x,p(6),p(7));
-endfunction
-function ret=FX2(x,p)
-  ret =  abs(p(2))+(p(1)-abs(p(2))).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4))).*C(x,p(6),p(7));
-endfunction
-if (VGR2>LNR2)
-  VGN=abs(VGp(4))+1; VGM=1-1/VGN;
-  pin=[qsin, qrin, abs(VGp(3))+x(1), 3.67/2^VGM, 0.665*VGM*VGN*1.13^VGM, psir, psimax];
-else
-  pin=[qsin, qrin, abs(p(3))+x(1), 2.54, 1.53/abs(p(4)), psir, psimax];
-end
-stol=1; dp=[0.00001*cqs 0.0001*cqr 0.01 0.001 0.01, 0, 0]; R2b=0;
-while ( stol >= 0.00001 )
-  if pqr==0
-    [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX",stol,20,wt,dp);
-  else
-    [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX2",stol,20,wt,dp);
-  end
-  if kvg == 0, p=pin;, R2=R2b;, stol=0;, end
-  if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
-  stol=stol/10; pin=p; R2b=R2;
-endwhile
-FXp=p;
-if pqr==1, p(2)=abs(p(2));, end
-RMSE = sqrt(mean((y.-FX(x,p)).^2));
-
-if (fx==1),
-k = cqs+cqr+3;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
-if simple,
-  disp(p(1)); disp(p(2)); disp(abs(p(3))); disp(abs(p(4))); disp(abs(p(5)));
-  if K==1, disp(k); end
-  if r2==1, disp(R2); end
-  if rmse==1, disp(RMSE); end
-  if aic==1, disp(AIC); end
-  if bic==1, disp(BIC); end
-else
-  qs=p(1), qr=p(2), a=abs(p(3)), m=abs(p(4)), n=abs(p(5))
-  if K==1, k, end
-  if r2==1, R2, end
-  if rmse==1, RMSE, end
-  if aic==1, AIC, end
-  if bic==1, BIC, end
-end
-if adv==1,
-  if simple,
-    disp(corp); disp(sqrt(diag(covp)));
-  else
-    CorrelationMatrix = corp
-    StandardDeviation = sqrt(diag(covp))
-  end
-end
-end
 end
 
 ################### Bimodal model #####################
-if (x(1)==0), alpha1=1/x(2); endif
 if (mode > 1),
 
 # Check if there are more than 7 points
 if i < 8, disp("Too few points for bimodal analysis."), exit, end
 
 # Bimodal model of Durner
-if (simple==0) && (db==1), disp ("=== DB model ==="); end
+if simple==0, disp ("=== DB model ==="); end
 
 i = 3;
 while (qsin <= min(y(1:i))); i++; endwhile
@@ -562,7 +449,6 @@ if abs(p(4)) > abs(p(6))
 end
 w1 = mod(p(3),1);
 if pqr==1, p(2)=abs(p(2));, end
-RMSE = sqrt(mean((y.-DB(x,p)).^2));
 
 if (w1 > 0.01) * (w1 < 0.99)
   qs = p(1);
@@ -576,24 +462,11 @@ if (w1 > 0.01) * (w1 < 0.99)
   alpha2=alpha(2);
   n(2) = mod(abs(p(7)),49)+1;
   n2=n(2);
-  if db==1,
-  k = cqs+cqr+5;
-  AIC=N*log(RMSE^2/N)+2*k;
-  BIC=N*log(RMSE^2/N)+k*log(N);
   if simple,
-    disp(qs); disp(qr); disp(w1); disp(alpha1); disp(n1); disp(alpha2); disp(n2);
-    if K==1, disp(k); end
-    if r2==1, disp(R2); end
-    if rmse==1, disp(RMSE); end
-    if aic==1, disp(AIC); end
-    if bic==1, disp(BIC); end
+    disp(qs); disp(qr); disp(w1); disp(alpha1); disp(n1);
+    disp(alpha2); disp(n2); disp(R2);
   else
-    qs, qr, w1, alpha1, n1, alpha2, n2
-    if K==1, k, end
-    if r2==1, R2, end
-    if rmse==1, RMSE, end
-    if aic==1, AIC, end
-    if bic==1, BIC, end
+    qs, qr, w1, alpha1, n1, alpha2, n2, R2
   end
   if adv==1,
     if simple,
@@ -603,13 +476,11 @@ if (w1 > 0.01) * (w1 < 0.99)
       StandardDeviation = sqrt(diag(covp))
     end
   end
-  end
 else
-  disp ("Not bimodal"); bl=0;
+  disp ("Not bimodal");
 end
 
 # Bimodal Lognormal model
-if bl==1,
 if simple==0, disp ("=== BL model ==="); end
 
 # Initial condition
@@ -662,7 +533,6 @@ BLp=p;
 if abs(p(4)) > abs(p(6))
   p=[p(1) p(2) 1-p(3) p(6) p(7) p(4) p(5)];
 end
-RMSE = sqrt(mean((y.-BL(x,p)).^2));
 
 w1 = mod(p(3),1);
 if pqr==1, p(2)=abs(p(2));, end
@@ -673,25 +543,12 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   sigma1 = mod(abs(p(5)),50)+0.05;
   hm2 = abs(p(6));
   sigma2 = mod(abs(p(7)),50)+0.05;
-  k = cqs+cqr+5;
-  AIC=N*log(RMSE^2/N)+2*k;
-  BIC=N*log(RMSE^2/N)+k*log(N);
 
   if simple,
     disp(qs); disp(qr); disp(w1); disp(hm1); disp(sigma1); 
-    disp(hm2); disp(sigma2);
-    if K==1, disp(k); end
-    if r2==1, disp(R2); end
-    if rmse==1, disp(RMSE); end
-    if aic==1, disp(AIC); end
-    if bic==1, disp(BIC); end
+    disp(hm2); disp(sigma2); disp(R2);
   else
-    qs, qr, w1, hm1, sigma1, hm2, sigma2
-    if K==1, k, end
-    if r2==1, R2, end
-    if rmse==1, RMSE, end
-    if aic==1, AIC, end
-    if bic==1, BIC, end
+    qs, qr, w1, hm1, sigma1, hm2, sigma2, R2
   end
   if adv==1,
     if simple,
@@ -704,81 +561,32 @@ if (w1 > 0.01) * (w1 < 0.99) +1
 else
   disp ("Not bimodal");
 end
-end
-end
 
-##### Draw graph #####
+# Draw graph
 
 if fig==1,
 
   if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
-  if (maxy==0), maxy=max(y)*1.2; end
-  
-  if (ax==0 && (max(x) < 100*min(x) || min(x)==0) || ax==1) # Normal axis
-    if (maxx==0), maxx=max(x)*1.1; end
-    x2=(linspace(minx,maxx,smooth));
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
-    if (mode ~= 2),
-      if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
-      if fx==1, FX=FX(x2,FXp); end
-    end
-    if (mode > 1),
-      if db==1, DB=DB(x2,DBp); end
-      if bl==1, BL=BL(x2,BLp); end
-    end
-    hold on
-    label=Mlab;
-    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol)
-    if (mode ~= 2),
-        if bc==1, plot (x2,BC,BCpl,"linewidth",linewidth); label=[label; BClab]; end
-        if vg==1, plot (x2,VG,VGpl,"linewidth",linewidth); label=[label; VGlab]; end
-        if ln==1, plot (x2,LN,LNpl,"linewidth",linewidth); label=[label; LNlab]; end
-        if fx==1, plot (x2,FX,FXpl,"linewidth",linewidth); label=[label; FXlab]; end
-    end
-    if (mode > 1), 
-        if db==1, plot (x2,DB,DBpl,"linewidth",linewidth); label=[label; DBlab]; end
-        if bl==1, plot (x2,BL,BLpl,"linewidth",linewidth); label=[label; BLlab]; end
-    end
-    axis ([minx,maxx,miny,maxy],"tic");
-  else # Logarithmic axis
-    if (minx==0),
-      minx=min(x);, if minx==0, minx=min([1/alpha1,x(2)]);, end
-      minx=10^(floor(log10(minx)));
-    end
-    if (maxx==0), maxx=max(x)*1.5; end
-    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
-    if (mode ~= 2),
-      if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
-      if fx==1, FX=FX(x2,FXp); end
-    end
-    if (mode > 1),
-      if db==1, DB=DB(x2,DBp); end
-      if bl==1, BL=BL(x2,BLp); end
-    end
-    hold on
-    label=Mlab;
-    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol)
-    if (mode ~= 2),
-        if bc==1, semilogx (x2,BC,BCpl,"linewidth",linewidth); label=[label; BClab]; end
-        if vg==1, semilogx (x2,VG,VGpl,"linewidth",linewidth); label=[label; VGlab]; end
-        if ln==1, semilogx (x2,LN,LNpl,"linewidth",linewidth); label=[label; LNlab]; end
-        if fx==1, semilogx (x2,FX,FXpl,"linewidth",linewidth); label=[label; FXlab]; end
-    end
-    if (mode > 1), 
-        if db==1, semilogx (x2,DB,DBpl,"linewidth",linewidth); label=[label; DBlab]; end
-        if bl==1, semilogx (x2,BL,BLpl,"linewidth",linewidth); label=[label; BLlab]; end
-    end
-    axis ([minx,maxx,miny,maxy],"tic");
+  minx=min(x);, if minx==0, minx=min([1/alpha1,x(2)]);, end
+
+  if (ax==0 && max(x)/minx < 100 || ax==1)
+    x2=(linspace(0,max(x)*1.1,smooth));
+    DB=DB(x2,DBp); BL=BL(x2,BLp);
+    plot (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,DB,DBpl,"linewidth",linewidth,
+      x2,BL,BLpl,"linewidth",linewidth)
+    axis ([0,max(x)*1.1,0,max(y)*1.2],"tic");
+  else
+    minx=10^(floor(log10(minx)));
+    x2=(10.^(linspace(log10(minx),log10(max(x)*1.5),smooth)));
+    DB=DB(x2,DBp); BL=BL(x2,BLp);
+    semilogx (x,y,Mpl,"markersize",msize,"markerfacecolor",mcol,
+      x2,DB,DBpl,"linewidth",linewidth,
+      x2,BL,BLpl,"linewidth",linewidth)
+    axis ([minx,max(x)*1.5,0,max(y)*1.2],"tic");
   end
 
-  h = legend (label);
+  h = legend (Mlab,DBlab,BLlab);
   set (h, "fontsize", fontsize)
 
   if (showlabel),
@@ -792,7 +600,7 @@ if fig==1,
 
   drawnow;
 
-  if (figure),
+  if (figure2),
     if (figsize == 1),
       print (figure2, "-S320,240");
     elseif (figsize == 2),
@@ -806,5 +614,7 @@ if fig==1,
     disp ("Hit return key to finish.")
     pause()
   end
+
+end
 
 end
