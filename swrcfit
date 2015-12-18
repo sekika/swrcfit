@@ -298,7 +298,6 @@ AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if simple,
   alpha=1/(abs(p(3))+x(1)); n=abs(p(4))+1;
-<<<<<<< HEAD
   disp(p(1)); disp(p(2)); disp(alpha); disp(n);
   if K==1, disp(k); end
   if r2==1, disp(R2); end
@@ -312,11 +311,6 @@ else
   if rmse==1, RMSE, end
   if aic==1, AIC, end
   if bic==1, BIC, end
-=======
-  disp(p(1)); disp(p(2)); disp(alpha); disp(n); disp(R2);
-else
-  qs=p(1), qr=p(2), alpha=1/(abs(p(3))+x(1)), n=abs(p(4))+1, R2
->>>>>>> d95b0c4636466672a70a16f7108b722277d5551c
 end
 if adv==1,
   if simple,
