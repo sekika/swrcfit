@@ -51,14 +51,11 @@ else
 fi
 
 # Check if it works
-echo "=== Cheking swrcfit"
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+echo "=== Checking swrcfit"
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
-  echo "Result of swcfit swrc.txt is different from result.txt."
   echo "Not yet installed properly. Trying to install Octave forge packages."
 fi
 
@@ -66,16 +63,13 @@ fi
 
 echo "=== Installing packages (pkg install -forge struct optim)"
 $octave -q --eval "pkg install -forge struct optim"
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
   echo "Octave forge was not installed successfully."
   echo "Not yet installed properly. Trying to get necessary files from sourceforge.net."
 fi
-rm -f test.txt
 
 # Check if wget is installed
 wget=`which wget`
@@ -98,22 +92,19 @@ echo "Downloading \c"
 
 for i in leasqr.m dfdp.m cpiv_bard.m; do
   echo $i"... \c"
-  wget -q -O $loadpath/$i "$package""$i""?format=raw"
+  $wget -q -O $loadpath/$i "$package""$i""?format=raw"
 done
 for i in __dfdp__.m __lm_svd__.m __plot_cmds__.m __do_user_interaction__.m; do
   echo $i"... \c"
-  wget -q -O $loadpath/$i "$package"private/"$i""?format=raw"
+  $wget -q -O $loadpath/$i "$package"private/"$i""?format=raw"
 done
 echo "finished."
 
-$installfilename swrc.txt > test.txt
-result=`diff result.txt test.txt`
-if [ "$result" = "" ]; then
+if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
-  rm -f test.txt; exit 0
+  exit 0
 else
   echo "Octave forge was not installed successfully."
   echo "Not yet installed properly. Give up."
 fi
-rm -f test.txt
 

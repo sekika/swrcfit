@@ -12,7 +12,7 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 2.0
+* Version of this distribution: 2.1
 
 From version 2.0, you can check installed version by `swrcfit -v`.
 
@@ -64,14 +64,14 @@ hb =  41.704
 lambda =  7.0104
 R2 =  0.99279
 === VG model ===
-qs =  0.38656
-qr =  0.055190
-alpha =  0.021547
-n =  15.923
-R2 =  0.99246
+qs =  0.38671
+qr =  0.055302
+alpha =  0.021563
+n =  15.913
+R2 =  0.99247
 === LN model ===
 qs =  0.38625
-qr =  0.056345
+qr =  0.056346
 hm =  46.631
 sigma =  0.10818
 R2 =  0.99167
@@ -194,5 +194,5 @@ your own question by getting the accout of GitHub and pressing the green
 "New Issue" button. Please select the label of "question". It is preferable
 to send your question publicly this way, because other people having the
 same question can find answer on the web. However, if your question is
-confidential, please contact me by email. Tou can find my email address in
+confidential, please contact me by email. You can find my email address in
 [this paper](http://dx.doi.org/10.1016/j.geoderma.2015.02.013).
