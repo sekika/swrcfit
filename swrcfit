@@ -794,11 +794,11 @@ if fig==1,
 
   if (figure),
     if (figsize == 1),
-      print (figure2, "-S320,240");
+      print (figure, "-S320,240");
     elseif (figsize == 2),
-      print (figure2, "-S480,360");
+      print (figure, "-S480,360");
     else
-      print (figure2, "-S640,480");
+      print (figure, "-S640,480");
     end
   end
 
