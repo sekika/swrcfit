@@ -2,15 +2,33 @@
 mode = 1; # Unimodal model
 # mode = 2; # Bimodal model
 # mode = 3; # Unimodal and bimodal model
-output_precision(5); # precision of the output
+bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes) (from Version 3.0)
+db=1; bl=1; # Bimodal models (0=no, 1=yes) (from version 3.0)
+
+recision = 5; # precision of the output
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
 cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
+
+# Correction function (CF) of FX model (from Version 3.0)
+fxc=0; # fxc=1; use CF, fxc=0; no CF (CF=1)
+psir=30000; # psi_r of CF
+psimax=10000000; # psi_max of CF
+
+# Output format of the result
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
+# Added from version 3.0
+data=0; # Show original input data (0=no, 1=yes)
+K=0; # Show numbers of parameters (0=no, 1=yes)
+r2=1; # Show R^2 (coefficient of determination) (0=no, 1=yes)
+rmse=0; # Show RMSE (root mean square error) (0=no, 1=yes)
+ns=0; # Show sample size (0=no, 1=yes)
+aic=0; # Show AIC (Akaike information criterion) (0=no, 1=yes)
+bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 
 # Figure options (from version 2.0)
 # See https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
@@ -20,9 +38,12 @@ showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 figure="swrc.png"; # Filename of the figure of unimodal models.
 figure2="bimodal.png"; # Filename of the figure of bimodal models.
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
+
 smooth=300; # Smoothness of the fitted line
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
+minx=0; maxx=0; # Range of X axis. Automatic for 0.
+miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 
 # Text
 fontsize=16; # Font size
