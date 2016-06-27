@@ -383,7 +383,7 @@ end
 # Fredlund and Xing Model
 if (simple==0) && (fx==1)
   if (fxc==0),
-    disp ("=== FX model (Correction function not used) ===");
+    disp ("=== FX model ===");
   else
     disp ("=== FX model ===");
     printf("Using correction function of psi_r = %d and psi_max = %u\n", psir, psimax);
