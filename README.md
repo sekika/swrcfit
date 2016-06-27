@@ -2,7 +2,7 @@
 
 SWRC Fit is a program which performs nonlinear fitting of soil water
 retention curve with
-[5 SWRC models](https://github.com/sekika/swrcfit/wiki/SWRC-models)
+[6 SWRC models](https://github.com/sekika/swrcfit/wiki/SWRC-models)
 by Levenberg-Marquardt method. This software was used in
 [more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 Basic information of this program is summarized:
