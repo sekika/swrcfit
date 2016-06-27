@@ -76,6 +76,13 @@ qr =  0.056346
 hm =  46.631
 sigma =  0.10818
 R2 =  0.99167
+=== FX model ===
+qs =  0.38442
+qr =  0.034417
+a =  44.142
+m =  1.1128
+n =  24.028
+R2 =  0.99414
 ```
 
 If advanced mode is selected (see [calculation option](#calculation-options)),
