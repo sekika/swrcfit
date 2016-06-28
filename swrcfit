@@ -473,7 +473,7 @@ while (i < length(x)-2)
 xi=x(1:i); yi=y(1:i);
 qs=qsin; qr=min(yi);
 S=(yi.-qr)./(qs-qr);
-function ret=VG(x,p)
+function ret=VG2(x,p)
   ret = p(2)+(p(1)-p(2)).*((1+(abs(p(3)).*x).^(abs(p(4))+1)).^(1/(abs(p(4))+1)-1));
 endfunction
 hm = xi(sum (S > 0.5)+1);
@@ -481,7 +481,7 @@ alpha=1/hm; nn=1; pin=[1 0 alpha nn];
 dp=[0 0 0.001 0.001]; stol=1; R2b=0;
 wt2=ones(length(yi),1);
 while ( stol >= 0.0001 )
-  [f,p,kvg]=leasqr(xi,S,pin,"VG",0.01,20,wt2,dp);
+  [f,p,kvg]=leasqr(xi,S,pin,"VG2",0.01,20,wt2,dp);
   if kvg ==0, p=pin;, stol=0;, end
   stol=stol/10; pin=p;
 endwhile
@@ -492,7 +492,7 @@ pin=[qr qrin 1/hm 1]; stol=1;
 dp=[0 0.0001*cqr 0.0001 0.0001]; R2b=0;
 while ( stol >= 0.0001 )
   try
-    [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG",stol,20,wt,dp);
+    [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG2",stol,20,wt,dp);
   catch
     R2=R2b; stol=0;
   end_try_catch
@@ -505,7 +505,7 @@ if (real(p(3))*x(N)<1)
   dp=[0 0 0.0001 0.0001]; R2b=0;
   while ( stol >= 0.0001 )
     try
-      [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG",stol,20,wt,dp);
+      [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG2",stol,20,wt,dp);
     catch
       R2=R2b; stol=0;
     end_try_catch
