@@ -1,15 +1,19 @@
 SWRC Fit Version History
 
-Version 3.0-beta.3 (2015-06-29)
-  - Added supoprt for Fredlund and Xing model (FX model)
-  - Individual model selection with bc, vg, ln, fx, db, bl options
+* Notable changes.
+
+Version 3.0-beta.3 (2016-06-29)
+
+  * Added supoprt for Fredlund and Xing model (FX model)
+  * Individual model selection with bc, vg, ln, fx, db, bl options
+  * Added output options: data, K, r2, rmse, ns, aic, bic
   - Correction function of FX model: fxc, psir, psimax
-  - Added output options: data, K, r2, rmse, ns, aic, bic
   - Unimodal and bimodal plots on same figure
-  - Added figure option: onemodel
+  - Added figure option: onemodel (minimum AIC selection)
 
 Version 2.1 (2015-09-23)
-  - BUG FIX: SWRC Fit version 2.0 or before does not work with the latest
+
+  * BUG FIX: SWRC Fit version 2.0 or before does not work with the latest
     version of Octave. Command "pkg load all" was added to fix this problem,
     to load necessary packages explicitly. In older version of Octave (not
     sure exactly until which version), packages could be loaded automatically
@@ -23,16 +27,15 @@ Version 2.1 (2015-09-23)
     Some other fixes for parameter handling.
 
 Version 2.0 (2015-06-07)
-  - New feature to draw graphs of the result
-  - Simple output mode
-  - Show version with -v option
-  - Multiple setting without limitation of numbers
-  - Setting option can be either equation or filename
-  - Read default setting at $HOME/.swrcfitrc and ./setting.txt
+
+  * New feature to draw graphs of the result
+  * Simple output mode
+  * Show version with -v option
+  * ./configure; (sudo) make install installs both program and man page.
+  * Multiple setting with equation of filename without limitation of numbers
+  * Read default setting at $HOME/.swrcfitrc and ./setting.txt
   - Manual in man page style was created.
   - Japanese document (README.ja.md)
-  - configure script was created.
-  - ./configure; (sudo) make install installs both program and man page.
   - Install.sh creates destination directory
   - In a certain case reported by a user, "error: weighted residuals are
     not real" was returned from initial calculation of BC fit with leasqr.m.
@@ -40,9 +43,10 @@ Version 2.0 (2015-06-07)
     problem with your data, please report bug to the author.
 
 Version 1.3 (2014-09-07)
-  - swrc.m and bimodal.m were combined to swrcfit, and unimodal
+
+  * swrc.m and bimodal.m were combined to swrcfit, and unimodal
     and bimodal calculation is to be selected from setting.
-  - Data file and setting file is specified with commandline option.
+  * Data file and setting file is specified with commandline option.
   - Sample data and result file were added.
   - User's manual was changed to markup file (README.md)
   - Some file names were changed.
@@ -58,14 +62,14 @@ Version 1.2 (2007-09-02)
 
 Version 1.1 (HESSD version) (2007-06-05)
 
-  - Identical to the program published as a supplementary file
+  * Identical to the program published as a supplementary file
     of HESSD journal (Hydrology and Earth System Sciences
     Discussions, 4: 407-437, 2007.)
-  - BL model was added as a bimodal model (bimodal.m).
+  * BL model was added as a bimodal model (bimodal.m).
   - Option for imposing the restriction of positive value of
     residual water content (pqr) was added.
 
 Version 1.0 (JJSSP version) (2007-06-05)
 
-  - Identical to the program published in JJSSP journal
+  * Identical to the program published in JJSSP journal
     (Journal of Japanese Society of Soil Physics, 105:67-78.)
