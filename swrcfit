@@ -141,19 +141,6 @@ if (argc > 1),
   endfor
 end
 
-# Set colors in the order of col variable
-BCpl=strcat(col(1),"-");
-VGpl=strcat(col(bc+1),"-");
-LNpl=strcat(col(bc+vg+1),"-");
-FXpl=strcat(col(bc+vg+ln+1),"-");
-if mode==2,
-  DBpl=strcat(col(1),"-");
-  BLpl=strcat(col(db+1),"-");
-else
-  DBpl=strcat(col(bc+vg+ln+fx+1),"-");
-  BLpl=strcat(col(bc+vg+ln+fx+db+1),"-");
-end
-
 # precision of the output
 output_precision(precision);
 
@@ -168,7 +155,7 @@ end
 
 ######################### Unimodal model #####################
 if (x(1)==0), hb=x(2); endif
-if (mode ~= 2),
+if (mode ~= 2 && bc + vg + ln + fx),
 
 # Set initial values
 qs=qsin; qr=qrin;
@@ -266,6 +253,7 @@ end
 end
 
 # van Genuchten Model
+if (vg + ln + fx),
 if (simple==0) && (vg==1), disp ("=== VG model ==="); end
 function ret=VG(x,p)
   n=abs(p(4))+1;
@@ -302,7 +290,7 @@ k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), vg==0; end
+  if (onemodel), vg=0; end
 else
   minAIC=AIC;
 end
@@ -332,8 +320,10 @@ if adv==1,
   end
 end
 end
+end
 
 # Lognormal Pore-Size Distribution Model of Kosugi
+if (ln + fx),
 if (simple==0) && (ln==1), disp ("=== LN model ==="); end
 function ret=LN(x,p)
   ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/(x(1)+abs(p(3)))))./abs(p(4))));
@@ -366,7 +356,7 @@ k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), ln==0; end
+  if (onemodel), ln=0; end
 else
   minAIC=AIC;
 end
@@ -395,8 +385,10 @@ if adv==1,
   end
 end
 end
+end
 
 # Fredlund and Xing Model
+if (fx),
 if (simple==0) && (fx==1)
   if (fxc==0),
     disp ("=== FX model ===");
@@ -448,7 +440,7 @@ k = cqs+cqr+3;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), fx==0; end
+  if (onemodel), fx=0; end
 else
   minAIC=AIC;
 end
@@ -478,14 +470,17 @@ if adv==1,
 end
 end
 end
+end
 
 ################### Bimodal model #####################
 if (x(1)==0), alpha1=1/x(2); endif
 if (mode > 1),
 
 # Check if there are more than 7 points
-if i < 8, disp("Too few points for bimodal analysis."), exit, end
-
+if i < 8
+ disp("Too few points for bimodal analysis.")
+ db=0; bl=0;
+else
 # Bimodal model of Durner
 if (simple==0) && (db==1), disp ("=== DB model ==="); end
 
@@ -604,7 +599,7 @@ if (w1 > 0.01) * (w1 < 0.99)
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
   if (minAIC < AIC),
-    if (onemodel), db==0; end
+    if (onemodel), db=0; end
   else
     minAIC=AIC;
   end
@@ -634,7 +629,7 @@ if (w1 > 0.01) * (w1 < 0.99)
   end
   end
 else
-  disp ("Not bimodal"); bl=0;
+  disp ("Not bimodal"); db=0; bl=0;
 end
 
 # Bimodal Lognormal model
@@ -706,7 +701,7 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
   if (minAIC < AIC),
-    if (onemodel), db==0; end
+    if (onemodel), bl=0; end
   else
     minAIC=AIC;
   end
@@ -736,12 +731,34 @@ if (w1 > 0.01) * (w1 < 0.99) +1
     end
   end
 else
-  disp ("Not bimodal");
+  disp ("Not bimodal"); bl=0;
+end
 end
 end
 end
 
 ##### Draw graph #####
+
+if (onemodel),
+  if (vg + ln + fx + db + bl), bc=0; end
+  if (ln + fx + db + bl), vg=0; end
+  if (fx + db + bl), ln=0; end
+  if (db + bl), fx=0; end
+  if (bl), db=0; end
+end
+
+# Set colors in the order of col variable
+BCpl=strcat(col(1),"-");
+VGpl=strcat(col(bc+1),"-");
+LNpl=strcat(col(bc+vg+1),"-");
+FXpl=strcat(col(bc+vg+ln+1),"-");
+if mode==2,
+  DBpl=strcat(col(1),"-");
+  BLpl=strcat(col(db+1),"-");
+else
+  DBpl=strcat(col(bc+vg+ln+fx+1),"-");
+  BLpl=strcat(col(bc+vg+ln+fx+db+1),"-");
+end
 
 if fig==1,
 
@@ -751,12 +768,10 @@ if fig==1,
   if (ax==0 && (max(x) < 100*min(x) || min(x)==0) || ax==1) # Normal axis
     if (maxx==0), maxx=max(x)*1.1; end
     x2=(linspace(minx,maxx,smooth));
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
     if (mode ~= 2),
       if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
+      if vg==1, VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)]; VG=VG(x2,VGp); end
+      if ln==1, LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)]; LN=LN(x2,LNp); end
       if fx==1, FX=FX(x2,FXp); end
     end
     if (mode > 1),
@@ -783,13 +798,11 @@ if fig==1,
       minx=10^(floor(log10(minx)));
     end
     if (maxx==0), maxx=max(x)*1.5; end
-    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
+    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';   
     if (mode ~= 2),
       if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
+      if vg==1, VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)]; VG=VG(x2,VGp); end
+      if ln==1, LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)]; LN=LN(x2,LNp); end
       if fx==1, FX=FX(x2,FXp); end
     end
     if (mode > 1),
