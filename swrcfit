@@ -223,8 +223,8 @@ RMSE = sqrt(mean((y.-BC(x2,p)).^2));
 hb=abs(p(3));
 if bc==1,
 k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
+AIC=N*log(RMSE^2)+2*k;
+BIC=N*log(RMSE^2)+k*log(N);
 minAIC=AIC;
 
 if simple,
@@ -287,8 +287,8 @@ RMSE = sqrt(mean((y.-VG(x,p)).^2));
 
 if vg==1,
 k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
+AIC=N*log(RMSE^2)+2*k;
+BIC=N*log(RMSE^2)+k*log(N);
 if (minAIC < AIC),
   if (onemodel), vg=0; end
 else
@@ -353,8 +353,8 @@ RMSE = sqrt(mean((y.-LN(x,p)).^2));
 
 if ln==1,
 k = cqs+cqr+2;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
+AIC=N*log(RMSE^2)+2*k;
+BIC=N*log(RMSE^2)+k*log(N);
 if (minAIC < AIC),
   if (onemodel), ln=0; end
 else
@@ -437,8 +437,8 @@ RMSE = sqrt(mean((y.-FX(x,p)).^2));
 
 if (fx==1),
 k = cqs+cqr+3;
-AIC=N*log(RMSE^2/N)+2*k;
-BIC=N*log(RMSE^2/N)+k*log(N);
+AIC=N*log(RMSE^2)+2*k;
+BIC=N*log(RMSE^2)+k*log(N);
 if (minAIC < AIC),
   if (onemodel), fx=0; end
 else
@@ -596,8 +596,8 @@ if (w1 > 0.01) * (w1 < 0.99)
   n2=n(2);
   if db==1,
   k = cqs+cqr+5;
-  AIC=N*log(RMSE^2/N)+2*k;
-  BIC=N*log(RMSE^2/N)+k*log(N);
+  AIC=N*log(RMSE^2)+2*k;
+  BIC=N*log(RMSE^2)+k*log(N);
   if (minAIC < AIC),
     if (onemodel), db=0; end
   else
@@ -698,8 +698,8 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   hm2 = abs(p(6));
   sigma2 = mod(abs(p(7)),50)+0.05;
   k = cqs+cqr+5;
-  AIC=N*log(RMSE^2/N)+2*k;
-  BIC=N*log(RMSE^2/N)+k*log(N);
+  AIC=N*log(RMSE^2)+2*k;
+  BIC=N*log(RMSE^2)+k*log(N);
   if (minAIC < AIC),
     if (onemodel), bl=0; end
   else
