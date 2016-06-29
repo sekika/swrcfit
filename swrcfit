@@ -155,7 +155,7 @@ end
 
 ######################### Unimodal model #####################
 if (x(1)==0), hb=x(2); endif
-if (mode ~= 2),
+if (mode ~= 2 && bc + vg + ln + fx),
 
 # Set initial values
 qs=qsin; qr=qrin;
@@ -253,6 +253,7 @@ end
 end
 
 # van Genuchten Model
+if (vg + ln + fx),
 if (simple==0) && (vg==1), disp ("=== VG model ==="); end
 function ret=VG(x,p)
   n=abs(p(4))+1;
@@ -319,8 +320,10 @@ if adv==1,
   end
 end
 end
+end
 
 # Lognormal Pore-Size Distribution Model of Kosugi
+if (ln + fx),
 if (simple==0) && (ln==1), disp ("=== LN model ==="); end
 function ret=LN(x,p)
   ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/(x(1)+abs(p(3)))))./abs(p(4))));
@@ -382,8 +385,10 @@ if adv==1,
   end
 end
 end
+end
 
 # Fredlund and Xing Model
+if (fx),
 if (simple==0) && (fx==1)
   if (fxc==0),
     disp ("=== FX model ===");
@@ -462,6 +467,7 @@ if adv==1,
     CorrelationMatrix = corp
     StandardDeviation = sqrt(diag(covp))
   end
+end
 end
 end
 end
