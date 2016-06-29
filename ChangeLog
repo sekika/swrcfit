@@ -23,30 +23,21 @@ Version 2.1 (2015-09-23)
     Some other fixes for parameter handling.
 
 Version 2.0 (2015-06-07)
-  - Release of stable version
-
-Version 2.0-beta.9 (2014-09-24)
+  - New feature to draw graphs of the result
+  - Simple output mode
+  - Show version with -v option
+  - Multiple setting without limitation of numbers
+  - Setting option can be either equation or filename
+  - Read default setting at $HOME/.swrcfitrc and ./setting.txt
+  - Manual in man page style was created.
+  - Japanese document (README.ja.md)
+  - configure script was created.
+  - ./configure; (sudo) make install installs both program and man page.
+  - Install.sh creates destination directory
   - In a certain case reported by a user, "error: weighted residuals are
     not real" was returned from initial calculation of BC fit with leasqr.m.
     Error handling block was added to fix this problem. If you find further
     problem with your data, please report bug to the author.
-
-Version 2.0-beta.7 (2014-09-17)
-  - Setting option can be either equation or filename
-  - Multiple setting without limitation of numbers
-  - Manual in man page style was created.
-  - configure script was created.
-  - ./configure; (sudo) make install installs both program and man page.
-  - Install.sh creates destination directory
-  - Japanese document (README.ja.md)
-
-Version 2.0-beta.4 (2014-09-11)
-  - New feature to draw graphs of the result
-  - Simple output mode
-  - Read default setting at $HOME/.swrcfitrc and ./setting.txt
-  - Up to 3 setting files from command line parameter
-  - Show version with -v option
-  - Revised Install.sh to work on cygwin
 
 Version 1.3 (2014-09-07)
   - swrc.m and bimodal.m were combined to swrcfit, and unimodal
