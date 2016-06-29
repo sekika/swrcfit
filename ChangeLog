@@ -1,6 +1,6 @@
 SWRC Fit Version History
 
-Version 3.0-beta.3 (Developing)
+Version 3.0-beta.3 (2015-06-29)
   - Added supoprt for Fredlund and Xing model (FX model)
   - Individual model selection with bc, vg, ln, fx, db, bl options
   - Correction function of FX model: fxc, psir, psimax
