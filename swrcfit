@@ -473,6 +473,7 @@ if (mode > 1),
 # Check if there are more than 7 points
 if i < 8
  disp("Too few points for bimodal analysis.")
+ db=0; bl=0;
 else
 # Bimodal model of Durner
 if (simple==0) && (db==1), disp ("=== DB model ==="); end
