@@ -471,8 +471,9 @@ if (x(1)==0), alpha1=1/x(2); endif
 if (mode > 1),
 
 # Check if there are more than 7 points
-if i < 8, disp("Too few points for bimodal analysis."), exit, end
-
+if i < 8
+ disp("Too few points for bimodal analysis.")
+else
 # Bimodal model of Durner
 if (simple==0) && (db==1), disp ("=== DB model ==="); end
 
@@ -621,7 +622,7 @@ if (w1 > 0.01) * (w1 < 0.99)
   end
   end
 else
-  disp ("Not bimodal"); bl=0;
+  disp ("Not bimodal"); db=0; bl=0;
 end
 
 # Bimodal Lognormal model
@@ -723,7 +724,8 @@ if (w1 > 0.01) * (w1 < 0.99) +1
     end
   end
 else
-  disp ("Not bimodal");
+  disp ("Not bimodal"); bl=0;
+end
 end
 end
 end
