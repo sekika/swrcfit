@@ -85,6 +85,7 @@ bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
+onemodel=0; # onemodel=1; show only model with miimum AIC (from version 3)
 figure="swrc.png"; # Filename of the figure
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 
@@ -232,10 +233,13 @@ if pqr==1, p(2)=abs(p(2));, end
 RMSE = sqrt(mean((y.-BC(x2,p)).^2));
 
 hb=abs(p(3));
+minAIC=10^10;
 if bc==1,
 k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
+minAIC=AIC;
+
 if simple,
   disp(p(1)); disp(p(2)); disp(hb); disp(p(4));
   if K==1, disp(k); end
@@ -297,6 +301,12 @@ if vg==1,
 k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
+if (minAIC < AIC),
+  if (onemodel), vg==0; end
+else
+  minAIC=AIC;
+end
+
 if simple,
   alpha=1/(abs(p(3))+x(1)); n=abs(p(4))+1;
   disp(p(1)); disp(p(2)); disp(alpha); disp(n);
@@ -355,6 +365,12 @@ if ln==1,
 k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
+if (minAIC < AIC),
+  if (onemodel), ln==0; end
+else
+  minAIC=AIC;
+end
+
 if simple,
   disp(p(1)); disp(p(2)); disp(abs(p(3))+x(1)); disp(abs(p(4)));
   if K==1, disp(k); end
@@ -431,6 +447,12 @@ if (fx==1),
 k = cqs+cqr+3;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
+if (minAIC < AIC),
+  if (onemodel), fx==0; end
+else
+  minAIC=AIC;
+end
+
 if simple,
   disp(p(1)); disp(p(2)); disp(abs(p(3))); disp(abs(p(4))); disp(abs(p(5)));
   if K==1, disp(k); end
@@ -581,6 +603,12 @@ if (w1 > 0.01) * (w1 < 0.99)
   k = cqs+cqr+5;
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
+  if (minAIC < AIC),
+    if (onemodel), db==0; end
+  else
+    minAIC=AIC;
+  end
+
   if simple,
     disp(qs); disp(qr); disp(w1); disp(alpha1); disp(n1); disp(alpha2); disp(n2);
     if K==1, disp(k); end
@@ -677,6 +705,11 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   k = cqs+cqr+5;
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
+  if (minAIC < AIC),
+    if (onemodel), db==0; end
+  else
+    minAIC=AIC;
+  end
 
   if simple,
     disp(qs); disp(qr); disp(w1); disp(hm1); disp(sigma1); 
