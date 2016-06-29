@@ -141,19 +141,6 @@ if (argc > 1),
   endfor
 end
 
-# Set colors in the order of col variable
-BCpl=strcat(col(1),"-");
-VGpl=strcat(col(bc+1),"-");
-LNpl=strcat(col(bc+vg+1),"-");
-FXpl=strcat(col(bc+vg+ln+1),"-");
-if mode==2,
-  DBpl=strcat(col(1),"-");
-  BLpl=strcat(col(db+1),"-");
-else
-  DBpl=strcat(col(bc+vg+ln+fx+1),"-");
-  BLpl=strcat(col(bc+vg+ln+fx+db+1),"-");
-end
-
 # precision of the output
 output_precision(precision);
 
@@ -749,6 +736,19 @@ if (onemodel),
   if (fx + db + bl), ln=0; end
   if (db + bl), fx=0; end
   if (bl), db=0; end
+end
+
+# Set colors in the order of col variable
+BCpl=strcat(col(1),"-");
+VGpl=strcat(col(bc+1),"-");
+LNpl=strcat(col(bc+vg+1),"-");
+FXpl=strcat(col(bc+vg+ln+1),"-");
+if mode==2,
+  DBpl=strcat(col(1),"-");
+  BLpl=strcat(col(db+1),"-");
+else
+  DBpl=strcat(col(bc+vg+ln+fx+1),"-");
+  BLpl=strcat(col(bc+vg+ln+fx+db+1),"-");
 end
 
 if fig==1,
