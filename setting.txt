@@ -1,3 +1,15 @@
+# Description of setting file
+# https://github.com/sekika/swrcfit/wiki/Setting-file
+
+# The program reads setting in the order of
+# 
+# 1. System default value
+# 2. swrcfitrc in user's home directory
+# 3. setting.txt in current directory
+# 4. setting (equation or file) specified from commandline option
+
+precision=5; # precision of the output
+
 # Setting of swrcfit
 mode = 1; # Unimodal model
 # mode = 2; # Bimodal model
@@ -5,7 +17,7 @@ mode = 1; # Unimodal model
 bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes) (from Version 3.0)
 db=1; bl=1; # Bimodal models (0=no, 1=yes) (from version 3.0)
 
-recision = 5; # precision of the output
+# qs and qr handling
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
@@ -35,8 +47,8 @@ bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
+onemodel=0; # onemodel=1; show only model with miimum AIC (from version 3)
 figure="swrc.png"; # Filename of the figure of unimodal models.
-figure2="bimodal.png"; # Filename of the figure of bimodal models.
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 
 smooth=300; # Smoothness of the fitted line
@@ -48,6 +60,21 @@ miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 # Text
 fontsize=16; # Font size
 showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
+xlab="Suction"; # X label
+ylab="Volumetric water content"; # Y label
+showlegend=1; # showlegend=1; show legend. showlegend=0; otherwise.
+Mlab="Measured"; # legend for measured data
+BClab="Brooks and Corey (1964)"; # legend for BC model
+VGlab="van Genuchten (1980)"; # legend for VG model
+LNlab="Kosugi (1996)"; # legend for LN model
+FXlab="Fredlund and Xing (1994)"; # legend for FX model
+DBlab="Durner (1994)"; # legend for DB model
+BLlab="Seki (2007)"; # legend for BL model
 
-# More figure options are available. See the site above for detail.
-
+# Format arguments of plots
+# See https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html
+Mpl="bo"; # Format arguments for measured plot.
+msize=5; # Marker size for measured plot
+mcol="b"; # Marker face color for measured plot
+linewidth=1.5; # Line width of fitting curves
+col = "krbgmc"; # Line color is set in this order
