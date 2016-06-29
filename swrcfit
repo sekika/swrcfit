@@ -743,6 +743,14 @@ end
 
 ##### Draw graph #####
 
+if (onemodel),
+  if (vg + ln + fx + db + bl), bc=0; end
+  if (ln + fx + db + bl), vg=0; end
+  if (fx + db + bl), ln=0; end
+  if (db + bl), fx=0; end
+  if (bl), db=0; end
+end
+
 if fig==1,
 
   if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
