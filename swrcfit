@@ -154,6 +154,7 @@ if ns==1,
 end
 
 ######################### Unimodal model #####################
+minAIC=10^10;
 if (x(1)==0), hb=x(2); endif
 if (mode ~= 2 && bc + vg + ln + fx),
 
@@ -220,7 +221,6 @@ if pqr==1, p(2)=abs(p(2));, end
 RMSE = sqrt(mean((y.-BC(x2,p)).^2));
 
 hb=abs(p(3));
-minAIC=10^10;
 if bc==1,
 k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
