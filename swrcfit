@@ -768,12 +768,10 @@ if fig==1,
   if (ax==0 && (max(x) < 100*min(x) || min(x)==0) || ax==1) # Normal axis
     if (maxx==0), maxx=max(x)*1.1; end
     x2=(linspace(minx,maxx,smooth));
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
     if (mode ~= 2),
       if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
+      if vg==1, VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)]; VG=VG(x2,VGp); end
+      if ln==1, LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)]; LN=LN(x2,LNp); end
       if fx==1, FX=FX(x2,FXp); end
     end
     if (mode > 1),
@@ -800,13 +798,11 @@ if fig==1,
       minx=10^(floor(log10(minx)));
     end
     if (maxx==0), maxx=max(x)*1.5; end
-    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';
-    VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)];
-    LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)];
+    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';   
     if (mode ~= 2),
       if bc==1, BC=BC(x2,BCp); end
-      if vg==1, VG=VG(x2,VGp); end
-      if ln==1, LN=LN(x2,LNp); end
+      if vg==1, VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)]; VG=VG(x2,VGp); end
+      if ln==1, LNp=[LNp(1), LNp(2), abs(LNp(3))+x(1)-x2(1), LNp(4)]; LN=LN(x2,LNp); end
       if fx==1, FX=FX(x2,FXp); end
     end
     if (mode > 1),
