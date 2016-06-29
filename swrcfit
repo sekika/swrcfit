@@ -302,7 +302,7 @@ k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), vg==0; end
+  if (onemodel), vg=0; end
 else
   minAIC=AIC;
 end
@@ -366,7 +366,7 @@ k = cqs+cqr+2;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), ln==0; end
+  if (onemodel), ln=0; end
 else
   minAIC=AIC;
 end
@@ -448,7 +448,7 @@ k = cqs+cqr+3;
 AIC=N*log(RMSE^2/N)+2*k;
 BIC=N*log(RMSE^2/N)+k*log(N);
 if (minAIC < AIC),
-  if (onemodel), fx==0; end
+  if (onemodel), fx=0; end
 else
   minAIC=AIC;
 end
@@ -604,7 +604,7 @@ if (w1 > 0.01) * (w1 < 0.99)
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
   if (minAIC < AIC),
-    if (onemodel), db==0; end
+    if (onemodel), db=0; end
   else
     minAIC=AIC;
   end
@@ -706,7 +706,7 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   AIC=N*log(RMSE^2/N)+2*k;
   BIC=N*log(RMSE^2/N)+k*log(N);
   if (minAIC < AIC),
-    if (onemodel), db==0; end
+    if (onemodel), bl=0; end
   else
     minAIC=AIC;
   end
