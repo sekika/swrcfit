@@ -28,7 +28,6 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Preparation of data file](#preparation-of-data-file)
 - [Calculation options](#calculation-options)
 - [Drawing graph](#drawing-graph)
-- [Checking the result with Excel file](#checking-the-result-with-excel-file)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
@@ -175,16 +174,6 @@ Please see detailed instruction for [drawing graph with gnuplot](graph.md).
 Sample output of figure.
 
 ![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
-
-
-## Checking the result with Excel file
-
-Using the Microsoft Excel worksheet, `swrc.xlsx`
-([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
-the fitted curves can be checked as the figure. By copying and pasting
-the result of the program output onto the yellow part and the measured
-data onto the blue part of the spreadsheet, the fitted curves are
-drawn in the graph of the same spreadsheet.  
 
 ## Web interface
 
