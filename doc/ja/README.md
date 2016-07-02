@@ -1,7 +1,7 @@
 # swrcfit (SWRC Fit) - 土壌水分特性曲線の回帰
 
 SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベンバーグ・マルカート法によって、
-[5 つの土壌水分特性モデル](model.md)
+[6 つの土壌水分特性モデル](model.md)
 によって非線形回帰をするプログラムである。このソフトは、
 [50以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
 で研究のために使われた。
@@ -25,7 +25,6 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [プログラムの実行](#プログラムの実行)
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
-- [Excel ファイルによる結果の確認](#excel-ファイルによる結果の確認)
 - [ウェブインターフェース](#ウェブインターフェース)
 - [引用](#引用)
 - [質問](#質問)
@@ -146,15 +145,6 @@ swrcfit swrc.txt mode=2 fig=1
 そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
 
 [設定の詳細な説明](https://github.com/sekika/swrcfit/wiki/Setting-file)を参照。
-
-## Excel ファイルによる結果の確認
-
-Microsoft Excel のワークシート
-`swrc.xlsx` ([ダウンロード](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx))
-を使うと、回帰曲線の確認ができる。
-計算結果を黄色い部分に張り付けて、測定データを青い箇所に貼り付けると、回帰曲線が得られる。
-
-![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
 
 ## ウェブインターフェース
 
