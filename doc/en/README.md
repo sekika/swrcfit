@@ -36,9 +36,9 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 Choose your OS to install.
 
-- [Windows](https://github.com/sekika/swrcfit/blob/master/doc/en/install-windows.md)
-- [Mac OS X](https://github.com/sekika/swrcfit/blob/master/doc/en/install-mac.md)
-- [Linux and other POSIX systems](https://github.com/sekika/swrcfit/blob/master/doc/en/install-linux.md)
+- [Windows](install-windows.md)
+- [Mac OS X](install-mac.md)
+- [Linux and other POSIX systems](install-linux.md)
 
 ## Running the program
 
