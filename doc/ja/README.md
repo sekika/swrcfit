@@ -13,7 +13,7 @@ SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベン�
 * ライセンス: GNU General Public License
 
 バージョン 2.0 からは、インスールされているバージョンを `swrcfit -v` によって確認できる。
-バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加。
+バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加した。
 
 このユーザーマニュアルは、ウェブで読むと読みやすい。
 それぞれのバージョンのユーザーマニュアルは、ここから読むことができる。
@@ -25,6 +25,7 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [プログラムの実行](#プログラムの実行)
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
+- [グラフ](#グラフ)
 - [ウェブインターフェース](#ウェブインターフェース)
 - [引用](#引用)
 - [質問](#質問)
@@ -145,6 +146,16 @@ swrcfit swrc.txt mode=2 fig=1
 そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
 
 [設定の詳細な説明](https://github.com/sekika/swrcfit/wiki/Setting-file)を参照。
+
+## グラフ
+
+グラフ描画のためのインストールができれば、水分特性曲線を描くことができます。
+オプションを指定する必要があります。
+詳しくは[Gnuplot によるグラフの描画](graph.md)を参照してください。
+
+グラフのサンプルです。
+
+![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
 ## ウェブインターフェース
 
