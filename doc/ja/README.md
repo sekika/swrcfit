@@ -1,9 +1,9 @@
 # swrcfit (SWRC Fit) - 土壌水分特性曲線の回帰
 
 SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベンバーグ・マルカート法によって、
-[5 つの土壌水分特性モデル](https://github.com/sekika/swrcfit/wiki/SWRC-models)
+[6つの土壌水分特性モデル](model.md)
 によって非線形回帰をするプログラムである。このソフトは、
-[50以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
+[80以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
 で研究のために使われた。
 
 * 文献: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
@@ -13,7 +13,7 @@ SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベン�
 * ライセンス: GNU General Public License
 
 バージョン 2.0 からは、インスールされているバージョンを `swrcfit -v` によって確認できる。
-バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加。
+バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加した。
 
 このユーザーマニュアルは、ウェブで読むと読みやすい。
 それぞれのバージョンのユーザーマニュアルは、ここから読むことができる。
@@ -25,15 +25,16 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [プログラムの実行](#プログラムの実行)
 - [データファイルの準備](#データファイルの準備)
 - [設定](#設定)
-- [Excel ファイルによる結果の確認](#excel-ファイルによる結果の確認)
+- [グラフ](#グラフ)
 - [ウェブインターフェース](#ウェブインターフェース)
 - [引用](#引用)
 - [質問](#質問)
 
 ## インストールの方法
 
-[SWRC Fit のインストール](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
-に、インストールの方法が書かれている。
+- [Windows へのインストール](install-windows.md)
+- [Mac OS X へのインストール](install-mac.md)
+- [Linux と POSIX システムへのインストール](install-linux.md)
 
 ## プログラムの実行
 
@@ -145,21 +146,25 @@ swrcfit swrc.txt mode=2 fig=1
 `swrc.txt` のデータから二峰性モデルによる回帰がされて、
 そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
 
-[設定の詳細な説明](https://github.com/sekika/swrcfit/wiki/Setting-file)を参照。
+[設定の詳細な説明](setting.md)を参照。
 
-## Excel ファイルによる結果の確認
+## グラフ
 
-Microsoft Excel のワークシート
-`swrc.xlsx` ([ダウンロード](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx))
-を使うと、回帰曲線の確認ができる。
-計算結果を黄色い部分に張り付けて、測定データを青い箇所に貼り付けると、回帰曲線が得られる。
+グラフ描画のためのインストールができれば、水分特性曲線を描くことができる。
+オプションを指定する必要がある。
+詳しくは[Gnuplot によるグラフの描画](graph.md)を参照。
 
-![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
+グラフのサンプルです。
+
+![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
 ## ウェブインターフェース
 
 SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/index-ja.html)
 は、perl 言語で書かれ、cgi プログラムとして動作する。
+
+![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
+
 [詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%82%A6%E3%82%A7%E3%83%96%E7%89%88)。
 
 

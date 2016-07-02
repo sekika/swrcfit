@@ -2,9 +2,9 @@
 
 SWRC Fit is a program which performs nonlinear fitting of soil water
 retention curve with
-[6 SWRC models](https://github.com/sekika/swrcfit/wiki/SWRC-models)
+[6 SWRC models](model.md)
 by Levenberg-Marquardt method. This software was used in
-[more than 50 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
+[more than 80 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 Basic information of this program is summarized:
 
 * Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
@@ -27,15 +27,18 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Running the program](#running-the-program)
 - [Preparation of data file](#preparation-of-data-file)
 - [Calculation options](#calculation-options)
-- [Checking the result with Excel file](#checking-the-result-with-excel-file)
+- [Drawing graph](#drawing-graph)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
 - [Question](#question)
 
 ## How to install
 
-Read [Installation of SWRC Fit](https://github.com/sekika/swrcfit/wiki/Installation-of-SWRC-Fit)
-for instruction.
+Choose your OS to install.
+
+- [Windows](install-windows.md)
+- [Mac OS X](install-mac.md)
+- [Linux and other POSIX systems](install-linux.md)
 
 ## Running the program
 
@@ -147,40 +150,40 @@ Here, some examples of calculation options are shown.
 
 |Calculation option|Meaning|
 |------------------|----------------|
-|mode=2            |Bimodal analysis|
+|bc=0 ln=0         |Not calculate BC or LN models (therefore showing VG and FX models)|
+|mode=2            |Bimodal models (DB and BL models)|
+|mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 |LN and BL models|
 |qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
-|adv=1             |Advanced output showing correlation matrix and standard deviation|
-|fig=1             |Make figure file of plot |
+|aic=1             |Show AIC (Akaike's information criteria)|
 
 For example, when this command is executed,
 ```
-swrcfit swrc.txt mode=2 fig=1
+swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 aic=1
 ```
-Fitting of bimodal models are conducted with the input parameters in
-`swrc.txt` and figure file of `bimodal.png` (default file name for
-bimodal figure) is created.
+Fitting of LN and BL models are conducted with the input parameters in
+`swrc.txt`, show also AIC.
 
-Please read [detailed description of calculation options](https://github.com/sekika/swrcfit/wiki/Setting-file).
+Please read [detailed description of calculation options](setting.md).
 
-## Checking the result with Excel file
+## Drawing graph
 
-Using the Microsoft Excel worksheet, `swrc.xlsx`
-([download](https://github.com/sekika/swrcfit/raw/master/swrc.xlsx)),
-the fitted curves can be checked as the figure. By copying and pasting
-the result of the program output onto the yellow part and the measured
-data onto the blue part of the spreadsheet, the fitted curves are
-drawn in the graph of the same spreadsheet.  
+SWRC curve can be drawn when properly installed and proper figure options are given.
+Please see detailed instruction for [drawing graph with gnuplot](graph.md).
 
-![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
+Sample output of figure.
+
+![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
 ## Web interface
 
 The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
 in the program language perl and works as a cgi program. The perl program
 invokes GNU octave and executes the calculation engine of swrcfit.
-[More information about the web insterface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
 
+![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
+
+[More information about the web interface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
 
 ## Citation of this work
 

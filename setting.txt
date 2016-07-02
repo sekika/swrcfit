@@ -10,7 +10,7 @@
 
 precision=5; # precision of the output
 
-# Setting of swrcfit
+# Selection of model
 mode = 1; # Unimodal model
 # mode = 2; # Bimodal model
 # mode = 3; # Unimodal and bimodal model
