@@ -155,15 +155,15 @@ Here, some examples of calculation options are shown.
 |mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 |LN and BL models|
 |qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
-|adv=1             |Advanced output showing correlation matrix and standard deviation|
+|aic=1             |Show AIC (Akaike's information criteria)|
 |fig=1             |Make figure file of plot |
 
 For example, when this command is executed,
 ```
-swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 fig=1
+swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 aic=1 fig=1
 ```
 Fitting of LN and BL models are conducted with the input parameters in
-`swrc.txt` and figure file of `swrc.png` is created.
+`swrc.txt`, show also AIC and figure file of `swrc.png` is created.
 
 Please read [detailed description of calculation options](setting.md).
 
