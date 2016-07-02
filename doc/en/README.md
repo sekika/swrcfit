@@ -27,6 +27,7 @@ here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
 - [Running the program](#running-the-program)
 - [Preparation of data file](#preparation-of-data-file)
 - [Calculation options](#calculation-options)
+- [Drawing graph](#drawing-graph)
 - [Checking the result with Excel file](#checking-the-result-with-excel-file)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
@@ -156,18 +157,22 @@ Here, some examples of calculation options are shown.
 |qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 is constant|
 |qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 is constant|
 |aic=1             |Show AIC (Akaike's information criteria)|
-|fig=1             |Make figure file of plot |
 
 For example, when this command is executed,
 ```
-swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 aic=1 fig=1
+swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 aic=1
 ```
 Fitting of LN and BL models are conducted with the input parameters in
-`swrc.txt`, show also AIC and figure file of `swrc.png` is created.
+`swrc.txt`, show also AIC.
 
 Please read [detailed description of calculation options](setting.md).
 
-Sample output of figure
+## Drawing graph
+
+SWRC curve can be drawn when properly installed and proper figure options are given.
+Please see detailed instruction for [drawing graph with gnuplot](graph.md).
+
+Sample output of figure.
 
 ![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
@@ -190,7 +195,6 @@ invokes GNU octave and executes the calculation engine of swrcfit.
 ![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
 
 [More information about the web interface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
-
 
 ## Citation of this work
 
