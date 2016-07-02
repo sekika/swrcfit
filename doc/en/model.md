@@ -22,7 +22,7 @@ different from error function. Other parameters are soil hydraulic
 parameters to be optimized with swrcfit.
 
 FX model is supported from version 3.0. Correction function of the FX model, C(h), is by default 1.
-It can be changed by parameter setting. See [[Setting-file]] for detail.
+It can be changed by parameter setting. See [calculation options](setting.md) for detail.
 
 ## Unimodal models (BC, VG, LN and FX)
 
