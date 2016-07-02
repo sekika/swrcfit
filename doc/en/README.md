@@ -167,6 +167,11 @@ Fitting of LN and BL models are conducted with the input parameters in
 
 Please read [detailed description of calculation options](setting.md).
 
+Sample output
+
+![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
+
+
 ## Checking the result with Excel file
 
 Using the Microsoft Excel worksheet, `swrc.xlsx`
