@@ -149,9 +149,9 @@ swrcfit swrc.txt mode=2 fig=1
 
 ## グラフ
 
-グラフ描画のためのインストールができれば、水分特性曲線を描くことができます。
-オプションを指定する必要があります。
-詳しくは[Gnuplot によるグラフの描画](graph.md)を参照してください。
+グラフ描画のためのインストールができれば、水分特性曲線を描くことができる。
+オプションを指定する必要がある。
+詳しくは[Gnuplot によるグラフの描画](graph.md)を参照。
 
 グラフのサンプルです。
 
@@ -161,6 +161,9 @@ swrcfit swrc.txt mode=2 fig=1
 
 SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/index-ja.html)
 は、perl 言語で書かれ、cgi プログラムとして動作する。
+
+![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
+
 [詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%82%A6%E3%82%A7%E3%83%96%E7%89%88)。
 
 
