@@ -19,7 +19,7 @@ The file describes the default setting of the program; when setting
 file is not specified, these default setting is used.
 
 ```
-output_precision(5); # precision of the output
+precision = 5; # precision of the output
 ```
 This line sets the precision of the ouput, i.e., the numbers of
 [significant figures](http://en.wikipedia.org/wiki/Significant_figures)
