@@ -161,7 +161,7 @@ Fitting of bimodal models are conducted with the input parameters in
 `swrc.txt` and figure file of `bimodal.png` (default file name for
 bimodal figure) is created.
 
-Please read [detailed description of calculation options](https://github.com/sekika/swrcfit/wiki/Setting-file).
+Please read [detailed description of calculation options](setting.md).
 
 ## Checking the result with Excel file
 
