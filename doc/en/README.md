@@ -175,8 +175,6 @@ the result of the program output onto the yellow part and the measured
 data onto the blue part of the spreadsheet, the fitted curves are
 drawn in the graph of the same spreadsheet.  
 
-![Fig. 1](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig1.png)
-
 ## Web interface
 
 The Web interface of the SWRC Fit (http://purl.org/net/swrc/) is written
