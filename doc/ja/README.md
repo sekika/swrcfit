@@ -3,7 +3,7 @@
 SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベンバーグ・マルカート法によって、
 [6 つの土壌水分特性モデル](model.md)
 によって非線形回帰をするプログラムである。このソフトは、
-[50以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
+[80以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
 で研究のために使われた。
 
 * 文献: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
