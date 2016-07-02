@@ -30,9 +30,7 @@ It can be changed by parameter setting. See [[Setting-file]] for detail.
 * Texture: Sand
 * Source: Haverkamp and Parlange, 1986
 
-(Figure not updated for FX model yet)
-
-![Figure](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/unsoda4440.png)
+![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
 ## Bimodal models (DB and BL)
 
@@ -40,7 +38,7 @@ It can be changed by parameter setting. See [[Setting-file]] for detail.
 * Texture: Silty loam
 * Source: Richard et al., 1983
 
-![Figure](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/unsoda2760.png)
+![Figure](https://github.com/sekika/swrcfit-cgi/blob/master/img/sample2.png)
 
 ## Reference
 
