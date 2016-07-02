@@ -1,3 +1,5 @@
+# Calculation options
+
 Calculation option can be written as a text file. The program reads setting
 in the order of
 
