@@ -15,4 +15,4 @@ octave -q --eval "pkg install -forge struct optim"
 
 After installation of swrcfit with homebrew, you can always upgrade to the latest version by `brew update; brew upgrade`.
 
-For [[drawing graph with gnuplot]], you must set the environment variable GNUTERM. You can choose from x11, qt and aqua. Set `GNUTERM=qt` for example.
+For [drawing graph with gnuplot](graph.md), you must set the environment variable GNUTERM. You can choose from x11, qt and aqua. Set `GNUTERM=qt` for example.
