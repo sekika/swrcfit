@@ -26,9 +26,9 @@ This line sets the precision of the ouput, i.e., the numbers of
 to display. Default value is 5.
 
 ```
-# Setting of swrcfit
+# Selection of model
 ```
-This line is a comment. It indicates that this is a setting file.
+This line is a comment. It indicates that this block is for selection of model.
 GNU Octave language ignores the rest of a line following a sharp sign ("#").
 
 ```
