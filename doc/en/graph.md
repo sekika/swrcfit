@@ -34,10 +34,10 @@ showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 When showfig=1 is set, figure is shown at your terminal. This is valid only when terminal is correctly set as described in the previous section. When this option is set, swrcfit stops when it shows a figure, swrcfit pauses with a message "Hit return key to finish." When you hit return key, the figure disappears and the swrcfit finishes.
 
 ```
-figure="swrc.png"; # Filename of the figure of unimodal models.
+figure="swrc.png"; # Filename of the figure.
 figure2="bimodal.png"; # Filename of the figure of bimodal models. (only for version 2.0 and 2.1)
 ```
-These are filenames of the output figure. From version 3.0, all the models are shown in the same figure in the name of swrc.png, but different name of unimodal and bimodel models can be specified for version 2.0 and 2.1. If same names are specified and both models are calculated, the latter overwrites the former. To supress the output to file, set `figure=""` and `figure2=""`. The format of the file is automatically selected from the extention of the filename. Octave can produce png, jpg, ps, eps, emf, pdf, svg, and several other file formats, as shown in [-ddevice option of print function](http://www.gnu.org/software/octave/doc/interpreter/Printing-and-Saving-Plots.html), but depending on your installation, some file formats might not be available.
+These are filenames of the output figure. From version 3.0, all the models are shown in the same figure in the name of figure parameter, but for version 2.0 and 2.1, different name of bimodel models are specified in figure2 parameter. If same names are specified and both models are calculated, the latter overwrites the former. To supress the output to file, set `figure=""` and `figure2=""`. The format of the file is automatically selected from the extention of the filename. Octave can produce png, jpg, ps, eps, emf, pdf, svg, and several other file formats, as shown in [-ddevice option of print function](http://www.gnu.org/software/octave/doc/interpreter/Printing-and-Saving-Plots.html), but depending on your installation, some file formats might not be available.
 
 **Note**: When you specify file name from command line, the **quotation marks should be escaped**
 **with backslashes** `\`. Therefore, specifing `figure="swrc.eps"` from command line, the equation
