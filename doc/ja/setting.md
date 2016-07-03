@@ -14,7 +14,7 @@
 その設定が有効になる。
 
 サンプルの設定ファイルがパッケージに `setting.txt`
-([ダウンロード](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt)).
+([ダウンロード](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt))
 として含まれている。このファイルはシステムのデフォルトが記述されている。
 設定ファイルが指定されていなければ、このデフォルト値が使われる。
 
@@ -55,18 +55,17 @@ db=1; bl=1; # Bimodal models (0=no, 1=yes)
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 ```
-These lines specify the variable &theta;<sub>s</sub>, the saturated
-water content. In this program, &theta;<sub>s</sub> is shown as "qs".
-Two parameters, qsin and cqs, controls how the program treats this
-variable. qsin is the initial value of &theta;<sub>s</sub> and cqs
-is a parameter which decides &theta;<sub>s</sub> is constant or
-variable; when cqs is set as 0, &theta;<sub>s</sub> is treated as a
-constant, and when cqs is 1, &theta;<sub>s</sub> is treated as a
-variable. By default, initial value of &theta;<sub>s</sub>is set as
-the maximum value of the soil water content, and it is set as a
-variable, but it can be changed by editing this section. For example,
-for setting &theta;<sub>s</sub> = 0.35 as a constant, write
-`qsin=0.35; cqs=0;` in the setting file.
+ここでは飽和含水率&theta;<sub>s</sub>の初期値を設定する。
+このプログラムでは&theta;<sub>s</sub>は "qs" と表示する。
+2つのパラメータ  qsin と cqs が、変数の取り扱い方を指定する。
+qsin は&theta;<sub>s</sub>の初期値で、cqsは&theta;<sub>s</sub>
+を定数として扱うかどうかを指定する変数である。
+cqs が0の時には、&theta;<sub>s</sub>は定数として扱われ、
+cqs が1の時には、&theta;<sub>s</sub>は変数として扱われ最適化される。
+デフォルトでは、&theta;<sub>s</sub>の初期値は含水率の最大値として、
+変数として扱われて最適化されるが、この設定を変えることができる。
+たとえば、&theta;<sub>s</sub> = 0.35 を定数として設定するのであれば、
+設定ファイルに`qsin=0.35; cqs=0;`と記述する。
 
 ```
 qrin = min(y); # initial value of qr
@@ -74,8 +73,8 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 ```
-These lines specify the variable &theta;<sub>r</sub>, the residual
-water content. In this program, &theta;<sub>r</sub> is shown as "qr".
+ここでは、残留含水率&theta;<sub>r</sub>の設定をする。
+In this program, &theta;<sub>r</sub> is shown as "qr".
 Three parameters, qrin, cqr and pqr, controls how the program treats
 this variable. qrin is the initial value of &theta;<sub>r</sub>, cqr
 is a parameter which decides &theta;<sub>r</sub> is constant or
