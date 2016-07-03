@@ -23,9 +23,7 @@ precision = 5; # precision of the output
 ```
 This line sets the precision of the ouput, i.e., the numbers of
 [significant figures](http://en.wikipedia.org/wiki/Significant_figures)
-to display. Default value is 5. As it does not have "=" in expression,
-it can be specified only in the setting file. If you want to change
-this value, writing `.swrcfitrc` is recommended.
+to display. Default value is 5.
 
 ```
 # Setting of swrcfit
