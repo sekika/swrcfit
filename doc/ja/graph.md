@@ -1,18 +1,19 @@
-# Drawing graph with gnuplot
+# Gnuplot によるグラフの描画
 
-The feature of [SWRC Fit](https://github.com/sekika/swrcfit/) to draw graph with gnuplot is available from version 2.0. It requires that octave is installed in your system so that gnuplot can be properly used.
+[SWRC Fit](https://github.com/sekika/swrcfit/) ではバージョン2.0から gnuplot によるグラフ描画をサポートしている。そのためには、システムに gnuplot が適切にインストールされている必要がある。
 
-## Checking if gnuplot is properly installed
-In your Octave shell, type
+## gnuplot が適切にインストールされていることの確認
+
+Octave のシェルで、
 ```
 plot(sqrt(0:100))
 ```
-and see if you can see a figure of y=x^(1/2) from x=0 to 100. If you can see it, it is properly installed and you can use the plot feature of swrcfit. If you cannot, there are several possibilities.
+と実行して、 y=x^(1/2) のグラフが x=0 から 100 まで描かれることを確認する。描画されれば適切にインストールされているので、swrcfit のグラフ描画機能を利用できる。それができない時には、いくつかの可能性がある。
 
-1. Gnuplot is not installed in your system.
-2. Octave is not installed to use gnuplot.
-3. X server is not properly installed.
-4. Environmental variable is not set to use proper terminal.
+1. Gnuplot がシステムにインストールされていない
+2. Octave が gnuplot を使うようにインストールされていない
+3. X サーバーが適切にインストールされていない
+4. 環境変数が適切な端末を使うように設定されていない
 
 For example, when you install octave on Mac with homebrew, environmental variable GNUTERM should be set (confirm by typing `brew cat octave | grep GNUTERM`).
 
