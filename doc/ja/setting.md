@@ -103,25 +103,22 @@ C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 
 ここで、 psi はこのプログラムではサクションヘッド h であり、
 psir と psimax は自由に設定できる。Fredlund and Xing (1994) では、
-psimax は 10^6 kPa である。
+psimax は 10^6 kPa としている。
 
 ```
 # Output format of the result
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 ```
+ここでは結果の表示モードを制御している。advは表示方法を決める。
+デフォルトの adv=0 では基本的な情報が表示され、
+adv=1 では相関行列と標準偏差が表示される。
 
-These lines control the output mode. the parameter adv defines how
-the result is shown. The default value is adv=0, where only basic
-information is shown (normal mode), and when it is changed to adv=1,
-advanced information (correlation matrix and standard deviation) is
-also shown as a result (advanced mode).
+simple=1 が設定されると、変数名は表示されずに数字だけが表示される。
+したがって、他のプログラムから swrcfit を起動して、結果をパラメータに
+入れる時には便利である。
 
-When simple=1 is set, the output is only numbers, without showing
-variable names. It is therefore easy to call swrcfit from other program
-and get the result to parameters.
-
-Some options for output mode were added in version 3.0.
+他にも次のようないくつかの表示モードがバージョン 3.0 で追加された。
 
 ```
 # Added from version 3.0
@@ -133,24 +130,31 @@ ns=0; # Show sample size (0=no, 1=yes)
 aic=0; # Show AIC (Akaike information criterion) (0=no, 1=yes)
 bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 ```
+- data=1 とすると、入力データを表示する。
+- K=1 とすると、パラメータの数を表示する。
+- r2=1 とすると（デフォルト）、決定係数 R<sup>2</sup> を表示する。
+- rmse=1 とすると、残差平方和(RMSE)を表示する。
+- ns=1 とすると、データのサンプルサイズを表示する。
+- aic=1 とすると、AICを表示する（下記）。
+- bic=1 とすると、BICを表示する（下記）。
 
-These parameters control which result to show as the output.
-AIC ([Akaike's information criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion)) and
-BIC ([Bayesian information criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion))
-or Schwarz criterion show criteria for selecting among the models.
-The model with the lowest AIC or BIC is preferred.
-To select a model from different models having different numbers of parameters,
-the goodness of fit, such as R^2 or RMSE, is not a good measure because they do not take
-the numbers of parameter in account and overfitted model may be selected.
-Both AIC and BIC resolve this problem by introducing a penalty term for the number of
-parameters in the model; the penalty term is larger in BIC than in AIC.
+AIC ([赤池情報量規準](https://ja.wikipedia.org/wiki/%E8%B5%A4%E6%B1%A0%E6%83%85%E5%A0%B1%E9%87%8F%E8%A6%8F%E6%BA%96))と
+BIC ([ベイズ情報量規準](https://ja.wikipedia.org/wiki/%E3%83%99%E3%82%A4%E3%82%BA%E6%83%85%E5%A0%B1%E9%87%8F%E8%A6%8F%E6%BA%96))
+は複数のモデルの中から最適なモデルを選択する規準を示す。
+最小のAICあるいはBICを持つモデルが好ましい。
+パラメータの数が異なる複数のモデルから最適なモデルを選ぶ時には、
+R<sup>2</sup>や残差平方和(RMSE)は良い規準とはならない。
+なぜならば、パラメータの数を考慮に入れていないため、パラメータを増やしすぎた
+モデルを選択してしまう可能性があるためである。
+AICとBICは、kの問題を解決するためにモデルのパラメータの数に関する
+ペナルティ項を導入した。ペナルティ項は、AICよりもBICの方が大きい。
 
 ```
 # Figure options (from version 2.0)
 ```
 
-From these lines, parameters for drawing a graph is written.
-You can control if you draw a graph
-on terminal or/and file, and how the graph look like, in the section
-following from here. Detail is described here: [Drawing graph with gnuplot](graph.md)
- 
+この行から先は、グラフを表示するためのパラメータが書かれている。
+グラフを端末に表示したりファイルに保存したりする設定や、
+グラフの見た目に関する設定ができる。
+詳しくは[Gnuplot によるグラフの表示](graph.md)を参照。
+
