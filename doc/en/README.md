@@ -12,7 +12,7 @@ Basic information of this program is summarized:
 * Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 3.0-beta.4
+* Version of this distribution: 3.0-beta.5
 
 From version 2.0, you can check installed version by `swrcfit -v`.
 A new model, Fredlund and Xing (1994) model, was added to version 3.0.
