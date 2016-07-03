@@ -35,7 +35,7 @@ When showfig=1 is set, figure is shown at your terminal. This is valid only when
 
 ```
 figure="swrc.png"; # Filename of the figure of unimodal models.
-figure2="bimodal.png"; # Filename of the figure of bimodal models. (Only for version 2.0 and 2.1)
+figure2="bimodal.png"; # Filename of the figure of bimodal models. (only for version 2.0 and 2.1)
 ```
 These are filenames of the output figure. From version 3.0, all the models are shown in the same figure in the name of swrc.png, but different name of unimodal and bimodel models can be specified for version 2.0 and 2.1. If same names are specified and both models are calculated, the latter overwrites the former. To supress the output to file, set `figure=""` and `figure2=""`. The format of the file is automatically selected from the extention of the filename. Octave can produce png, jpg, ps, eps, emf, pdf, svg, and several other file formats, as shown in [-ddevice option of print function](http://www.gnu.org/software/octave/doc/interpreter/Printing-and-Saving-Plots.html), but depending on your installation, some file formats might not be available.
 
