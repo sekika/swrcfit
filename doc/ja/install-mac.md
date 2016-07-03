@@ -13,4 +13,4 @@ swrcfit を実行した時に `warning: 'leasqr' undefined near line ... column 
 octave -q --eval "pkg install -forge struct optim"
 ```
 
-[[Gluplot でグラフを描く|drawing graph with gnuplot]]ためには、環境変数 GNUTERM を x11, qt, aqua の中から選んで設定する必要がある。たとえば、 `GNUTERM=qt` のように設定する。
+[Gluplot でグラフを描く](graph.md)ためには、環境変数 GNUTERM を x11, qt, aqua の中から選んで設定する必要がある。たとえば、 `GNUTERM=qt` のように設定する。
