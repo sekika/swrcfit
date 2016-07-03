@@ -45,35 +45,38 @@ figure2="bimodal.png"; # Filename of the figure of bimodal models. (only for ver
 ```
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
 ```
-It specifies the size of the figure.
+画像サイズを指定する。
 ```
 smooth=300; # Smoothness of the fitted line
 ```
-When smooth=300 is specified, 300 points are calculated for fitting curve. The larger value makes smoothier figure and smaller value makes faster calculation.
+smooth=300 が指定されると、回帰曲線で 300 個の点が計算される。値を大きくすればより曲線は滑らかになり、値を小さくすればより計算が速くなる。
 ```
 showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 ```
-You can show grid on the figure.
+図にグリッドを表示することができる。
+
 ```
 ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
+```
+X軸が通常の軸か対数軸かを指定する。デフォルトでは ax=0 が指定されていて、swrcfit は自動的に軸を設定する。
+```
 minx=0; maxx=0; # Range of X axis. Automatic for 0.
 miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 ```
+デフォルトでは、x軸とy軸の範囲は自動的に設定される。範囲を変える時にはこれらの値を設定する。
 
-It selects the type of x axis, whether it is normal axis or logarithm axis. With the default setting of ax=0, swrcfit automatically decides the type. It also decides the range of axes.
-
-From here, setting of the text in the figure are shown.
+ここからは、図のテキストに関する設定となる。
 ```
 fontsize=16; # Font size
 ```
-It specifies the font size of all the text in the figure.
+グラフ中の文字の大きさ（フォントサイズ）を指定する。
 ```
 showlabel=0; # showlabel=1; show label. showlabel=0; otherwise.
 xlab="Suction"; # X label
 ylab="Volumetric water content"; # Y label
 showlegend=1; # showlegend=1; show legend. showlegend=0; otherwise.
 ```
-These variables controls the output of labels at x and y axes and legend. Labels are now shown by default.
+これらはx軸とy軸のラベルと凡例の表示を指定する。デフォルトではラベルは表示されない。
 ```
 Mlab="Measured"; # legend for measured data
 BClab="Brooks and Corey (1964)"; # legend for BC model
@@ -83,27 +86,27 @@ FXlab="Fredlund and Xing (1994)"; # legend for FX model
 DBlab="Durner (1994)"; # legend for DB model
 BLlab="Seki (2007)"; # legend for BL model
 ```
-These are for the text of the legend.
+凡例に表示するテキストを設定する。
 ```
 Mpl="bo"; # Format arguments for measured plot.
 msize=5; # Marker size for measured plot
 mcol="b"; # Marker face color for measured plot
 ```
-These are setting of [format arguments](https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html).
+測定値のプロットに対する[フォーマット引数](https://www.gnu.org/software/octave/doc/interpreter/Two_002dDimensional-Plots.html)を指定する。
 
 ```
 linewidth=1.5; # Line width of fitting curves
 ```
-It specifies the line width of fitting curves.
+会期曲線の太さを指定する。
 
-Format arguments for each model is set in version 2,
+バージョン2では、回帰曲線のフォーマット形式はこのように指定され、
 
 ```
 BCpl="k-"; VGpl="r-"; LNpl="b-"; # Format arguments for BC, VG, LN models
 DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 ```
 
-and from version 3,
+バージョン3からはこのように指定される。
 
 ```
 col = "krbgmc"; # Line color is set in this order
