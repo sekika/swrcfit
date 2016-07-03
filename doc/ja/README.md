@@ -32,8 +32,9 @@ https://github.com/sekika/swrcfit/wiki/User%27s-manual
 
 ## インストールの方法
 
-[SWRC Fit のインストール](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
-に、インストールの方法が書かれている。
+- [Windows へのインストール](install-windows.md)
+- [Mac OS X へのインストール](install-mac.md)
+- [Linux と POSIX システムへのインストール](install-linux.md)
 
 ## プログラムの実行
 
