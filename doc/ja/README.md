@@ -146,7 +146,7 @@ swrcfit swrc.txt mode=2 fig=1
 `swrc.txt` のデータから二峰性モデルによる回帰がされて、
 そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
 
-[設定の詳細な説明](https://github.com/sekika/swrcfit/wiki/Setting-file)を参照。
+[設定の詳細な説明](setting.md)を参照。
 
 ## グラフ
 

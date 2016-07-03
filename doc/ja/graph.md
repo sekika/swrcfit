@@ -4,7 +4,7 @@
 
 ## gnuplot が適切にインストールされていることの確認
 
-Octave のシェルで、
+Octave を起動して、Octave のプロンプトで
 ```
 plot(sqrt(0:100))
 ```
@@ -15,34 +15,32 @@ plot(sqrt(0:100))
 3. X サーバーが適切にインストールされていない
 4. 環境変数が適切な端末を使うように設定されていない
 
-For example, when you install octave on Mac with homebrew, environmental variable GNUTERM should be set (confirm by typing `brew cat octave | grep GNUTERM`).
+たとえば、Octave を Mac の Homebrew でインストールすると、環境変数 GNUTERM を設定する必要がある。
 
-If you cannot directly view the gnuplot figure on the screen, you might be able to create figure files.
+画面で直接 Gnuplot のグラフを確認できなくても、画像ファイルを作成できる可能性はある。
 
-If you have trouble showing graphs with your OS, you might be able to use a [virtualization](https://en.wikipedia.org/wiki/Hardware_virtualization) software such as [VirtualBox](https://www.virtualbox.org/) and [VMware](http://www.vmware.com/) products and install a virtual machine of one of Linux distributions, and then install swrcfit on the virtual machine.
+使っている OS 上でグラフの描画がうまくいかなかったとしても、[VirtualBox](https://www.virtualbox.org/)や[VMware](http://www.vmware.com/)などの[VirtualBox]( [仮想化](https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E5%8C%96)ソフトを使い、Linux の仮想環境をインストールして、その上に swrcfit をインストールすれば、グラフ描画機能を使うことができる。
 
-## Figure options
-Figure options can be written in the setting file. In this section, parameters for plot is shown with default setting.
+## 図のオプション
+図のオプションは[設定ファイル](setting.md)に書くか、コマンドラインオプションで指定する。このセクションでは、グラフ描画のためのパラメータをデフォルトの値とともに記す。
 
 ```
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
 ```
-At first, the parameter fig should be set to fig=1 to show figure.
+まずは、パラメータ fig を fig=1 とすることで、グラフを描画するモードに切り替える。
 
 ```
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 ```
-When showfig=1 is set, figure is shown at your terminal. This is valid only when terminal is correctly set as described in the previous section. When this option is set, swrcfit stops when it shows a figure, swrcfit pauses with a message "Hit return key to finish." When you hit return key, the figure disappears and the swrcfit proceeds.
+showfig=1 が設定されている時には、グラフは端末に直接表示される。Gnuplot による描画ができるように端末が適切に設定されている必要がある。このオプションが設定されている時には、グラフを表示してから "Hit return key to finish." のメッセージを表示して停止する。そこで Return キーを押すことで、グラフは消えて swrcfit も終了する。
 
 ```
-figure="swrc.png"; # Filename of the figure of unimodal models.
-figure2="bimodal.png"; # Filename of the figure of bimodal models. (Not available from version 3.0)
+figure="swrc.png"; # Filename of the figure.
+figure2="bimodal.png"; # Filename of the figure of bimodal models. (only for version 2.0 and 2.1)
 ```
-These are filenames of the output figure. Different name of unimodal and bimodel models can be specified. If same names are specified and both models are calculated, the latter overwrites the former. To supress the output to file, set `figure=""` and `figure2=""`. The format of the file is automatically selected from the extention of the filename. Octave can produce png, jpg, ps, eps, emf, pdf, svg, and several other file formats, as shown in [-ddevice option of print function](http://www.gnu.org/software/octave/doc/interpreter/Printing-and-Saving-Plots.html), but depending on your installation, some file formats might not be available.
+図のファイルを保存するファイル名を指定する。バージョン3.0からは、すべてのモデルを figure パラメータに指定したファイルに表示する。バージョン2.0と2.1では、二峰性モデルに別のファイル名を指定する。ファイルへの書き込みを抑制するためには、`figure=""` と `figure2=""` を指定する。画像ファイルの形式はファイル名の拡張子から自動的に判断される。Octave は png, jpg, ps, eps, emf, pdf, svg そしていくつかの他のファイル形式に対応している ([-ddevice option of print function](http://www.gnu.org/software/octave/doc/interpreter/Printing-and-Saving-Plots.html) が、いくつかの形式はシステムのインストール状況によって対応していないかもしれない。
 
-**Note**: When you specify file name from command line, the **quotation marks should be escaped**
-**with backslashes** `\`. Therefore, specifing `figure="swrc.eps"` from command line, the equation
-is `figure=\"swrc.eps\"`.
+**注意**: コマンドラインからファイル名を指定する時には、**引用符はバックスラッシュ`\` でエスケープ処理をする**必要がある。したがって、コマンドラインから `figure="swrc.eps"` と指定するためには、 `figure=\"swrc.eps\"` という式となる。
 
 ```
 figsize=3; # Size of figure. figsize=1; 320x240, 2; 480x360, 3; 640x480
