@@ -21,8 +21,8 @@ plot(sqrt(0:100))
 
 使っている OS 上でグラフの描画がうまくいかなかったとしても、[VirtualBox](https://www.virtualbox.org/)や[VMware](http://www.vmware.com/)などの[VirtualBox]( [仮想化](https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E5%8C%96)ソフトを使い、Linux の仮想環境をインストールして、その上に swrcfit をインストールすれば、グラフ描画機能を使うことができる。
 
-## 図のオプション
-図のオプションは[設定ファイル](setting.md)に書くか、コマンドラインオプションで指定する。このセクションでは、グラフ描画のためのパラメータをデフォルトの値とともに記す。
+## グラフのオプション
+グラフのオプションは[設定ファイル](setting.md)に書くか、コマンドラインオプションで指定する。このセクションでは、グラフ描画のためのパラメータをデフォルトの値とともに記す。
 
 ```
 fig=0; # fig=0; no figure. fig=1; output figure on terminal and/or file
