@@ -63,7 +63,7 @@ It selects the type of x axis, whether it is normal axis or logarithm axis. With
 minx=0; maxx=0; # Range of X axis. Automatic for 0.
 miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 ```
-By default, range of the x and y axes are determined automatically. It can be changed by setting these values.
+By default, ranges of the x and y axes are determined automatically. It can be changed by setting these values.
 
 From here, setting of the text in the figure are shown.
 ```
