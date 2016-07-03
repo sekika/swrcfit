@@ -41,10 +41,10 @@ fi
 # Install swrcfit
 
 swrcfit=swrcfit
-octave2=`echo $octave | sed -e "s/_//SLASH/g"`
+octave2=`echo $octave | sed -e "s/\//SLASH/g"`
 if [ -f $swrcfit ]; then
   echo "=== Installing "$installfilename
-  cat $swrcfit | sed -e "s/_/usr_/bin_/octave/$octave2/" | sed -e 's/SLASH/_//g' > $installfilename
+  cat $swrcfit | sed -e "s/\/usr\/bin\/octave/$octave2/" | sed -e 's/SLASH/\//g' > $installfilename
   chmod +x $installfilename
 else
   echo "$swrcfit was not found."; exit -1
