@@ -10,6 +10,8 @@ Version 3.0-beta.4 (2016-06-30)
   - Correction function of FX model: fxc, psir, psimax
   - Unimodal and bimodal plots on same figure
   - Added figure option: onemodel (minimum AIC selection)
+  - Documents in the wiki were moved to package. This will allow browzing
+    documents in each release.
 
 Version 2.1 (2015-09-23)
 
