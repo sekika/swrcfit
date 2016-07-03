@@ -111,3 +111,5 @@ DBpl="r-"; BLpl="b-"; # Format arguments for DB, BL models
 ```
 col = "krbgmc"; # Line color is set in this order
 ```
+すなわち、グラフの線の色が col 変数の順番に設定される。デフォルトでは "krbgmc" となっているので、
+黒、赤、青、緑、マゼンダ、シアンの順番に線の色が指定される。
