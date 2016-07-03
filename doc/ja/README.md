@@ -11,6 +11,7 @@ SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベン�
 * ウェブインターフェース: http://purl.org/net/swrc/index-ja.html
 * 作者: [関 勝寿](http://researchmap.jp/sekik/)
 * ライセンス: GNU General Public License
+* この配布パッケージのバージョン: 3.0-beta.5
 
 バージョン 2.0 からは、インスールされているバージョンを `swrcfit -v` によって確認できる。
 バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加した。

@@ -2,7 +2,7 @@ SWRC Fit Version History
 
 * Notable changes.
 
-Version 3.0-beta.4 (2016-06-30)
+Version 3.0-beta.5 (2016-07-04)
 
   * Added support for Fredlund and Xing model (FX model)
   * Individual model selection with bc, vg, ln, fx, db, bl options
