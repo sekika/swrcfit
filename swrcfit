@@ -1,4 +1,4 @@
-#!/usr/bin/octave -qf --no-gui
+#!/usr/bin/octave -qf
 # swrcfit - Soil Water Retention Curve Fit
 # URL: http://swrcfit.sourceforge.net/
 # Author: Katsutoshi Seki (http://researchmap.jp/sekik/)
