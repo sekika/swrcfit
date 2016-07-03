@@ -21,9 +21,7 @@
 ```
 precision = 5; # precision of the output
 ```
-表示桁数、つまり
-[有効数字](https://ja.wikipedia.org/wiki/%E6%9C%89%E5%8A%B9%E6%95%B0%E5%AD%97)
-を指定する。デフォルトは5桁である。
+表示桁数、つまり有効数字をしていする。デフォルトは5桁である。
 
 ```
 # Selection of model
@@ -40,16 +38,16 @@ mode = 1; # Unimodal model
 デフォルトの mode=1 では、単峰性モデル (BC, VG, LN, FX) が計算される。
 mode=2 とすると、二峰性モデル (DB, BL)  が計算され、
 mode=3 とすると、すべてのモデルが計算される。
+ここで、式の最後には ";" を指定する。そうしないと、プログラムを実効した時に
+パラメータの値が端末に表示されてしまう。
 
 バージョン3からは、次のオプションでモデルを個別に選択できる。
-mode の指定と個別の指定が両方ともされているモデルが計算される。
+mode の指定とモデルごとの個別の指定が両方とも指定されているモデルが計算される。
 
 ```
 bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes)
 db=1; bl=1; # Bimodal models (0=no, 1=yes)
 ```
-ここで、式の最後には ";" を指定する。そうしないと、プログラムを実効した時に
-パラメータの値が端末に表示されてしまう。
 
 ```
 qsin = max(y); # initial value of qs
@@ -74,25 +72,22 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 ```
 ここでは、残留含水率&theta;<sub>r</sub>の設定をする。
-In this program, &theta;<sub>r</sub> is shown as "qr".
-Three parameters, qrin, cqr and pqr, controls how the program treats
-this variable. qrin is the initial value of &theta;<sub>r</sub>, cqr
-is a parameter which decides &theta;<sub>r</sub> is constant or
-variable; when cqr is set as 0, &theta;<sub>r</sub> is treated as a
-constant, and when cqr is 1, &theta;<sub>r</sub> is treated as a
-variable, and pqr is a variable which decides if the restriction of
-&theta;<sub>r</sub> >= 0 is imposed. By default, initial value of
-&theta;<sub>r</sub> is set as the minimum value of the soil water
-content, and it is set as a variable with the restriction of
-&theta;<sub>r</sub> >= 0, but it can be changed by writing a setting
-file. For example, for seting &theta;<sub>r</sub> = 0 as a constant
-value, write a setting file of `qrin=0; cqr=0;` (if you use the
-distributed `setting.txt` file, remove # at the third line).
-For setting &theta;<sub>r</sub> = 0.05 as a constant value, write
-`qrin=0.05;` in the setting file. To disable the restriction of
-&theta;<sub>r</sub> >= 0, write `pqr=0;` in setting file.
+このプログラムでは &theta;<sub>r</sub>を "qr" を表示する。
+3つのパラメータ qrin, cqr, pqr この変数の取り扱い方を指定する。
+qrin は&theta;<sub>r</sub>の初期値を指定する。
+cqrは&theta;<sub>r</sub>が変数かどうかを指定する。
+cqrが0の時には&theta;<sub>r</sub>は定数で、1の時は
+&theta;<sub>r</sub>は変数であるとして最適化される。
+pqrは&theta;<sub>r</sub> >= 0の制限を課すかどうかを指定する。
+デフォルトでは、&theta;<sub>r</sub>の初期値は含水率の最小値で、
+&theta;<sub>r</sub> >= 0の制約条件の下、最適化されるが、
+こらの設定を変えることができる。
+たとえば、&theta;<sub>r</sub> = 0の定数としたい時には、
+`qrin=0; cqr=0;`と設定ファイルに記述する（配布されている
+`setting.txt`ファイルの対応する行の # を削除する）。
 
-Following lines controls the correction function (CF) of FX model from version 3.0.
+次の行は、FXモデルの修正関数(CF)を設定する。
+バージョン3.0以降で有効である。
 
 ```
 # Correction function (CF) of FX model (from Version 3.0)
@@ -101,13 +96,14 @@ psir=30000; # psi_r of CF
 psimax=10000000; # psi_max of CF
 ```
 
-By default, fxc=0, meaning that CF=1. By setting fxc=1, correction function is set
-according to Fredlund and Xing (1994);
+デフォルトでは fxc=0 であり、 CF=1 すなわち修正関数を使わない。
+fxc=1 とすることで、Fredlund and Xing (1994) による次の修正関数を使う。
 
 C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 
-where psi is the suction head (h) in this program, parameters psir and psimax can
-be changed as you like, where psimax is 10^6 kPa in Fredlund and Xing (1994).
+ここで、 psi はこのプログラムではサクションヘッド h であり、
+psir と psimax は自由に設定できる。Fredlund and Xing (1994) では、
+psimax は 10^6 kPa である。
 
 ```
 # Output format of the result
