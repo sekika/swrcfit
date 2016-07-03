@@ -31,7 +31,7 @@ At first, the parameter fig should be set to fig=1 to show figure.
 ```
 showfig=0; # showfig=1; show figure on terminal. showfig=0; otherwise.
 ```
-When showfig=1 is set, figure is shown at your terminal. This is valid only when terminal is correctly set as described in the previous section. When this option is set, swrcfit stops when it shows a figure, swrcfit pauses with a message "Hit return key to finish." When you hit return key, the figure disappears and the swrcfit proceeds.
+When showfig=1 is set, figure is shown at your terminal. This is valid only when terminal is correctly set as described in the previous section. When this option is set, swrcfit stops when it shows a figure, swrcfit pauses with a message "Hit return key to finish." When you hit return key, the figure disappears and the swrcfit finishes.
 
 ```
 figure="swrc.png"; # Filename of the figure of unimodal models.
