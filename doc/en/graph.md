@@ -57,11 +57,13 @@ showgrid=0; # showgrid=1; show grid, showgrid=0; otherwise.
 You can show grid on the figure.
 ```
 ax=0; # Type of x axis. ax=0; automatic, ax=1; normal, ax=2; log
+```
+It selects the type of x axis, whether it is normal axis or logarithm axis. With the default setting of ax=0, swrcfit automatically decides the type.
+```
 minx=0; maxx=0; # Range of X axis. Automatic for 0.
 miny=0; maxy=0; # Range of Y axis. Automatic for 0.
 ```
-
-It selects the type of x axis, whether it is normal axis or logarithm axis. With the default setting of ax=0, swrcfit automatically decides the type. It also decides the range of axes.
+By default, range of the x and y axes are determined automatically. It can be changed by setting these values.
 
 From here, setting of the text in the figure are shown.
 ```
