@@ -143,7 +143,7 @@ bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 
 - By setting data=1, original input data is shown.
 - By setting K=1, numbers of parameters is shown.
-- By setting r2=1 (default), R^2 (coefficient of determination) is shown.
+- By setting r2=1 (default), R<sup>2</sup> (coefficient of determination) is shown.
 - By setting rmse=1, root mean square error (RMSE) is shown.
 - By setting ns=1, sample size is shown.
 - By setting aic=1, AIC is shown (see below).
@@ -154,7 +154,7 @@ BIC ([Bayesian information criterion](https://en.wikipedia.org/wiki/Bayesian_inf
 or Schwarz criterion show criteria for selecting among the models.
 The model with the lowest AIC or BIC is preferred.
 To select a model from different models having different numbers of parameters,
-the goodness of fit, such as R^2 or RMSE, is not a good measure because they do not take
+the goodness of fit, such as R<sup>2</sup> or RMSE, is not a good measure because they do not take
 the numbers of parameter in account and overfitted model may be selected.
 Both AIC and BIC resolve this problem by introducing a penalty term for the number of
 parameters in the model; the penalty term is larger in BIC than in AIC.
