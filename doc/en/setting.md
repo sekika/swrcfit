@@ -28,9 +28,8 @@ to display. Default value is 5.
 ```
 # Setting of swrcfit
 ```
-This line, "# Setting",  is a comment. It indicates that this
-is a setting file. GNU Octave language ignores the rest of a line
-following a sharp sign ("#").
+This line is a comment. It indicates that this is a setting file.
+GNU Octave language ignores the rest of a line following a sharp sign ("#").
 
 ```
 mode = 1; # Unimodal model
