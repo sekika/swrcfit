@@ -141,7 +141,11 @@ aic=0; # Show AIC (Akaike information criterion) (0=no, 1=yes)
 bic=0; # Show BIC (Bayesian information criterion) (0=no, 1=yes)
 ```
 
-These parameters control which result to show as the output.
+By setting data=1, originam input data is shown.
+By setting K=1, numbers of parameters is shown.
+By setting r2=1 (default), R^2 (coefficient of determination) is shown.
+By setting rmse=1, root mean square error (RMSE) is shown.
+By setting ns=1, sample size is shown.
 AIC ([Akaike's information criterion](https://en.wikipedia.org/wiki/Akaike_information_criterion)) and
 BIC ([Bayesian information criterion](https://en.wikipedia.org/wiki/Bayesian_information_criterion))
 or Schwarz criterion show criteria for selecting among the models.
