@@ -19,7 +19,7 @@ plot(sqrt(0:100))
 
 画面で直接 Gnuplot のグラフを確認できなくても、画像ファイルを作成できる可能性はある。
 
-使っている OS 上でグラフの描画がうまくいかなかったとしても、[VirtualBox](https://www.virtualbox.org/)や[VMware](http://www.vmware.com/)などの[VirtualBox]( [仮想化](https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E5%8C%96)ソフトを使い、Linux の仮想環境をインストールして、その上に swrcfit をインストールすれば、グラフ描画機能を使うことができる。
+使っている OS 上でグラフの描画がうまくいかなかったとしても、[VirtualBox](https://www.virtualbox.org/)や[VMware](http://www.vmware.com/)などの[仮想化](https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E5%8C%96)ソフトを使い、Linux の仮想環境をインストールして、その上に swrcfit をインストールすれば、グラフ描画機能を使うことができる。
 
 ## グラフのオプション
 グラフのオプションは[設定ファイル](setting.md)に書くか、コマンドラインオプションで指定する。このセクションでは、グラフ描画のためのパラメータをデフォルトの値とともに記す。
