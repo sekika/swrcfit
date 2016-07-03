@@ -1,60 +1,55 @@
-# Calculation options
+# 計算の設定
 
-Calculation option can be written as a text file. The program reads setting
-in the order of
+計算の設定はテキストファイルに記述できる。プログラムは、設定を次の順序で読み込む。
 
-1. System default value
-2. .swrcfitrc in user's home directory
-3. setting.txt in current directory
-4. setting (equation or file) specified from commandline option
+1. システムのデフォルト
+2. ユーザーのホームディレクトリの .swrcfitrc ファイル
+3. カレントディレクトリの setting.txt
+4. コマンドラインオプションで指定する設定（式またはファイル）
 
-The latter overwrites formers. You can write your preference in
-$HOME/.swrcfitrc, and preference for special set of data files in a
-directory in setting.txt, and these setting will be read without
-specifying at command line parameters. 
+後に読み込まれたものが、先に読み込まれたものを上書きする。
+ユーザーごとの設定を $HOME/.swrcfitrc に記述して、ある特定のデータファイルが
+入っているディレクトリに対して、そのデータファイルに対する処理の設定を
+そのディレクトリの setting.txt に記述しておけば、コマンドラインで指定しなくても
+その設定が有効になる。
 
-A sample setting file is included in the source package as `setting.txt`
-([download](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt)).
-The file describes the default setting of the program; when setting
-file is not specified, these default setting is used.
+サンプルの設定ファイルがパッケージに `setting.txt`
+([ダウンロード](https://raw.githubusercontent.com/sekika/swrcfit/master/setting.txt)).
+として含まれている。このファイルはシステムのデフォルトが記述されている。
+設定ファイルが指定されていなければ、このデフォルト値が使われる。
 
 ```
 precision = 5; # precision of the output
 ```
-This line sets the precision of the ouput, i.e., the numbers of
-[significant figures](http://en.wikipedia.org/wiki/Significant_figures)
-to display. Default value is 5. As it does not have "=" in expression,
-it can be specified only in the setting file. If you want to change
-this value, writing `.swrcfitrc` is recommended.
+表示桁数、つまり
+[有効数字](https://ja.wikipedia.org/wiki/%E6%9C%89%E5%8A%B9%E6%95%B0%E5%AD%97)
+を指定する。デフォルトは5桁である。
 
 ```
-# Setting of swrcfit
+# Selection of model
 ```
-This line, "# Setting",  is a comment. It indicates that this
-is a setting file. GNU Octave language ignores the rest of a line
-following a sharp sign ("#").
+この行はコメントである。このブロックがモデルの選択を設定することを示している。
+Octave では、"#" で始まる行はコメントであるとして無視される。
 
 ```
 mode = 1; # Unimodal model
 # mode = 2; # Bimodal model
 # mode = 3; # Unimodal and bimodal model
 ```
-These lines are for setting of the mode of calculation.
-When mode=1 (default), fitting of unimodal (BC, VG, LN, FX) models
-are conducted. When mode=2, fitting of bimodal (DB and BL) models
-are conducted, and when mode=3, both unimodal and bimodal models
-are conducted. Therefore, if you write a setting file of
-`mode = 2;`, bimodal models are used for fitting.
+これらは計算のモードを指定する。
+デフォルトの mode=1 では、単峰性モデル (BC, VG, LN, FX) が計算される。
+mode=2 とすると、二峰性モデル (DB, BL)  が計算され、
+mode=3 とすると、すべてのモデルが計算される。
 
-From version 3, individual model can be selected by the options of
+バージョン3からは、次のオプションでモデルを個別に選択できる。
+mode の指定と個別の指定が両方ともされているモデルが計算される。
 
 ```
 bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes)
 db=1; bl=1; # Bimodal models (0=no, 1=yes)
 ```
-
-Please note that when ";" is not written at the end, the equation
-is shown when you run the program. The ";" suppresses the output.
+ここで、式の最後には ";" を指定する。そうしないと、プログラムを実効した時に
+パラメータの値が端末に表示されてしまう。
 
 ```
 qsin = max(y); # initial value of qs
