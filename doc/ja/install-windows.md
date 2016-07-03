@@ -22,5 +22,5 @@ octave: X11 DISPLAY environment variable not set
 octave: disabling GUI features
 ```
 
-というメッセージが表示されるのは、グラフを表示できる環境にないということであり、グラフを表示する必要がないのであれば、気にしないで構わない。この状態ではグラフが表示されないが、[[グラフを描く|drawing graph with gnuplot]]ためには、
+というメッセージが表示されるのは、グラフを表示できる環境にないということであり、グラフを表示する必要がないのであれば、気にしないで構わない。この状態ではグラフが表示されないが、[グラフを描く](graph.md)ためには、
 [Cygwin/X をインストール](http://x.cygwin.com/docs/ug/setup.html)して、 `startx` あるいは `startxwin` を実行する。
