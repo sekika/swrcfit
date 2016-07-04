@@ -23,6 +23,8 @@ precision = 5; # precision of the output
 ```
 表示桁数、つまり有効数字をしていする。デフォルトは5桁である。
 
+## モデルの選択
+
 ```
 # Selection of model
 ```
@@ -48,6 +50,8 @@ mode の指定とモデルごとの個別の指定が両方とも指定されて
 bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes)
 db=1; bl=1; # Bimodal models (0=no, 1=yes)
 ```
+
+## パラメータの設定
 
 ```
 qsin = max(y); # initial value of qs
@@ -86,6 +90,8 @@ pqrは&theta;<sub>r</sub> >= 0の制限を課すかどうかを指定する。
 `qrin=0; cqr=0;`と設定ファイルに記述する（配布されている
 `setting.txt`ファイルの対応する行の # を削除する）。
 
+### FX モデルの修正関数
+
 次の行は、FXモデルの修正関数(CF)を設定する。
 バージョン3.0以降で有効である。
 
@@ -104,6 +110,8 @@ C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 ここで、 psi はこのプログラムではサクションヘッド h であり、
 psir と psimax は自由に設定できる。Fredlund and Xing (1994) では、
 psimax は 10^6 kPa としている。
+
+## 結果の表示に関する設定
 
 ```
 # Output format of the result
@@ -149,6 +157,8 @@ R<sup>2</sup>や残差平方和(RMSE)は良い規準とはならない。
 モデルを選択してしまう可能性があるためである。
 AICとBICは、kの問題を解決するためにモデルのパラメータの数に関する
 ペナルティ項を導入した。ペナルティ項は、AICよりもBICの方が大きい。
+
+## グラフの表示に関する設定
 
 ```
 # Figure options (from version 2.0)
