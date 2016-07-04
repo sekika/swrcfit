@@ -18,12 +18,17 @@ A sample setting file is included in the source package as `setting.txt`
 The file describes the default setting of the program; when setting
 file is not specified, these default setting is used.
 
+After some comment lines, beginning with "#", setting file starts from
+this line.
+
 ```
 precision = 5; # precision of the output
 ```
 This line sets the precision of the ouput, i.e., the numbers of
 [significant figures](http://en.wikipedia.org/wiki/Significant_figures)
 to display. Default value is 5.
+
+## Selection of model
 
 ```
 # Selection of model
@@ -52,6 +57,8 @@ db=1; bl=1; # Bimodal models (0=no, 1=yes)
 
 Please note that when ";" is not written at the end, the equation
 is shown when you run the program. The ";" suppresses the output.
+
+## Input parameters
 
 ```
 qsin = max(y); # initial value of qs
@@ -95,6 +102,8 @@ For setting &theta;<sub>r</sub> = 0.05 as a constant value, write
 `qrin=0.05;` in the setting file. To disable the restriction of
 &theta;<sub>r</sub> >= 0, write `pqr=0;` in setting file.
 
+### Correction function of FX model
+
 Following lines controls the correction function (CF) of FX model from version 3.0.
 
 ```
@@ -111,6 +120,8 @@ C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 
 where psi is the suction head (h) in this program, parameters psir and psimax can
 be changed as you like, where psimax is 10^6 kPa in Fredlund and Xing (1994).
+
+## Output format of the result
 
 ```
 # Output format of the result
@@ -160,6 +171,8 @@ the goodness of fit, such as R<sup>2</sup> or RMSE, is not a good measure becaus
 the numbers of parameter in account and overfitted model may be selected.
 Both AIC and BIC resolve this problem by introducing a penalty term for the number of
 parameters in the model; the penalty term is larger in BIC than in AIC.
+
+## Figure options
 
 ```
 # Figure options (from version 2.0)
