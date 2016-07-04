@@ -79,7 +79,6 @@ for setting &theta;<sub>s</sub> = 0.35 as a constant, write
 `qsin=0.35; cqs=0;` in the setting file.
 
 ```
-## qs and qr handling
 qrin = min(y); # initial value of qr
 cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
