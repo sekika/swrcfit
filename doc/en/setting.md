@@ -61,6 +61,7 @@ is shown when you run the program. The ";" suppresses the output.
 ## Input parameters
 
 ```
+## qs and qr handling
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 ```
@@ -78,6 +79,7 @@ for setting &theta;<sub>s</sub> = 0.35 as a constant, write
 `qsin=0.35; cqs=0;` in the setting file.
 
 ```
+## qs and qr handling
 qrin = min(y); # initial value of qr
 cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
@@ -107,7 +109,7 @@ For setting &theta;<sub>r</sub> = 0.05 as a constant value, write
 Following lines controls the correction function (CF) of FX model from version 3.0.
 
 ```
-# Correction function (CF) of FX model (from Version 3.0)
+## Correction function (CF) of FX model (from Version 3.0)
 fxc=0; # fxc=1; use CF, fxc=0; no CF (CF=1)
 psir=30000; # psi_r of CF
 psimax=10000000; # psi_max of CF
