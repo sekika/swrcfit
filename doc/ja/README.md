@@ -77,11 +77,14 @@ qr =  0.056346
 hm =  46.631
 sigma =  0.10818
 R2 =  0.99167
+=== FX model ===
+qs =  0.38442
+qr =  0.034417
+a =  44.142
+m =  1.1128
+n =  24.028
+R2 =  0.99414
 ```
-
-詳細表示モードが選択が選択されると ([設定](#設定)参照)
-相関行列と標準偏差が表示される。
-qsやqrが定数の時は、変数に対しての相関行列と標準偏差が表示される。
 
 ## データファイルの準備
 
@@ -134,18 +137,18 @@ qsやqrが定数の時は、変数に対しての相関行列と標準偏差が�
 
 |設定              |意味|
 |------------------|----------------|
-|mode=2            |二峰性モデル解析|
-|qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 が定数|
-|qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 が定数|
-|adv=1             |相関行列と標準偏差を表示する詳細表示モード|
-|fig=1             |グラフをファイルに保存 |
+|bc=0 ln=0         |BC と LN モデルを計算しない (VG と FX モデルを表示)|
+|mode=2            |二峰性モデル (DB と BL モデル)|
+|mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 |LN と BL モデルを表示する|
+|qsin=0.35 cqs=0   |&theta;<sub>s</sub>=0.35 を定数とする|
+|qrin=0.03 cqr=0   |&theta;<sub>r</sub>=0.03 を定数とする|
+|aic=1             |AIC (赤池情報量規準)を表示|
 
 たとえば、このようなコマンドが実行されると、
 ```
-swrcfit swrc.txt mode=2 fig=1
+swrcfit swrc.txt mode=3 bc=0 vg=0 ln=1 fx=0 db=0 bl=1 aic=1
 ```
-`swrc.txt` のデータから二峰性モデルによる回帰がされて、
-そのグラフが `bimodal.png` というファイル（二峰性モデルのデフォルトファイル名）に保存される。
+`swrc.txt` のデータからLNとBLモデルの回帰がされ、AICを表示する。
 
 [設定の詳細な説明](setting.md)を参照。
 
@@ -155,7 +158,7 @@ swrcfit swrc.txt mode=2 fig=1
 オプションを指定する必要がある。
 詳しくは[Gnuplot によるグラフの描画](graph.md)を参照。
 
-グラフのサンプルです。
+グラフのサンプルを示す。
 
 ![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
