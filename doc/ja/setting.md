@@ -56,6 +56,7 @@ db=1; bl=1; # Bimodal models (0=no, 1=yes)
 ## パラメータの設定
 
 ```
+## qs and qr handling
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 ```
@@ -98,7 +99,7 @@ pqrは&theta;<sub>r</sub> >= 0の制限を課すかどうかを指定する。
 バージョン3.0以降で有効である。
 
 ```
-# Correction function (CF) of FX model (from Version 3.0)
+## Correction function (CF) of FX model (from Version 3.0)
 fxc=0; # fxc=1; use CF, fxc=0; no CF (CF=1)
 psir=30000; # psi_r of CF
 psimax=10000000; # psi_max of CF
