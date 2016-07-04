@@ -88,11 +88,6 @@ n =  24.028
 R2 =  0.99414
 ```
 
-If advanced mode is selected (see [calculation option](#calculation-options)),
-correlation matrix and standard deviation are also shown. If qs and/or
-qr are set as constant, correlation matrix and standard deviation are shown
-only for the parameters set as variables.
-
 ## Preparation of data file
 
 The input data, i.e., the soil water retention curve, should be prepared
