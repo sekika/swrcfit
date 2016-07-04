@@ -122,7 +122,9 @@ These lines control the output mode. the parameter adv defines how
 the result is shown. The default value is adv=0, where only basic
 information is shown (normal mode), and when it is changed to adv=1,
 advanced information (correlation matrix and standard deviation) is
-also shown as a result (advanced mode).
+also shown as a result (advanced mode). If qs and/or qr are set as
+constant, correlation matrix and standard deviation are shown only
+for the parameters set as variables.
 
 When simple=1 is set, the output is only numbers, without showing
 variable names. It is therefore easy to call swrcfit from other program
