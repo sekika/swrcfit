@@ -183,7 +183,7 @@ invokes GNU octave and executes the calculation engine of swrcfit.
 
 ![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
 
-[More information about the web interface](https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit).
+[More information about the web interface](http://seki.webmasters.gr.jp/swrc/help.html).
 
 ## Citation of this work
 
