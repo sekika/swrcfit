@@ -17,7 +17,9 @@ mode = 1; # Unimodal model
 bc=1; vg=1; ln=1; fx=1; # Unimodal models (0=no, 1=yes) (from Version 3.0)
 db=1; bl=1; # Bimodal models (0=no, 1=yes) (from version 3.0)
 
-# qs and qr handling
+# Input parameters
+
+## qs and qr handling
 qsin = max(y); # initial value of qs
 cqs=1; # cqs=1; qs is variable, cqs=0; qs is constant
 qrin = min(y); # initial value of qr
@@ -25,7 +27,7 @@ cqr=1; # cqr=1; qr is variable, cqr=0; qr is constant
 # qrin=0; cqr=0; # For setting qr=0 as a constant
 pqr=1; # pqr=1; qr >= 0, pqr=0; qr can be negative
 
-# Correction function (CF) of FX model (from Version 3.0)
+## Correction function (CF) of FX model (from Version 3.0)
 fxc=0; # fxc=1; use CF, fxc=0; no CF (CF=1)
 psir=30000; # psi_r of CF
 psimax=10000000; # psi_max of CF
