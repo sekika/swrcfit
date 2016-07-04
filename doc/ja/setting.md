@@ -112,7 +112,7 @@ C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 
 ここで、 psi はこのプログラムではサクションヘッド h であり、
 psir と psimax は自由に設定できる。Fredlund and Xing (1994) では、
-psimax は 10^6 kPa としている。
+psimax は 10<sup>6</sup> kPa としている。
 
 ## 結果の表示に関する設定
 
