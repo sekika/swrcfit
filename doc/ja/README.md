@@ -166,7 +166,7 @@ SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/index-ja
 
 ![Web interface](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png)
 
-[詳しい説明を読む](https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%82%A6%E3%82%A7%E3%83%96%E7%89%88)。
+[詳しい説明を読む](http://seki.webmasters.gr.jp/swrc/help-ja.html)。
 
 
 ## 引用
