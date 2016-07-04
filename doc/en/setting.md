@@ -120,7 +120,7 @@ according to Fredlund and Xing (1994);
 C(psi) = -[ln(1+psi/psir)] / [ln[1+(psimax/psir)] + 1
 
 where psi is the suction head (h) in this program, parameters psir and psimax can
-be changed as you like, where psimax is 10^6 kPa in Fredlund and Xing (1994).
+be changed as you like, where psimax is 10<sup>6</sup> kPa in Fredlund and Xing (1994).
 
 ## Output format of the result
 
