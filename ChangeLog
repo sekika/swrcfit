@@ -62,7 +62,7 @@ Version 1.2 (2007-09-02)
   - Restiction of residual water content not becoming negative
     is set as a default.
 
-Version 1.1 (HESSD version) (2007-06-05)
+Version 1.1 (HESSD version) (2007-02-27)
 
   * Identical to the program published as a supplementary file
     of HESSD journal (Hydrology and Earth System Sciences
@@ -70,8 +70,12 @@ Version 1.1 (HESSD version) (2007-06-05)
   * BL model was added as a bimodal model (bimodal.m).
   - Option for imposing the restriction of positive value of
     residual water content (pqr) was added.
+  - Publication date of the paper is shown. Version 1.0 and 1.1
+    were uploaded to sourforge on 2007-06-05.
 
-Version 1.0 (JJSSP version) (2007-06-05)
+Version 1.0 (JJSSP version) (2006-07-28)
 
   * Identical to the program published in JJSSP journal
     (Journal of Japanese Society of Soil Physics, 105:67-78.)
+    Submission date of the paper is shown. Publication date is
+    2007-03-20.
