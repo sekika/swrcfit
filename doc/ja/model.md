@@ -16,7 +16,7 @@ S<sub>e</sub> は
 ![equation](http://swrcfit.sourceforge.net/img/Se.png) で定義される水分、すなわち
 ![equation](http://swrcfit.sourceforge.net/img/Se2.png)、Q(x)は[標準正規分布関数](http://mathworld.wolfram.com/NormalDistributionFunction.html) &phi;(x)(誤差関数とは異なる)の余関数
 Q(x)=1-&phi;(x) である。
-FX モデルにおいて、e はネイピア数。FXモデルは SWRC Fit のバージョン 3.0 以上で計算できる。ウェブ版では、修正関数について C(h)=1 としている。オフライン版では修正関数を変えることができる。[計算の設定](setting.md)を参照。
+FX モデルにおいて、e はネイピア数である。FXモデルは SWRC Fit のバージョン 3.0 以上で計算できる。修正関数はデフォルトではC(h)=1とされているが、変えることもできる。詳細は[計算の設定](setting.md)を参照。
 他のパラメータは推定するパラメータである。
 
 ## 単峰性モデル (BC, VG, LN, FX)
