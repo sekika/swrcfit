@@ -56,3 +56,6 @@ It can be changed by parameter setting. See [calculation options](setting.md) fo
 6. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic
    conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898,
    1980.
+
+----
+[SWRC Fit user's manual](README.md)

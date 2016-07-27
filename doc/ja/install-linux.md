@@ -25,3 +25,6 @@ SWRC Fit がインストールされたことを確認するためには、 `swr
 ```
 
 SWRC Fit がインストールされたことを確認するためには、 `swrcfit swrc.txt` と実行する。
+
+----
+[SWRC Fit マニュアル](README.md)

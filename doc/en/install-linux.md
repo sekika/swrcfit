@@ -27,3 +27,6 @@ unpack the archive, and in the directory of the downloaded archive, run
  - `./configure; sudo make install`
 
 Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of the downloaded archive.
+
+----
+[SWRC Fit user's manual](README.md)

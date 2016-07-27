@@ -111,3 +111,6 @@ and from version 3,
 ```
 col = "krbgmc"; # Line color is set in this order
 ```
+
+----
+[SWRC Fit user's manual](README.md)

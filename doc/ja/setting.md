@@ -18,13 +18,6 @@
 として含まれている。このファイルはシステムのデフォルトが記述されている。
 設定ファイルが指定されていなければ、このデフォルト値が使われる。
 
-まずは、この行で
-
-```
-precision = 5; # precision of the output
-```
-表示桁数、つまり有効数字を指定する。デフォルトは5桁である。
-
 ## モデルの選択
 
 ```
@@ -118,6 +111,12 @@ psimax は 10<sup>6</sup> kPa としている。
 
 ```
 # Output format of the result
+precision = 5; # precision of the output
+```
+表示桁数、つまり有効数字を指定する。デフォルトは5桁である。
+バージョン2.1以前では、`output_precision(5)` のように指定する。
+
+```
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 ```
@@ -171,4 +170,7 @@ AICとBICは、kの問題を解決するためにモデルのパラメータの�
 グラフを端末に表示したりファイルに保存したりする設定や、
 グラフの見た目に関する設定ができる。
 詳しくは[Gnuplot によるグラフの表示](graph.md)を参照。
+
+----
+[SWRC Fit マニュアル](README.md)
 

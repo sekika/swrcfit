@@ -21,13 +21,6 @@ file is not specified, these default setting is used.
 After some comment lines, beginning with "#", setting file starts from
 this line.
 
-```
-precision = 5; # precision of the output
-```
-This line sets the precision of the ouput, i.e., the numbers of
-[significant figures](http://en.wikipedia.org/wiki/Significant_figures)
-to display. Default value is 5.
-
 ## Selection of model
 
 ```
@@ -126,6 +119,14 @@ be changed as you like, where psimax is 10<sup>6</sup> kPa in Fredlund and Xing 
 
 ```
 # Output format of the result
+precision = 5; # precision of the output
+```
+It sets the precision of the ouput, i.e., the numbers of
+[significant figures](http://en.wikipedia.org/wiki/Significant_figures) to display.
+Before version 2.1, it was specified with `output_precision(5)`.
+
+```
+# Output format of the result
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 ```
@@ -183,4 +184,6 @@ From these lines, parameters for drawing a graph is written.
 You can control if you draw a graph
 on terminal or/and file, and how the graph look like, in the section
 following from here. Detail is described here: [Drawing graph with gnuplot](graph.md)
- 
+
+----
+[SWRC Fit user's manual](README.md) 

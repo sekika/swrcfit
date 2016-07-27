@@ -1,6 +1,6 @@
-# �����������f��
+# 水分特性モデル
 
-SWRC Fit �ɂ́A�ȉ��̃��f�����g�ݍ��܂�Ă��܂��B
+SWRC Fit には、以下のモデルが組み込まれている。
 
 |Model|Equation|Reference|
 |-----|--------|---------|
@@ -11,36 +11,31 @@ SWRC Fit �ɂ́A�ȉ��̃��f�����g�ݍ��܂�Ă��܂��B
 |DB |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/DB.png) (m<sub>i</sub> = 1-1/n<sub>i</sub>) |Durner, 1994|
 |BL |![equation](https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/BL.png) |Seki, 2007|
 
-where h is the suction head, &theta; is volumetric water content,
-S<sub>e</sub> is the effective water content defined by
-![equation](http://swrcfit.sourceforge.net/img/Se.png), i.e.,
-![equation](http://swrcfit.sourceforge.net/img/Se2.png), and Q(x) is
-the complementary cumulative normal distribution function, defined by
-Q(x)=1-&phi;(x), in which &phi;(x) is a normalized form of the
-cumulative normal distribution function. Please note that Q(x) is
-different from error function. Other parameters are soil hydraulic
-parameters to be optimized with swrcfit.
+h はサクション、 &theta; は体積含水率、
+S<sub>e</sub> は
+![equation](http://swrcfit.sourceforge.net/img/Se.png) で定義される水分、すなわち
+![equation](http://swrcfit.sourceforge.net/img/Se2.png)、Q(x)は[標準正規分布関数](http://mathworld.wolfram.com/NormalDistributionFunction.html) &phi;(x)(誤差関数とは異なる)の余関数
+Q(x)=1-&phi;(x) である。
+FX モデルにおいて、e はネイピア数である。FXモデルは SWRC Fit のバージョン 3.0 以上で計算できる。修正関数はデフォルトではC(h)=1とされているが、変えることもできる。詳細は[計算の設定](setting.md)を参照。
+他のパラメータは推定するパラメータである。
 
-FX model is supported from version 3.0. Correction function of the FX model, C(h), is by default 1.
-It can be changed by parameter setting. See [calculation options](setting.md) for detail.
+## 単峰性モデル (BC, VG, LN, FX)
 
-## Unimodal models (BC, VG, LN and FX)
-
-* Soil sample: Grenoble, France (UNSODA 4440)
-* Texture: Sand
-* Source: Haverkamp and Parlange, 1986
+* 土壌試料: Grenoble, France (UNSODA 4440)
+* 土性: Sand
+* 出典: Haverkamp and Parlange, 1986
 
 ![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
-## Bimodal models (DB and BL)
+## 二峰性モデル (DB, BL)
 
-* Soil sample: Lyss, Switzerland (UNSODA 2760)
-* Texture: Silty loam
-* Source: Richard et al., 1983
+* 土壌試料: Lyss, Switzerland (UNSODA 2760)
+* 土性: Silty loam
+* 出典: Richard et al., 1983
 
 ![Figure](https://github.com/sekika/swrcfit-cgi/blob/master/img/sample2.png)
 
-## ����
+## 文献
 
 1. Brooks, R. H., and Corey, A.T.: Hydraulic properties of porous media.
    Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA, 1964.
@@ -56,3 +51,6 @@ It can be changed by parameter setting. See [calculation options](setting.md) fo
 6. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic
    conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898,
    1980.
+
+----
+[SWRC Fit マニュアル](README.md)
