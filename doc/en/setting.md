@@ -121,13 +121,8 @@ be changed as you like, where psimax is 10<sup>6</sup> kPa in Fredlund and Xing 
 # Output format of the result
 precision = 5; # precision of the output
 ```
-
-```
-precision = 5; # precision of the output
-```
-This line sets the precision of the ouput, i.e., the numbers of
-[significant figures](http://en.wikipedia.org/wiki/Significant_figures)
-to display. Default value is 5.
+It sets the precision of the ouput, i.e., the numbers of
+[significant figures](http://en.wikipedia.org/wiki/Significant_figures) to display.
 Before version 2.1, it was specified with `output_precision(5)`.
 
 ```
