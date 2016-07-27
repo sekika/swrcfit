@@ -49,7 +49,6 @@ else
 end
 
 ######################### Default setting ######################
-precision=5; # precision of the output
 
 # Model selection
 mode = 1; # Unimodal model
@@ -70,6 +69,7 @@ psir=30000; # psi_r of CF
 psimax=10000000; # psi_max of CF
 
 # Output format of the result
+precision=5; # precision of the output
 adv=0; # adv=1; advanced output; adv=0; normal output;
 simple=0; # simple=1; simple output, simple=0; normal output
 data=0; # Show original input data (0=no, 1=yes)
