@@ -27,7 +27,7 @@ FX モデルにおいて、e はネイピア数。FXモデルは SWRC Fit のバ
 
 ![Figure](https://raw.githubusercontent.com/sekika/swrcfit-cgi/master/img/sample1.png)
 
-## 二峰性モデル (DB and BL)
+## 二峰性モデル (DB, BL)
 
 * 土壌試料: Lyss, Switzerland (UNSODA 2760)
 * 土性: Silty loam
