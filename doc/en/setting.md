@@ -184,4 +184,6 @@ From these lines, parameters for drawing a graph is written.
 You can control if you draw a graph
 on terminal or/and file, and how the graph look like, in the section
 following from here. Detail is described here: [Drawing graph with gnuplot](graph.md)
- 
+
+----
+[SWRC Fit user's manual](README.md) 
