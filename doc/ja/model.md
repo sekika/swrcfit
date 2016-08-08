@@ -51,3 +51,6 @@ FX モデルにおいて、e はネイピア数である。FXモデルは SWRC F
 6. van Genuchten, M.T.: A closed-form equation for predicting the hydraulic
    conductivity of unsaturated soils. Soil Sci. Soc. Am.  J. 44, 892--898,
    1980.
+
+----
+[SWRC Fit マニュアル](README.md)
