@@ -11,7 +11,7 @@ You need a 64-bit PC running a 64-bit version of Windows 10, updated to [Windows
 3. Run `sudo apt-get install make octave-optim epstool transfig` in the terminal. Enter UNIX password that you set when prompted.
 4. In the terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./configure; make install`. You can run this entire 4th steps by
  - `wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt`
-When prompted "Enter you password", enter the UNIX password.
+ - When prompted "Enter you password", enter the UNIX password.
 
 Check if swrcfit is properly installed with `swrcfit swrc.txt` in the
 directory of the downloaded archive.
