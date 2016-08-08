@@ -46,3 +46,6 @@ directory of the downloaded archive.
 For [drawing graph with gnuplot](graph.md), you have to
 [set up Cygwin/X](http://x.cygwin.com/docs/ug/setup.html) and run `startx` or
 `startxwin`.
+
+----
+[SWRC Fit user's manual](README.md)
