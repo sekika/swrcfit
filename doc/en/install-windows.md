@@ -1,6 +1,6 @@
 # Install SWRC Fit on Windows
 
-2 methods for installing SWRC Fit is explained here (1) using Bash on Windows 10 and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
+2 methods for installing SWRC Fit is explained here (1) using Bash on Windows 10 (recommended) and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
 
 ## Bash on Windows 10
 
