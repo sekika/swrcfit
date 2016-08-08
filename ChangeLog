@@ -2,7 +2,7 @@ SWRC Fit Version History
 
 * Notable changes.
 
-Version 3.0-beta.5 (2016-07-04)
+Version 3.0-beta.6 (2016-08-08)
 
   * Added support for Fredlund and Xing model (FX model)
   * Individual model selection with bc, vg, ln, fx, db, bl options
@@ -12,7 +12,8 @@ Version 3.0-beta.5 (2016-07-04)
   - Added figure option: onemodel (minimum AIC selection)
   - Documents in the wiki were moved to package. This will allow browzing
     documents in each release.
-
+  - Confirmed running on Bash on Windows 10. See document for detail.
+  
 Version 2.1 (2015-09-23)
 
   * BUG FIX: SWRC Fit version 2.0 or before does not work with the latest
@@ -46,8 +47,8 @@ Version 2.0 (2015-06-07)
 
 Version 1.3 (2014-09-07)
 
-  * swrc.m and bimodal.m were combined to swrcfit, and unimodal
-    and bimodal calculation is to be selected from setting.
+  * swrc.m and bimodal.m were combined to swrcfit, and unimodal and bimodal
+    calculation is to be selected from setting.
   * Data file and setting file is specified with commandline option.
   - Sample data and result file were added.
   - User's manual was changed to markup file (README.md)
@@ -57,25 +58,22 @@ Version 1.3 (2014-09-07)
 Version 1.2 (2007-09-02)
 
   - User's manual (manual.pdf) was made.
-  - Correlation matrix and standard deviation is calculated in
-    advanced mode of the calculation option.
-  - Restiction of residual water content not becoming negative
-    is set as a default.
+  - Correlation matrix and standard deviation is calculated in advanced mode
+    of the calculation option.
+  - Restiction of residual water content not becoming negative set as default.
 
 Version 1.1 (HESSD version) (2007-02-27)
 
-  * Identical to the program published as a supplementary file
-    of HESSD journal (Hydrology and Earth System Sciences
-    Discussions, 4: 407-437, 2007.)
+  * Identical to the program published as a supplementary file of HESSD journal
+    (Hydrology and Earth System Sciences Discussions, 4: 407-437, 2007.)
   * BL model was added as a bimodal model (bimodal.m).
-  - Option for imposing the restriction of positive value of
-    residual water content (pqr) was added.
-  - Publication date of the paper is shown. Version 1.0 and 1.1
-    were uploaded to sourforge on 2007-06-05.
+  - Option for imposing the restriction of positive value of residual water
+    content (pqr) was added.
+  - Publication date of the paper is shown. Version 1.0 and 1.1 were uploaded
+    to sourforge on 2007-06-05.
 
 Version 1.0 (JJSSP version) (2006-07-28)
 
   * Identical to the program published in JJSSP journal
     (Journal of Japanese Society of Soil Physics, 105:67-78.)
-    Submission date of the paper is shown. Publication date is
-    2007-03-20.
+    Submission date of the paper is shown. Publication date is 2007-03-20.
