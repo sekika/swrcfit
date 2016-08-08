@@ -1,4 +1,29 @@
-## SWRC FIt の Windows へのインストール
+# SWRC Fit の Windows へのインストール
+
+## Bash on Ubuntu on Windows を使う方法
+
+2016年8月3日に配信が始まった Windows 10 の Anniversary Update から、Bash on Ubuntu on Windows のベータ版が利用できるようになった。これを使うと、簡単に SWRC Fit を利用できる。
+
+1. [「Anniversary Update」で標準になった「Bash on Ubuntu on Windows」の使い道](http://itpro.nikkeibp.co.jp/atcl/watcher/14/334361/080400637/?rt=nocnt)
+を参考に、Bash on Ubuntu on Windows を起動可能にする。
+2. Bash on Ubuntu on Windows を起動する。この端末で、これからのインストール作業及び SWRC Fit の実行をする。
+3. `sudo apt-get install make octave-optim epstool transfig` とする。設定した UNIX パスワードを入力する。
+4. [SWRC Fit の最新リリース](https://github.com/sekika/swrcfit/releases)を、端末で `wget (tar.gz ファイルのURL)` としてダウンロードする。そして、 `tar xfvz (ダウンロードしたファイル)`、 `cd (展開したパッケージのディレクトリ)`、 `./configure; make install` でインストールができる。この4番目の手順を、一括して次のコマンドで実行出来る。
+```
+wget http://seki.webmasters.gr.jp/swrc/install.txt; sh install.txt
+```
+Enter your password で、設定した UNIX パスワードを入れる。
+
+ダウンロードしたディレクトリで `swrcfit swrc.txt` とすることで、インストールが成功したかどうかをチェック出来る。
+
+`swrcfit swrc.txt fig=1` とすると、グラフの画像ファイルが `C:¥ユーザー¥<WindowsUserName>¥AppData¥Local¥lxss¥home¥<UbuntuUserName>` フォルダに保存される。このフォルダはエクスプローラーでは見えないので、エクスプローラーでフォルダを開いて次の設定をする。
+
+1. メニューの「表示」を選んで「隠しファイル」を表示
+2. 「オプション」を選んで「表示」「保護されたオペレーティング・システムファイルを表示しない」をオフ
+
+`swrcfit swrc.txt fig=1 showfig=1 ` とすると、画像ファイルがテキストに変換して端末に表示される。画像ファイルとして直接表示するためには、たとえば [Xming X Server for Windows](http://www.straightrunning.com/XmingNotes/) のような X Server をインストールする必要がある。
+
+## Cygwin を使う方法
 
 1. [Cygwin](https://www.cygwin.com/) をインスールする。
 2. Cygwin をインストール中に、[パッケージ選択](http://so-zou.jp/software/tech/tool/compatibility-layer/cygwin/introduction/install.htm#package-selection) の画面で、この表のパッケージをインストールする。
