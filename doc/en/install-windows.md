@@ -2,7 +2,7 @@
 
 2 methods for installing SWRC Fit is explained here (1) using Bash on Windows 10 (recommended) and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
 
-## Bash on Windows 10
+## Using Bash on Windows 10
 
 You need a 64-bit PC running a 64-bit version of Windows 10, updated to [Windows 10 anniversary update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/) released on August 2, 2016.
 
@@ -25,7 +25,7 @@ This folder is invisible in the explorer. To make it visible,
 By running `swrcfit swrc.txt fig=1 showfig=1`, the graph is converted to ASCII characters and shown in the terminal.
 To show the graph as a figure in a separate window, X server such as [Xming X Server for Windows](http://www.straightrunning.com/XmingNotes/) needs to be installed.
 
-## Cygwin
+## Using Cygwin
 
 1. Install [cygwin](https://www.cygwin.com/)
 2. While installing cygwin, [choose cygwin packages](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) in this table.
