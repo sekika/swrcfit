@@ -17,9 +17,9 @@ Check if swrcfit is properly installed with `swrcfit swrc.txt` in the
 directory of the downloaded archive.
 
 By running `swrcfit swrc.txt fig=1`, figure file of the graph is saved in the folder `C:\Users\<WindowsUserName>\AppData\Local\lxss\home\<UbuntuUserName>`.
-This folder is invisible in the explorer. To make it visible,
+This folder is invisible in the explorer. To make it visible, [read this page](https://www.tekrevue.com/tip/show-hidden-files-windows-10/) and do as follows.
 
-1. Use the Ribbon’s View tab to get to the Options button, and select "Show hidden files and folders" in the list.
+1. Launch File Explorer. Use the Ribbon’s View tab to get to the Options button, and select "Show hidden files and folders" in the list.
 2. Also remove the checkbox from "Hide protected operating system files".
 
 By running `swrcfit swrc.txt fig=1 showfig=1`, the graph is converted to ASCII characters and shown in the terminal.
