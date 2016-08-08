@@ -1,5 +1,7 @@
 # SWRC Fit の Windows へのインストール
 
+Bash on Ubuntu on Windows を使う方法と、Cygwin を使う方法について書きます。他にも、[Octave for Windows](http://wiki.octave.org/Octave_for_Microsoft_Windows#Octave-4.0.3) を使う方法があります。
+
 ## Bash on Ubuntu on Windows を使う方法
 
 2016年8月3日に配信が始まった Windows 10 の Anniversary Update から、Bash on Ubuntu on Windows のベータ版が利用できるようになった。これを使うと、簡単に SWRC Fit を利用できる。
