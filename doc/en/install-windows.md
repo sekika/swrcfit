@@ -22,7 +22,7 @@ This folder is invisible in the explorer. To make it visible,
 1. Use the Ribbon’s View tab to get to the Options button, and select "Show hidden files and folders" in the list.
 2. Also remove the checkbox from "Hide protected operating system files".
 
-By running `swrcfit swrc.txt fig=1 showfig=1`, the graph is converted to ascii text and shown in the terminal.
+By running `swrcfit swrc.txt fig=1 showfig=1`, the graph is converted to ASCII characters and shown in the terminal.
 To show the graph as a figure in a separate window, X server such as [Xming X Server for Windows](http://www.straightrunning.com/XmingNotes/) needs to be installed.
 
 ## Cygwin
