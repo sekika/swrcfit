@@ -23,7 +23,7 @@ Enter your password で、設定した UNIX パスワードを入れる。
 1. メニューの「表示」を選んで「隠しファイル」を表示
 2. 「オプション」を選んで「表示」「保護されたオペレーティング・システムファイルを表示しない」をオフ
 
-`swrcfit swrc.txt fig=1 showfig=1 ` とすると、画像ファイルがテキストに変換して端末に表示される。画像ファイルとして直接表示するためには、たとえば [Xming X Server for Windows](http://www.straightrunning.com/XmingNotes/) のような X Server をインストールする必要がある。
+`swrcfit swrc.txt fig=1 showfig=1 ` とすると、グラフの画像がテキストに変換して端末に表示される。グラフを画像として表示するためには、たとえば [Xming X Server for Windows](http://www.straightrunning.com/XmingNotes/) のような X Server をインストールする必要がある。
 
 ## Cygwin を使う方法
 
