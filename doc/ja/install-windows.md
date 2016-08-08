@@ -1,6 +1,6 @@
 # SWRC Fit の Windows へのインストール
 
-Bash on Ubuntu on Windows を使う方法（推奨）と、Cygwin を使う方法について書きます。他にも、[Octave for Windows](http://wiki.octave.org/Octave_for_Microsoft_Windows#Octave-4.0.3) を使う方法があります。
+Bash on Ubuntu on Windows を使う方法（推奨）と、Cygwin を使う方法について説明する。他にも、[Octave for Windows](http://wiki.octave.org/Octave_for_Microsoft_Windows#Octave-4.0.3) を使う方法がある。
 
 ## Bash on Ubuntu on Windows を使う方法
 
