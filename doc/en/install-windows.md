@@ -1,7 +1,5 @@
 # Install SWRC Fit on Windows
 
-(Note) There are also [other methods](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Octave-4.0.3) to install Octave for Windows. We might expect that SWRC Fit will work easier when bash on Windows is released. After the release, I will check and write here.
-
 2 methods for installing SWRC Fit is explained here (1) using Bash on Ubuntu on Windows and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
 
 ## Bash on Ubuntu on Windows
