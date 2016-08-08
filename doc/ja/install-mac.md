@@ -14,3 +14,6 @@ octave -q --eval "pkg install -forge struct optim"
 ```
 
 [Gluplot でグラフを描く](graph.md)ためには、環境変数 GNUTERM を x11, qt, aqua の中から選んで設定する必要がある。たとえば、 `GNUTERM=qt` のように設定する。
+
+----
+[SWRC Fit マニュアル](README.md)
