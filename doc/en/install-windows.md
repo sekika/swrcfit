@@ -1,12 +1,12 @@
 # Install SWRC Fit on Windows
 
-2 methods for installing SWRC Fit is explained here (1) using Bash on Ubuntu on Windows and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
+2 methods for installing SWRC Fit is explained here (1) using Bash on Windows 10 and (2) using Cygwin. You can also install Octave with [Windows installer](http://wiki.octave.org/http://wiki.octave.org/Octave_for_Microsoft_Windows#Installers_for_Microsoft_Windows).
 
-## Bash on Ubuntu on Windows
+## Bash on Windows 10
 
 You need a 64-bit PC running a 64-bit version of Windows 10, updated to [Windows 10 anniversary update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/) released on August 2, 2016.
 
-1. Enable Bash on Windows 10, following this article: [How To Enable Bash on Windows 10 (In 5 Simple Steps)](http://www.omgubuntu.co.uk/2016/08/enable-bash-windows-10-anniversary-update)
+1. Enable Bash on Windows 10, by following this article: [How To Enable Bash on Windows 10 (In 5 Simple Steps)](http://www.omgubuntu.co.uk/2016/08/enable-bash-windows-10-anniversary-update)
 2. Run Bash on Ubuntu on Windows. This terminal is where you proceed rest of the installation and running process.
 3. Run `sudo apt-get install make octave-optim epstool transfig` in the terminal. Enter UNIX password that you set when prompted.
 4. In the terminal, download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases) by `wget (URL of the latest source code of tar.gz)`. Then `tar xfvz (downloaded file)`, `cd (directory of the unpacked package)`, and `./configure; make install`. You can run this entire 4th steps by
