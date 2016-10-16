@@ -8,7 +8,7 @@
 # usage: swrcfit [-v] DataFile [setting]...
 
 # Load packages
-pkg load all
+pkg load struct optim
 
 # Read commandline parameters
 
