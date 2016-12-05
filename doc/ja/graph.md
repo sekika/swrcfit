@@ -97,7 +97,7 @@ mcol="b"; # Marker face color for measured plot
 ```
 linewidth=1.5; # Line width of fitting curves
 ```
-会期曲線の太さを指定する。
+回帰曲線の太さを指定する。
 
 バージョン2では、回帰曲線のフォーマット形式はこのように指定され、
 

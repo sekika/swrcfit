@@ -76,7 +76,9 @@ xlab="Suction"; # X label
 ylab="Volumetric water content"; # Y label
 showlegend=1; # showlegend=1; show legend. showlegend=0; otherwise.
 ```
-These variables controls the output of labels at x and y axes and legend. Labels are now shown by default.
+These variables controls the output of labels at x and y axes and legend. 
+Labels are now shown by default. ^ is for superscript and _ is for subscript.
+Therefore "cm^3" is shown as cm<sup>3</sup>.
 ```
 Mlab="Measured"; # legend for measured data
 BClab="Brooks and Corey (1964)"; # legend for BC model
