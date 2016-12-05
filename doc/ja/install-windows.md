@@ -5,10 +5,11 @@ Bash on Windows 10 を使う方法（推奨）と、Cygwin を使う方法につ
 ## Bash on Windows 10 を使う方法
 
 64ビットのPCと Windows 10 の64ビットバージョンが必要で、2016年8月3日に配信が始まった
-Windows 10 の Anniversary Update を適用する必要がある。
+Windows 10 の Anniversary Update が適用されている必要がある。
+更新プログラムが自動で適用されるように設定していれば、Windows Update を通じて自動的にインストールされているはずである。
 
-1. [「Anniversary Update」で標準になった「Bash on Ubuntu on Windows」の使い道](http://itpro.nikkeibp.co.jp/atcl/watcher/14/334361/080400637/?rt=nocnt)
-を参考に、Anniversary Update を適用し、Bash on Ubuntu on Windows を起動可能にする。
+1. [「Windows 10 Anniversary UpdateをしてBashを使う方法](http://beyondjapan.com/blog/2016/08/windows10-subsystem-for-linux)
+を参考に、Bash on Ubuntu on Windows を起動可能にする。
 2. Bash on Ubuntu on Windows を起動する。この端末で、これからのインストール作業及び SWRC Fit の実行をする。
 3. `sudo apt-get install make octave-optim epstool transfig` とする。設定した UNIX パスワードを入力する。
 4. [SWRC Fit の最新リリース](https://github.com/sekika/swrcfit/releases)を、端末で `wget (tar.gz ファイルのURL)` としてダウンロードする。そして、 `tar xfvz (ダウンロードしたファイル)`、 `cd (展開したパッケージのディレクトリ)`、 `./configure; make install` でインストールができる。この4番目の手順を、一括して次のコマンドで実行出来る。
