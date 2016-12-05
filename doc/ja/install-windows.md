@@ -8,7 +8,7 @@ Bash on Windows 10 を使う方法（推奨）と、Cygwin を使う方法につ
 Windows 10 の Anniversary Update が適用されている必要がある。
 更新プログラムが自動で適用されるように設定していれば、Windows Update を通じて自動的にインストールされているはずである。
 
-1. [「Windows 10 Anniversary UpdateをしてBashを使う方法](http://beyondjapan.com/blog/2016/08/windows10-subsystem-for-linux)
+1. [Windows 10 Anniversary UpdateをしてBashを使う方法](http://beyondjapan.com/blog/2016/08/windows10-subsystem-for-linux)
 を参考に、Bash on Ubuntu on Windows を起動可能にする。
 2. Bash on Ubuntu on Windows を起動する。この端末で、これからのインストール作業及び SWRC Fit の実行をする。
 3. `sudo apt-get install make octave-optim epstool transfig` とする。設定した UNIX パスワードを入力する。
