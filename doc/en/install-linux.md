@@ -7,7 +7,7 @@ that you are using.
 
 |Distribution |Install|
 |-------------|-------|
-|[Debian](https://www.debian.org/), [Ubuntu](http://www.ubuntu.com/), [Mint](http://linuxmint.com/)| sudo apt-get install octave-optim epstool transfig　make|
+|[Debian](https://www.debian.org/), [Ubuntu](http://www.ubuntu.com/), [Mint](http://linuxmint.com/)| sudo apt-get install octave-optim epstool transfig make|
 |[Fedora](https://getfedora.org/)  | sudo dnf install octave-optim|
 
 Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases),
