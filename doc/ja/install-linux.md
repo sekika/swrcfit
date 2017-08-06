@@ -5,7 +5,7 @@
 
 |ディストリビューション |インストール方法|
 |-------------|-------|
-|Debian, Ubuntu その他 Debian から派生したもの| sudo aptitude install octave-optim epstool transfig|
+|Debian, Ubuntu その他 Debian から派生したもの| sudo aptitude install octave-optim epstool transfig make|
 |Fedora       | sudo dnf install octave-optim|
 |Gentoo       | emerge --sync; emerge gnuplot; emerge octave; emerge octave-forge|
 
