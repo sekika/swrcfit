@@ -2,6 +2,14 @@ SWRC Fit Version History
 
 * Notable changes.
 
+Version 3.1 (Not released yet)
+
+  * BUG FIX: Previous versions of SWRC Fit does not work on Octave 4.4 because
+    "duplicate subfunction" error which did not appear in previous versions of
+    Octave arises. This bug was fixed.
+  * BUG FIX: When normcdf is not available, nan package from octave-forge is
+    loaded. Install script was changed to load the nan package.
+
 Version 3.0 (2016-09-10)
 
   * Added support for Fredlund and Xing model (FX model)
@@ -13,7 +21,7 @@ Version 3.0 (2016-09-10)
   - Documents in the wiki were moved to package. This will allow browzing
     documents in each release.
   - Confirmed running on Bash on Windows 10. See document for detail.
-  
+
 Version 2.1 (2015-09-23)
 
   * BUG FIX: SWRC Fit version 2.0 or before does not work with the latest
@@ -22,7 +30,7 @@ Version 2.1 (2015-09-23)
     sure exactly until which version), packages could be loaded automatically
     without this command, but it should be specified explicitly with the
     latest verion of Octave. Therefore, users should upgrade to SWRC Fit
-    version 2.1, to use it with the latest version of Octave.  
+    version 2.1, to use it with the latest version of Octave.
   - Paramter restrictions of alpha < 1/h1 (VG model) and hm > h1 (LN model),
     where h1 is the smallest suction head of the measured point, were imposed,
     because in certain cases inflection points of VG and LN models become too
