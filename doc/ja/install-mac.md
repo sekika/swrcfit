@@ -3,9 +3,11 @@
 1. [Homebrew をインストールするための条件](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md#requirements)を確認して、[Xcode](https://itunes.apple.com/jp/app/xcode/id497799835)をインストールする。
 2. [Homebrew](http://brew.sh/index_ja.html) をインストールする。
 3. [ターミナル](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB_(Mac))で `java -version` を実行して、Java がインストールされているかどうかを確認する。`java: command not found` というメッセージが表示されたら、[Java の最新バージョンをダウンロード](https://www.java.com/download/)してインストールする。
-4. ターミナルで `brew tap homebrew/science; brew install swrcfit` を実行する。
+4. ターミナルで `brew tap sekika/sci; brew install swrcfit` を実行する。
 
 最新のバージョンへのアップグレードは、`brew update; brew upgrade` を実行する。
+
+注意: homebrew/science タップは更新されなくなった。このタップを消すには `brew untap homebrew/science` とする。
 
 swrcfit を実行した時に `warning: 'leasqr' undefined near line ... column ...` のエラーが出る時には、ターミナルで次のコマンドを実行してください。
 

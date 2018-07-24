@@ -4,6 +4,10 @@ SWRC Fit Version History
 
 Version 3.1 (Not released yet)
 
+  * Note for Mac users: homebrew/science tap on homebrew is now deprecated.
+    Change to sekika/sci tap by
+    brew untap homebrew/science
+    brew tap sekika/sci
   * BUG FIX: Previous versions of SWRC Fit does not work on Octave 4.4 because
     "duplicate subfunction" error which did not appear in previous versions of
     Octave arises. This bug was fixed.
