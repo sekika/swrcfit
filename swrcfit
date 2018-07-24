@@ -8,7 +8,7 @@
 # usage: swrcfit [-v] DataFile [setting]...
 
 # Load packages
-pkg load struct optim
+pkg load struct optim nan
 
 # Read commandline parameters
 
@@ -29,7 +29,7 @@ end
 
 if exist(filename,"file")==0,
   disp("Data file does not exist.");
-  return; 
+  return;
 end
 
 # Read data from file
@@ -119,7 +119,7 @@ col = "krbgmc"; # Line color is set in this order
 
 ######################### User setting #####################
 # Read default setting files (~/.swrcfitrc, ./setting.txt)
-rcfile = [getenv("HOME") "/.swrcfitrc"]; 
+rcfile = [getenv("HOME") "/.swrcfitrc"];
 if exist(rcfile, "file"), source(rcfile) end
 if exist("setting.txt", "file"), source ("setting.txt") end
 
@@ -398,20 +398,20 @@ if (simple==0) && (fx==1)
   end
 end
 # Correction function
-if (fxc==0),
-  function ret=C(x,psir,psimax)
-    ret=1;
-  endfunction
-else
-  function ret=C(x,psir,psimax)
-    ret=-log(1+x/psir)./log(1+psimax/psir)+1;
-  endfunction
-end
+function ret=C(x,psir,psimax)
+  ret=-log(1+x/psir)./log(1+psimax/psir)+1;
+endfunction
 # Main function
 function ret=FX(x,p)
-  ret =  p(2)+(p(1)-p(2)).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4))).*C(x,p(6),p(7));
+  ret =  p(2)+(p(1)-p(2)).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4)));
 endfunction
 function ret=FX2(x,p)
+  ret =  abs(p(2))+(p(1)-abs(p(2))).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4)));
+endfunction
+function ret=FXC(x,p)
+  ret =  p(2)+(p(1)-p(2)).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4))).*C(x,p(6),p(7));
+endfunction
+function ret=FXC2(x,p)
   ret =  abs(p(2))+(p(1)-abs(p(2))).*(log(exp(1)+(x/abs(p(3))).^abs(p(5)))).^(-abs(p(4))).*C(x,p(6),p(7));
 endfunction
 if (VGR2>LNR2)
@@ -422,10 +422,18 @@ else
 end
 stol=1; dp=[0.00001*cqs 0.0001*cqr 0.01 0.001 0.01, 0, 0]; R2b=0;
 while ( stol >= 0.00001 )
-  if pqr==0
-    [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX",stol,20,wt,dp);
+  if (fxc==0),
+    if pqr==0
+      [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX",stol,20,wt,dp);
+    else
+      [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX2",stol,20,wt,dp);
+    end
   else
-    [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FX2",stol,20,wt,dp);
+    if pqr==0
+      [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FXC",stol,20,wt,dp);
+    else
+      [f,p,kvg,itr,corp,covp,covr,std,Z,R2]=leasqr(x,y,pin,"FXC2",stol,20,wt,dp);
+    end
   end
   if kvg == 0, p=pin;, R2=R2b;, stol=0;, end
   if imag(R2)^2>0, p=pin; R2=R2b;, stol=0;, end
@@ -490,7 +498,7 @@ while (i < length(x)-2)
 xi=x(1:i); yi=y(1:i);
 qs=qsin; qr=min(yi);
 S=(yi.-qr)./(qs-qr);
-function ret=VG2(x,p)
+function ret=VG3(x,p)
   ret = p(2)+(p(1)-p(2)).*((1+(abs(p(3)).*x).^(abs(p(4))+1)).^(1/(abs(p(4))+1)-1));
 endfunction
 hm = xi(sum (S > 0.5)+1);
@@ -498,18 +506,18 @@ alpha=1/hm; nn=1; pin=[1 0 alpha nn];
 dp=[0 0 0.001 0.001]; stol=1; R2b=0;
 wt2=ones(length(yi),1);
 while ( stol >= 0.0001 )
-  [f,p,kvg]=leasqr(xi,S,pin,"VG2",0.01,20,wt2,dp);
+  [f,p,kvg]=leasqr(xi,S,pin,"VG3",0.01,20,wt2,dp);
   if kvg ==0, p=pin;, stol=0;, end
   stol=stol/10; pin=p;
 endwhile
 alpha1(i)=p(3); n1(i)=abs(p(4))+1;
 y2=y.-(qs-qr).*(1+(alpha1(i).*x).^n1(i)).^(1./n1(i)-1);
 hm = x(sum (S > 0.5)+1);
-pin=[qr qrin 1/hm 1]; stol=1; 
+pin=[qr qrin 1/hm 1]; stol=1;
 dp=[0 0.0001*cqr 0.0001 0.0001]; R2b=0;
 while ( stol >= 0.0001 )
   try
-    [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG2",stol,20,wt,dp);
+    [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG3",stol,20,wt,dp);
   catch
     R2=R2b; stol=0;
   end_try_catch
@@ -518,11 +526,11 @@ while ( stol >= 0.0001 )
   stol=stol/10; pin=p; R2b=R2;
 endwhile
 if (real(p(3))*x(N)<1)
-  pin=[qr qrin 1/hm 1]; stol=1; 
+  pin=[qr qrin 1/hm 1]; stol=1;
   dp=[0 0 0.0001 0.0001]; R2b=0;
   while ( stol >= 0.0001 )
     try
-      [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG2",stol,20,wt,dp);
+      [f,p,kvg,itr,corp,covp,cov,std,Z,R2]=leasqr(x,y2,pin,"VG3",stol,20,wt,dp);
     catch
       R2=R2b; stol=0;
     end_try_catch
@@ -646,13 +654,10 @@ sigma=(n(i)-1)^(-2/3);
 pin=[1 0 1/alpha(i) sigma];
 wt3=ones(length(xx),1);
 dp=[0 0 0.1 0.01];
-function ret=LN(x,p)
+function ret=LN3(x,p)
   ret = p(2)+(p(1)-p(2)).*(1-normcdf((log(x/abs(p(3))))./abs(p(4))));
 endfunction
-function ret=LN2(x,p)
-  ret = abs(p(2))+(p(1)-abs(p(2))).*(1-normcdf((log(x/abs(p(3))))./abs(p(4))));
-endfunction
-[f,p]=leasqr(xx,yy,pin,"LN",1,20,wt3,dp);
+[f,p]=leasqr(xx,yy,pin,"LN3",1,20,wt3,dp);
 hm(i)=abs(p(3)); sigma(i)=abs(p(4));
 i++;
 endwhile
@@ -707,7 +712,7 @@ if (w1 > 0.01) * (w1 < 0.99) +1
   end
 
   if simple,
-    disp(qs); disp(qr); disp(w1); disp(hm1); disp(sigma1); 
+    disp(qs); disp(qr); disp(w1); disp(hm1); disp(sigma1);
     disp(hm2); disp(sigma2);
     if K==1, disp(k); end
     if r2==1, disp(R2); end
@@ -764,7 +769,7 @@ if fig==1,
 
   if (showfig == 0), set (0, "defaultfigurevisible", "off"); end
   if (maxy==0), maxy=max(y)*1.2; end
-  
+
   if (ax==0 && (max(x) < 100*min(x) || min(x)==0) || ax==1) # Normal axis
     if (maxx==0), maxx=max(x)*1.1; end
     x2=(linspace(minx,maxx,smooth));
@@ -787,7 +792,7 @@ if fig==1,
         if ln==1, plot (x2,LN,LNpl,"linewidth",linewidth); label=[label; LNlab]; end
         if fx==1, plot (x2,FX,FXpl,"linewidth",linewidth); label=[label; FXlab]; end
     end
-    if (mode > 1), 
+    if (mode > 1),
         if db==1, plot (x2,DB,DBpl,"linewidth",linewidth); label=[label; DBlab]; end
         if bl==1, plot (x2,BL,BLpl,"linewidth",linewidth); label=[label; BLlab]; end
     end
@@ -798,7 +803,7 @@ if fig==1,
       minx=10^(floor(log10(minx)));
     end
     if (maxx==0), maxx=max(x)*1.5; end
-    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';   
+    x2=(10.^(linspace(log10(minx),log10(maxx),smooth))).';
     if (mode ~= 2),
       if bc==1, BC=BC(x2,BCp); end
       if vg==1, VGp=[VGp(1), VGp(2), abs(VGp(3))+x(1)-x2(1), VGp(4)]; VG=VG(x2,VGp); end
@@ -818,7 +823,7 @@ if fig==1,
         if ln==1, semilogx (x2,LN,LNpl,"linewidth",linewidth); label=[label; LNlab]; end
         if fx==1, semilogx (x2,FX,FXpl,"linewidth",linewidth); label=[label; FXlab]; end
     end
-    if (mode > 1), 
+    if (mode > 1),
         if db==1, semilogx (x2,DB,DBpl,"linewidth",linewidth); label=[label; DBlab]; end
         if bl==1, semilogx (x2,BL,BLpl,"linewidth",linewidth); label=[label; BLlab]; end
     end
