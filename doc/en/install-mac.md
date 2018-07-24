@@ -10,7 +10,7 @@
 When running swrcfit, if you get error message as `warning: 'leasqr' undefined near line ... column ...`, please run the following command from Terminal.
 
 ```
-octave -q --eval "pkg install -forge struct optim"
+octave -q --eval "pkg install -forge struct optim nan"
 ```
 
 After installation of swrcfit with homebrew, you can always upgrade to the latest version by `brew update; brew upgrade`.

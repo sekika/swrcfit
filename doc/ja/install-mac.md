@@ -10,7 +10,7 @@
 swrcfit を実行した時に `warning: 'leasqr' undefined near line ... column ...` のエラーが出る時には、ターミナルで次のコマンドを実行してください。
 
 ```
-octave -q --eval "pkg install -forge struct optim"
+octave -q --eval "pkg install -forge struct optim nan"
 ```
 
 [Gluplot でグラフを描く](graph.md)ためには、環境変数 GNUTERM を x11, qt, aqua の中から選んで設定する必要がある。たとえば、 `GNUTERM=qt` のように設定する。

@@ -18,7 +18,7 @@ SWRC Fit がインストールされたことを確認するためには、 `swr
 
 ## POSIX システム
 - [gnuplot](http://www.gnuplot.info/)と[octave](https://www.gnu.org/software/octave/)をインストールする。
-- Octave を起動して `pkg install -forge struct optim` を実行する。
+- Octave を起動して `pkg install -forge struct optim nan` を実行する。
 - [swrcfit の最新バージョン](https://github.com/sekika/swrcfit/releases)をダウンロードし、アーカイブを展開して、次のコマンドを実行する。
 ```
 ./configure; sudo make install

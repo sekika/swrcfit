@@ -61,8 +61,8 @@ fi
 
 # Install octave forge packages
 
-echo "=== Installing packages (pkg install -forge struct optim)"
-$octave -q --eval "pkg install -forge struct optim"
+echo "=== Installing packages (pkg install -forge struct optim nan)"
+$octave -q --eval "pkg install -forge struct optim nan"
 if [ "$($installfilename swrc.txt | grep -c qs)" -ge 3 ] ; then
   echo "$installfilename was installed successfully."
   exit 0
@@ -88,7 +88,7 @@ else
 fi
 
 package="http://sourceforge.net/p/octave/optim/ci/default/tree/inst/"
-echo "Downloading \c" 
+echo "Downloading \c"
 
 for i in leasqr.m dfdp.m cpiv_bard.m; do
   echo $i"... \c"
@@ -107,4 +107,3 @@ else
   echo "Octave forge was not installed successfully."
   echo "Not yet installed properly. Give up."
 fi
-

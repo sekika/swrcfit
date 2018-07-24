@@ -21,7 +21,7 @@ Check if swrcfit is properly installed by `swrcfit swrc.txt` in the directory of
 ## POSIX systems
 
 - Install [gnuplot](http://www.gnuplot.info/) and [octave](https://www.gnu.org/software/octave/).
-- Invoke octave and run `pkg install -forge struct optim`.
+- Invoke octave and run `pkg install -forge struct optim nan`.
 - Download the [latest release of swrcfit](https://github.com/sekika/swrcfit/releases),
 unpack the archive, and in the directory of the downloaded archive, run
  - `./configure; sudo make install`
