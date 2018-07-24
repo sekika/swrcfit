@@ -8,7 +8,14 @@
 # usage: swrcfit [-v] DataFile [setting]...
 
 # Load packages
-pkg load struct optim nan
+pkg load struct optim
+
+# Load nan package only when normcdf is unavailable
+try
+  a = normcdf(0);
+catch
+  pkg load nan
+end_try_catch
 
 # Read commandline parameters
 
