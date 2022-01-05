@@ -11,7 +11,7 @@ SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベン�
 * ライセンス: GNU General Public License
 
 ## unsatfit への移行
-GNU Octave バージョンの SWRC Fit の開発は終了し、 2022年1月4日に Python ライブラリの unsatfit](https://sekika.github.io/unsatfit/) へと移行しました。unsatfit では水分特性関数だけではなく不飽和透水係数関数のフィッティングもします。[SWRC Fit のウェブインターフェイス](http://purl.org/net/swrc/)は unsatfit のライブラリを利用して水分特性関数のみをフィッティングするプログラムで、名前は SWRC Fit のままです。新しい SWRC Fit のソースコードは unsatfit とともに[公開されています](https://github.com/sekika/unsatfit/tree/main/swrcfit)。
+GNU Octave バージョンの SWRC Fit の開発は終了し、 2022年1月4日に Python ライブラリの [unsatfit](https://sekika.github.io/unsatfit/) へと移行しました。unsatfit では水分特性関数だけではなく不飽和透水係数関数のフィッティングもします。[SWRC Fit のウェブインターフェイス](http://purl.org/net/swrc/)は unsatfit のライブラリを利用して水分特性関数のみをフィッティングするプログラムで、名前は SWRC Fit のままです。新しい SWRC Fit のソースコードは unsatfit とともに[公開されています](https://github.com/sekika/unsatfit/tree/main/swrcfit)。
 
 GNU Octave バージョンの SWRC Fit のソースコードはこの GitHub で公開されていますが、開発とサポートは終了しています。
 
