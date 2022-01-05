@@ -3,22 +3,17 @@
 SWRC Fit は、土壌水分特性曲線（水分保持曲線）をレーベンバーグ・マルカート法によって、
 [6つの土壌水分特性モデル](model.md)
 によって非線形回帰をするプログラムである。このソフトは、
-[80以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
+[200以上の科学論文](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046)
 で研究のために使われた。
 
 * 文献: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
-* ホームページ: http://swrcfit.sourceforge.net/jp/
-* ウェブインターフェース: http://purl.org/net/swrc/index-ja.html
 * 作者: [関 勝寿](http://researchmap.jp/sekik/)
 * ライセンス: GNU General Public License
-* この配布パッケージのバージョン: 3.1
 
-バージョン 2.0 からは、インスールされているバージョンを `swrcfit -v` によって確認できる。
-バージョン 3.0 では、Fredlund and Xing (1994) モデルを追加した。
+## unsatfit への移行
+GNU Octave バージョンの SWRC Fit の開発は終了し、 2022年1月4日に Python ライブラリの unsatfit](https://sekika.github.io/unsatfit/) へと移行しました。unsatfit では水分特性関数だけではなく不飽和透水係数関数のフィッティングもします。[SWRC Fit のウェブインターフェイス](http://purl.org/net/swrc/)は unsatfit のライブラリを利用して水分特性関数のみをフィッティングするプログラムで、名前は SWRC Fit のままです。新しい SWRC Fit のソースコードは unsatfit とともに[公開されています](https://github.com/sekika/unsatfit/tree/main/swrcfit)。
 
-このユーザーマニュアルは、ウェブで読むと読みやすい。
-それぞれのバージョンのユーザーマニュアルは、ここから読むことができる。
-https://github.com/sekika/swrcfit/wiki/User%27s-manual
+GNU Octave バージョンの SWRC Fit のソースコードはこの GitHub で公開されていますが、開発とサポートは終了しています。
 
 ## 目次
 
@@ -184,12 +179,6 @@ SWRC Fit のウェブインターフェース (http://purl.org/net/swrc/index-ja
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib)
 と [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
 のファイルをダウンロードできます。
-
-## 質問
-SWRC Fit に関する質問の一覧は
-[こちら](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)で見ることができます。
-あなたの質問を投稿するためには、GitHub のアカウントを取得して緑色の「New Issue」ボタンを押して下さい。
-Label は「question」を選んで下さい。日本語での質問も可能です。 質問を公開出来ない場合には、[作者](http://www2.toyo.ac.jp/~seki_k/)にメールを送って下さい。
 
 ----
 他の言語: [English](../en/README.md)

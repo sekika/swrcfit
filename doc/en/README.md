@@ -4,22 +4,17 @@ SWRC Fit is a program which performs nonlinear fitting of soil water
 retention curve with
 [6 SWRC models](model.md)
 by Levenberg-Marquardt method. This software was used in
-[more than 80 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
+[more than 200 scientific works](http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046).
 Basic information of this program is summarized:
 
 * Publication: [doi:10.5194/hessd-4-407-2007](http://dx.doi.org/10.5194/hessd-4-407-2007)
-* Website: http://swrcfit.sourceforge.net/
-* Web interface: http://purl.org/net/swrc/
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 * License: GNU General Public License
-* Version of this distribution: 3.1
 
-From version 2.0, you can check installed version by `swrcfit -v`.
-A new model, Fredlund and Xing (1994) model, was added to version 3.0.
+## Migration to unsatfit
+From January 4, 2022, development of the GNU Octave version of SWRC Fit was migrated to a Python library [unsatfit](https://sekika.github.io/unsatfit/). Unsatfit also performs fitting of unsaturated hydraulic conductivity function. The [web version of SWRC Fit](http://purl.org/net/swrc/) uses unsatfit as a library and performs fitting of water retention function only, and is still called SWRC Fit. The source code of the new SWRC Fit is [published with unsatfit](https://github.com/sekika/unsatfit/tree/main/swrcfit).
 
-This file is written in markdown language and online version is better
-for browzing. User's manual of SWRC fit for each version is available
-here: https://github.com/sekika/swrcfit/wiki/User%27s-manual
+The source code of the GNU Octave version is available at this GitHub repository, but It is no longer used, developed or maintained by the author.
 
 ## Contents
 
@@ -192,16 +187,6 @@ Please cite this paper when you publish your work using SWRC Fit.
 [BibTeX](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib)
 and [EndNote](http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris)
 files are also available.
-
-## Question
-[Here](https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion)
-you can find a list of questions and answers about swrcfit. You can submit
-your own question by getting the accout of GitHub and pressing the green
-"New Issue" button. Please select the label of "question". It is preferable
-to send your question publicly this way, because other people having the
-same question can find answer on the web. However, if your question is
-confidential, please contact me by email. You can find my email address in
-[this paper](http://dx.doi.org/10.1016/j.geoderma.2015.02.013).
 
 ----
 Other language: [日本語](../ja/README.md)
