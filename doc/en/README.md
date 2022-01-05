@@ -25,7 +25,6 @@ The source code of the GNU Octave version is available at this GitHub repository
 - [Drawing graph](#drawing-graph)
 - [Web interface](#web-interface)
 - [Citation of this work](#citation-of-this-work)
-- [Question](#question)
 
 ## How to install
 
