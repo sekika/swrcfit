@@ -16,6 +16,8 @@ From January 4, 2022, development of the GNU Octave version of SWRC Fit was migr
 
 The source code of the GNU Octave version is available at this GitHub repository, but It is no longer used, developed or maintained by the author.
 
+[Source code of all versions](../../archive/).
+
 ## Contents
 
 - [How to install](#how-to-install)
